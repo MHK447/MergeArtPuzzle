@@ -1,0 +1,40 @@
+namespace BanpoFri.Data;
+
+
+
+table UserData {
+// @AutoCreate DataClass
+  money:double; // @ReactiveProperty
+  cash:int = 0;// @ReactiveProperty
+  buyinappids:string;
+  tutorial:[string];
+  lastlogintime:long = 0;
+  optiondata:OptionData;
+  recordcount:[RecordCount];
+  gamestarttime:long = 0;
+  uuid:long = 0;
+  recordvalue:[RecordCount];
+  stagedata:StageData;
+}
+
+table OptionData {
+  language:string;
+  bgm:bool = false;
+  effect:bool = false;
+  slowgraphic:bool = false;
+  vibration:bool = true;
+  subscribeorder:bool = false;
+  autofelling:bool = false;
+}
+
+table RecordCount {
+  idx:string;
+  count:int = 0;
+}
+
+table StageData
+{
+  stageidx:int = 1; // @ReactiveProperty
+}
+
+root_type UserData;
