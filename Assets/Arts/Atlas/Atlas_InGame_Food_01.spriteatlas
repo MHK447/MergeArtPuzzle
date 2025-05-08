@@ -1,0 +1,210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_InGame_Food_01
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 0
+      maxTextureSize: 0
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 50
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 51
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 102900000, guid: d69daa82f884b0b4289a113ed1f66642, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 3328b7708c3c2e346b0038aa1b34beea: 21300000
+    - 72c3da8062301f84182a0899e7c67842: 21300000
+    - 9473f6a18087ee14fa275c4c46ed69fb: 21300000
+    - 8bc63ea1f92b1d243a9fb28b333ae9ce: 21300000
+    - c974ecc1fc0b4d848adacccab12da61e: 21300000
+    - d70030325a2742b47a2bf358539a9731: 21300000
+    - f018ead232b37d246a2ea789fdaf1012: 21300000
+    - 6d2e4a5344d6a0c428733c2394391e36: 21300000
+    - fbc4a8b3e7cbb654d9a2bde58b1f3d2d: 21300000
+    - 4164f1e48f3527e4f8319a806dd20deb: 21300000
+    - 4fd1a4555d5596541bc6558052c9ce7f: 21300000
+    - 0e52c08584fa33d48bea8d4d6d954866: 21300000
+    - 14b93e867e396ef4ea323e539bf988f9: 21300000
+    - dd1f99e68054e4c49b297193dc3052c8: 21300000
+    - 91072b3783dd99f42bbc909801dd399d: 21300000
+    - 126e0757fa39edf499cf7937808b932c: 21300000
+    - 9706df87d9ab3fa47a56321f396b0b15: 21300000
+    - 31fcffe792bc663499e2cb45b325f8a0: 21300000
+    - 0514c3f72a76e614c8553ba9737be20e: 21300000
+    - e6e4800803bfe1e499b21925bd93a38a: 21300000
+    - ddc50a0847ca8a54bb5d53ee71e16484: 21300000
+    - 2b7590681c81e0f48ac18c05f463140d: 21300000
+    - c6f2fbb8e7097fb47b3a14d64e2a9766: 21300000
+    - 9ba90c2915b9c7d41a9a579dcf5fd48d: 21300000
+    - a368f6c9a7370444d918b85830a55f2e: 21300000
+    - 257052e9e3ff9f04791dafc0ebe8f7b8: 21300000
+    - 21555b6ae75cf44428c6ae6126539863: 21300000
+    - afc3bf6ad21ae6047af23d969392a31b: 21300000
+    - ce40e27a8bba0e2469cda9c05a6a7677: 21300000
+    - fb7accda4a033b449b0ddeeb44701db5: 21300000
+    - a4afe45b824613b4181e0b6bc59ee786: 21300000
+    - a099af8bd2256c140802a423dbe4aad6: 21300000
+    - bd212e9c29a6b0448a92d2c2dbec1f7e: 21300000
+    - 3c83fcbcc893e824596c7983947b4483: 21300000
+    - 64ac41edb8d5d9642b149915f8a20a74: 21300000
+    - dc1f82ede4f10b346a3aafa36ceba4d4: 21300000
+    - 9ad983be27fc8c04da926906ae69a8b6: 21300000
+    - e9c789beb51d76c4e97be87231cd0afb: 21300000
+    - 4556b66f83035f14bb4e9fea470481b4: 21300000
+    - e35c559f80c78ed4986e093fe085885f: 21300000
+    - 1ee2f0bfd02ff2241885603e895758cc: 21300000
+    - f0442dcf004ed2e47b59196c07f6d660: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 3328b7708c3c2e346b0038aa1b34beea, type: 3}
+  - {fileID: 21300000, guid: 72c3da8062301f84182a0899e7c67842, type: 3}
+  - {fileID: 21300000, guid: 9473f6a18087ee14fa275c4c46ed69fb, type: 3}
+  - {fileID: 21300000, guid: 8bc63ea1f92b1d243a9fb28b333ae9ce, type: 3}
+  - {fileID: 21300000, guid: c974ecc1fc0b4d848adacccab12da61e, type: 3}
+  - {fileID: 21300000, guid: d70030325a2742b47a2bf358539a9731, type: 3}
+  - {fileID: 21300000, guid: f018ead232b37d246a2ea789fdaf1012, type: 3}
+  - {fileID: 21300000, guid: 6d2e4a5344d6a0c428733c2394391e36, type: 3}
+  - {fileID: 21300000, guid: fbc4a8b3e7cbb654d9a2bde58b1f3d2d, type: 3}
+  - {fileID: 21300000, guid: 4164f1e48f3527e4f8319a806dd20deb, type: 3}
+  - {fileID: 21300000, guid: 4fd1a4555d5596541bc6558052c9ce7f, type: 3}
+  - {fileID: 21300000, guid: 0e52c08584fa33d48bea8d4d6d954866, type: 3}
+  - {fileID: 21300000, guid: 14b93e867e396ef4ea323e539bf988f9, type: 3}
+  - {fileID: 21300000, guid: dd1f99e68054e4c49b297193dc3052c8, type: 3}
+  - {fileID: 21300000, guid: 91072b3783dd99f42bbc909801dd399d, type: 3}
+  - {fileID: 21300000, guid: 126e0757fa39edf499cf7937808b932c, type: 3}
+  - {fileID: 21300000, guid: 9706df87d9ab3fa47a56321f396b0b15, type: 3}
+  - {fileID: 21300000, guid: 31fcffe792bc663499e2cb45b325f8a0, type: 3}
+  - {fileID: 21300000, guid: 0514c3f72a76e614c8553ba9737be20e, type: 3}
+  - {fileID: 21300000, guid: e6e4800803bfe1e499b21925bd93a38a, type: 3}
+  - {fileID: 21300000, guid: ddc50a0847ca8a54bb5d53ee71e16484, type: 3}
+  - {fileID: 21300000, guid: 2b7590681c81e0f48ac18c05f463140d, type: 3}
+  - {fileID: 21300000, guid: c6f2fbb8e7097fb47b3a14d64e2a9766, type: 3}
+  - {fileID: 21300000, guid: 9ba90c2915b9c7d41a9a579dcf5fd48d, type: 3}
+  - {fileID: 21300000, guid: a368f6c9a7370444d918b85830a55f2e, type: 3}
+  - {fileID: 21300000, guid: 257052e9e3ff9f04791dafc0ebe8f7b8, type: 3}
+  - {fileID: 21300000, guid: 21555b6ae75cf44428c6ae6126539863, type: 3}
+  - {fileID: 21300000, guid: afc3bf6ad21ae6047af23d969392a31b, type: 3}
+  - {fileID: 21300000, guid: ce40e27a8bba0e2469cda9c05a6a7677, type: 3}
+  - {fileID: 21300000, guid: fb7accda4a033b449b0ddeeb44701db5, type: 3}
+  - {fileID: 21300000, guid: a4afe45b824613b4181e0b6bc59ee786, type: 3}
+  - {fileID: 21300000, guid: a099af8bd2256c140802a423dbe4aad6, type: 3}
+  - {fileID: 21300000, guid: bd212e9c29a6b0448a92d2c2dbec1f7e, type: 3}
+  - {fileID: 21300000, guid: 3c83fcbcc893e824596c7983947b4483, type: 3}
+  - {fileID: 21300000, guid: 64ac41edb8d5d9642b149915f8a20a74, type: 3}
+  - {fileID: 21300000, guid: dc1f82ede4f10b346a3aafa36ceba4d4, type: 3}
+  - {fileID: 21300000, guid: 9ad983be27fc8c04da926906ae69a8b6, type: 3}
+  - {fileID: 21300000, guid: e9c789beb51d76c4e97be87231cd0afb, type: 3}
+  - {fileID: 21300000, guid: 4556b66f83035f14bb4e9fea470481b4, type: 3}
+  - {fileID: 21300000, guid: e35c559f80c78ed4986e093fe085885f, type: 3}
+  - {fileID: 21300000, guid: 1ee2f0bfd02ff2241885603e895758cc, type: 3}
+  - {fileID: 21300000, guid: f0442dcf004ed2e47b59196c07f6d660, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Food_01_2_02
+  - Food_01_1_05
+  - Food_01_2_14
+  - Food_01_2_03
+  - Food_01_1_11
+  - Food_01_1_13
+  - Food_01_3_08
+  - Food_01_3_01
+  - Food_01_1_04
+  - Food_01_3_12
+  - Food_01_3_02
+  - Food_01_2_04
+  - Food_01_2_11
+  - Food_01_2_10
+  - Food_01_1_06
+  - Food_01_1_14
+  - Food_01_2_09
+  - Food_01_2_12
+  - Food_01_3_13
+  - Food_01_1_02
+  - Food_01_1_09
+  - Food_01_2_07
+  - Food_01_2_05
+  - Food_01_3_04
+  - Food_01_3_03
+  - Food_01_3_09
+  - Food_01_1_07
+  - Food_01_3_11
+  - Food_01_2_01
+  - Food_01_2_08
+  - Food_01_3_10
+  - Food_01_1_12
+  - Food_01_1_03
+  - Food_01_1_01
+  - Food_01_3_06
+  - Food_01_2_13
+  - Food_01_3_07
+  - Food_01_1_08
+  - Food_01_2_06
+  - Food_01_3_05
+  - Food_01_3_14
+  - Food_01_1_10
+  m_RenderDataMap: {}
+  m_Tag: Atlas_InGame_Food_01
+  m_IsVariant: 0
