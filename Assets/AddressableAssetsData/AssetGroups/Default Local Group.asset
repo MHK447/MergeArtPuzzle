@@ -47,11 +47,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4ff67be5265df164e835bfe6702e6934
-    m_Address: Tutorial_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dcfa341710a3941c397651ce9ebaf892
     m_Address: UI/Popup/Popup01_Single_Purple
     m_ReadOnly: 0
