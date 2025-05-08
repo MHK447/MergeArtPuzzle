@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a2932d68868ec44bd848b8e6e0cf492a
-    m_Address: GameRoot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3b203ee5a2abcf4b9e41c69a6aa92fb
     m_Address: UI/Page/PageLobbyBattle
     m_ReadOnly: 0
@@ -47,188 +42,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8bb6d55927a9b1e4e9751a5ec422815b
-    m_Address: UI/Popup/PopupIngameUpgrade
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4b2c1ca2572b4762967f68bdb5e455c
     m_Address: SoundPlayer
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b4e22d488a032c6418ee0a5b653520b1
-    m_Address: UI/Page/LoadingBasic
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8004488da7e234e35a8251a48d26a4de
-    m_Address: Effect/TextEffectMoney
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 15a44e5699c38ea44a881a2802fbbb95
-    m_Address: UI/Popup/PopupLegendCombine
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ceb8d2d30760ce48ab24b393b96c2cd
-    m_Address: UI/Popup/PopupStageResult
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 503595630f1190749962bad6aa5f1ca9
-    m_Address: UI/Popup/PopupStageGiveup
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b6db01813cf64425392822046b76a5f9
-    m_Address: UI/Popup/PopupInGameUnitInfo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5bfac7ff753f742629ffd13c543fc514
-    m_Address: UI/Popup/PopupSelectGacha
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c482538c86d14a85aed5f2b34dfe693
-    m_Address: Consumer
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d4d8e03c43a24095a3d4fc509fa626c
-    m_Address: UI/InGame/CooltimeProgress
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8027d5cd283904765b46209171fb2230
-    m_Address: UI/InGame/ConsumerOrderUI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3bf4e088aa41e93428024e9035fdf15f
-    m_Address: UI/InGame/NewFacilityUI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 45c450a84c2495741ad6a87c137f1d77
-    m_Address: UI/InGame/UI_AmountBubble
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 40594430403b340a19c0c413aa1ed297
-    m_Address: Effect/TextEffectMax
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 93de423b34a5249c39bb58fc0d5fb526
-    m_Address: UI/InGame/TextCount_UI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9db1301b7813d5448ad335a051f71d28
-    m_Address: UI/Popup/PopupUpgrade
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 913d90455f0f346fabbcae0ec0de2911
-    m_Address: CarryCasher
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 487ea5a25ce60474994ae3a1eb0b7562
-    m_Address: FishCasher
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6778ff5ac73c14bb88963b3d40ae119f
-    m_Address: CounterCasher
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 380754637756fe14cb497e14b89c0418
-    m_Address: UI/InGame/UI_TroubleBubble
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd5f1ec47fdc4fe498b792ce39206c14
-    m_Address: UI/Popup/PopupNextStage
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35ef84efbf07dbb4c80a50d518088877
-    m_Address: UI/Popup/PopupOfflineReward
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 13c699775dd24d8469b6d3226c7b6a72
-    m_Address: UI/Component/GoodsEffect
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb0f88008c168f848b63ee03f899d55d
-    m_Address: UI/Popup/PopupVehicle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 64f4da1fdd5bb644dbcab51331aef244
-    m_Address: Ad_Vehicle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c880997932b7434c987bc8dd473a977
-    m_Address: UI/InGame/VehicleUI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 071e0323c9a5d394ca58f1086e18e59c
-    m_Address: UI/InGame/VehicleBubbleUI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 144e74928810ac54da56989fc596fef6
-    m_Address: UI/Popup/PopupConversation
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ff67be5265df164e835bfe6702e6934
     m_Address: Tutorial_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a817b318c75b51142b357680256fb9d0
-    m_Address: UI/Popup/PopupDragTuto
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 03ba8bb0d5d68f1449fd162a5c0f9764
-    m_Address: UI/InGame/UI_TrashCanBubble
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2b8a3220cd30df8449c85b9adb118382
-    m_Address: UI/Popup/PopupAdRemove
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 98eaec48e463b4221a85a185a0a7acab
-    m_Address: UI/Popup/PopupOption
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8a5186fa31d795438f26290874804b6
-    m_Address: UI/Page/PageGacha
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ebf9634c850b844eebbe51a1cfe6923a
-    m_Address: UI/Page/PageVehicle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6b8ed4df5620f6a47b1c226e9135c524
-    m_Address: UI/Page/PageShop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -452,53 +272,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b48e07d0b0f34404a810c4bbc844abb3
-    m_Address: UI/Popup/PopupWelMineralComeGift
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20b2c22630c940b4abd7e4c548b3664f
-    m_Address: UI/Popup/PopupAdsPiggyBankRule
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 876813f2f0796440e8193f7d994ad113
-    m_Address: UI/Popup/PopupInGameGacha
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 055ee5af5d3aaca45abf507622c5280e
     m_Address: UI/Page/PageLoading 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d5abacffe2fba0419c027c2d6836f64
-    m_Address: UI/Popup/PopupAdsPiggyBank
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04673170046c91f439f7c1d5eaf32e68
-    m_Address: UI/Popup/PopupWaveClear
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f0bda1e6a2aa4bd7ab697264a67d668
-    m_Address: UI/Popup/PopupWelComeGem
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bfd2ae7853832e74fa32d77028ffacad
-    m_Address: UI/Popup/PopupCardInfo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dbe9426b37249a941a783c4d731bf2c1
-    m_Address: UI/Popup/PopupReview
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 332460a2cd80e1845b356a507f424fca
-    m_Address: UI/Popup/PopupWelcomeBack
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
