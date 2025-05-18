@@ -167,6 +167,7 @@ public partial class UserDataSystem
     void SetSaveDatas(FlatBufferBuilder builder){
         /* 아래 @주석 위치를 찾아서 함수가 자동 추가됩니다 SaveFile 함수에서 SetSaveDatas를 호출해주세요 */
         // @자동 저장 데이터 함수들
+        SaveData_FoodMergeGroupData(builder);
         SaveData_StageData(builder);
         SaveData_RecordCount(builder);
         SaveData_OptionData(builder);
@@ -234,6 +235,9 @@ public partial class UserDataSystem
         BanpoFri.Data.UserData.AddOptiondata(builder, option);
         BanpoFri.Data.UserData.AddRecordcount(builder, recordCountVec);
         BanpoFri.Data.UserData.AddTutorial(builder, tutorialVec);
+        BanpoFri.Data.UserData.AddNextstagecount(builder, Nextstagecount.Value);
+        BanpoFri.Data.UserData.AddStageenergycount(builder, Stageenergycount.Value);
+        BanpoFri.Data.UserData.AddFoodcreateenergy(builder, Foodcreateenergy.Value);
         var orc = BanpoFri.Data.UserData.EndUserData(builder);
         builder.Finish(orc.Value);
 

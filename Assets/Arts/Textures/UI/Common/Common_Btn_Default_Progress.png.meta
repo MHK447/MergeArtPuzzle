@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Common_Btn_Default_Progress_0: 11426823479441912
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

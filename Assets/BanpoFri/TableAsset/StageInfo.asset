@@ -18,50 +18,69 @@ MonoBehaviour:
   - 3
   - 4
   - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
   mSecondKey: []
   mDataList:
   - _stageidx: 1
-    _seedmoney_value: 100
-    _stage_name: name_test_1
-    _start_consumer_count: 3
-    _consumerfirst_idx: 1
-    _revenue_buff_profit: 100
-    _nextstage_name: next_stage_name_1
-    _nextstage_image: Ingame_Food_003
-    _next_stage_money: 204e
+    _next_stage_count: 50
   - _stageidx: 2
-    _seedmoney_value: 100
-    _stage_name: name_test_2
-    _start_consumer_count: 3
-    _consumerfirst_idx: 3
-    _revenue_buff_profit: 150
-    _nextstage_name: next_stage_name_2
-    _nextstage_image: Ingame_Food_007
-    _next_stage_money: 3075
+    _next_stage_count: 100
   - _stageidx: 3
-    _seedmoney_value: 100
-    _stage_name: name_test_3
-    _start_consumer_count: 3
-    _consumerfirst_idx: 10
-    _revenue_buff_profit: 200
-    _nextstage_name: next_stage_name_3
-    _nextstage_image: Ingame_Food_012
-    _next_stage_money: 00e1f505
+    _next_stage_count: 200
   - _stageidx: 4
-    _seedmoney_value: 100
-    _stage_name: name_test_4
-    _start_consumer_count: 3
-    _consumerfirst_idx: 14
-    _revenue_buff_profit: 250
-    _nextstage_name: next_stage_name_4
-    _nextstage_image: Ingame_Food_019
-    _next_stage_money: 00ca9a3b
+    _next_stage_count: 300
   - _stageidx: 5
-    _seedmoney_value: 100
-    _stage_name: name_test_5
-    _start_consumer_count: 3
-    _consumerfirst_idx: 21
-    _revenue_buff_profit: 300
-    _nextstage_name: next_stage_name_5
-    _nextstage_image: Ingame_Food_024
-    _next_stage_money: 005ed0b200
+    _next_stage_count: 400
+  - _stageidx: 6
+    _next_stage_count: 500
+  - _stageidx: 7
+    _next_stage_count: 600
+  - _stageidx: 8
+    _next_stage_count: 700
+  - _stageidx: 9
+    _next_stage_count: 800
+  - _stageidx: 10
+    _next_stage_count: 900
+  - _stageidx: 11
+    _next_stage_count: 1000
+  - _stageidx: 12
+    _next_stage_count: 1100
+  - _stageidx: 13
+    _next_stage_count: 1200
+  - _stageidx: 14
+    _next_stage_count: 1300
+  - _stageidx: 15
+    _next_stage_count: 1400
+  - _stageidx: 16
+    _next_stage_count: 1500
+  - _stageidx: 17
+    _next_stage_count: 1600
+  - _stageidx: 18
+    _next_stage_count: 1700
+  - _stageidx: 19
+    _next_stage_count: 1800
+  - _stageidx: 20
+    _next_stage_count: 1900
+  - _stageidx: 21
+    _next_stage_count: 2000
+  - _stageidx: 22
+    _next_stage_count: 2100
+  - _stageidx: 23
+    _next_stage_count: 2200

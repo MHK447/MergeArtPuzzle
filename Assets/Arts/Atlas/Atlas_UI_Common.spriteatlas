@@ -81,6 +81,7 @@ SpriteAtlas:
     - 025d9591b63f37242b15c74991f47fd1: 21300000
     - 5039c1e237981d649838bb89e1b51ad3: 21300000
     - ed3815a3cc4f323429345df54245c945: 21300000
+    - 7940b7a343915b441ac6d8687db25cf8: 21300000
     - a8c4bbd386a7a30409040277f4711f99: 21300000
     - 2174bc4436dee8d4497e601bba82061a: 21300000
     - 57e69d252f458c14197462573cbc0602: 21300000
@@ -89,6 +90,7 @@ SpriteAtlas:
     - 7b7bd868905c5914a8b35e9a5c320bec: 21300000
     - e62cbb88590ec5c4cb5f405c0eb9de63: 21300000
     - cd2894d915d60ac46b18739682204165: 21300000
+    - c9cdd38a392ded24589ff7b49afa1556: 21300000
     - f00192ba367468143931fa2d04c5c2c6: 21300000
     - 042e8baec872a5049adf8843350b7a28: 21300000
     - 5c57089f668e3aa4dbfd6474cf9cc07a: 21300000
@@ -99,6 +101,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 025d9591b63f37242b15c74991f47fd1, type: 3}
   - {fileID: 21300000, guid: 5039c1e237981d649838bb89e1b51ad3, type: 3}
   - {fileID: 21300000, guid: ed3815a3cc4f323429345df54245c945, type: 3}
+  - {fileID: 21300000, guid: 7940b7a343915b441ac6d8687db25cf8, type: 3}
   - {fileID: 21300000, guid: a8c4bbd386a7a30409040277f4711f99, type: 3}
   - {fileID: 21300000, guid: 2174bc4436dee8d4497e601bba82061a, type: 3}
   - {fileID: 21300000, guid: 57e69d252f458c14197462573cbc0602, type: 3}
@@ -107,6 +110,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7b7bd868905c5914a8b35e9a5c320bec, type: 3}
   - {fileID: 21300000, guid: e62cbb88590ec5c4cb5f405c0eb9de63, type: 3}
   - {fileID: 21300000, guid: cd2894d915d60ac46b18739682204165, type: 3}
+  - {fileID: 21300000, guid: c9cdd38a392ded24589ff7b49afa1556, type: 3}
   - {fileID: 21300000, guid: f00192ba367468143931fa2d04c5c2c6, type: 3}
   - {fileID: 21300000, guid: 042e8baec872a5049adf8843350b7a28, type: 3}
   - {fileID: 21300000, guid: 5c57089f668e3aa4dbfd6474cf9cc07a, type: 3}
@@ -116,6 +120,7 @@ SpriteAtlas:
   - Common_Bg_BubbleMsg
   - Common_Frame_BottomBg_Orange
   - Common_Icon_Goods_Star
+  - Common_Btn_Default_Progress
   - Common_Frame_R20
   - Common_Icon_Goods_NoAds
   - Common_Btn_HUD_Home
@@ -124,6 +129,7 @@ SpriteAtlas:
   - Common_Btn_HUD_Plus
   - Common_Icon_Goods_Lightning
   - Common_Btn_Default_Yes
+  - Common_Frame_R0
   - Common_Frame_Gradation
   - Common_Bg_IngameSlot
   - Common_Btn_HUD_Option

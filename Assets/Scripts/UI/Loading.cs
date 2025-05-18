@@ -51,10 +51,6 @@ public class Loading : UIBase
         ProjectUtility.SetActiveCheck(Spinner, !worldTranslate);
         group.alpha = 1f;
 
-        //var colorComponents = GetComponentsInChildren<ImageColorSetting>();
-        //foreach (var img in colorComponents) img.UpdateColor();
-
-        ProjectUtility.SetActiveCheck(TipText.gameObject, false);
     }
 
     public void LockScreen()

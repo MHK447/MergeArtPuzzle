@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Common_Icon_Goods_Lightning_0: 3296424961439534263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

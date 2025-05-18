@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Common_Btn_HUD_Home_0: -8828781862889434264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

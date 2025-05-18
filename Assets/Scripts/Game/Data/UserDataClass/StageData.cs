@@ -41,6 +41,6 @@ public partial class UserDataSystem
 
 public class StageData
 {
-    public IReactiveProperty<int> Stageidx { get; private set; } = new ReactiveProperty<int>(1);
+    public IReactiveProperty<int> Stageidx { get; set; } = new ReactiveProperty<int>(0);
 
 }

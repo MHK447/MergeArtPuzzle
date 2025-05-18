@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Food_01_2_11_0: 6410360988920388362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

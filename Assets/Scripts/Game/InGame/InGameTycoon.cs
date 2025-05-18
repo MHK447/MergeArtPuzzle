@@ -11,18 +11,9 @@ using Unity.VisualScripting;
 
 public class InGameTycoon : InGameMode
 {
-    [HideInInspector]
-    public InGameStage curInGameStage;
-
-    [SerializeField]
-    private NavMeshSurface NavMeshSurFace;
-
-
-    public IReactiveProperty<int> FarsightedTimeProperty = new ReactiveProperty<int>(0);
     public IReactiveProperty<bool> MaxMode = new ReactiveProperty<bool>(true);
-    public IReactiveProperty<float> GameSpeedMultiValue = new ReactiveProperty<float>(1f);
-    //private int dustMaxCnt = 20;
 
+    public InGameChapterMap InGameChapterMap;
 
     private int ProductHeroIdxs = 0;
     public override void Load()
@@ -35,18 +26,40 @@ public class InGameTycoon : InGameMode
 
         if (td != null)
         {
-            GameRoot.Instance.UISystem.OpenUI<PageLobbyBattle>();
+            GameRoot.Instance.UISystem.OpenUI<PageLobby>();
         }
-
-        //CalculateGameSpeed();
 
     }
 
-    //public void CalculateGameSpeed()
-    //{
-    //    var buffValue = GameRoot.Instance.BuffSystem.GetValueByBuffType(BuffSystem.BuffType.ProductSpeed);
-    //    GameSpeedMultiValue.Value = 1f - buffValue;
-    //}
+
+    public void StartGame()
+    {
+        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+
+        GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>();
+
+        GameRoot.Instance.UISystem.GetUI<PageLobby>().Hide();
+
+        if (InGameChapterMap != null)
+        {
+            Destroy(InGameChapterMap.gameObject);
+
+            InGameChapterMap = null;
+        }
+
+
+
+        Addressables.InstantiateAsync($"InGameChapter_{stageidx.ToString("D2")}").Completed += (handle) =>
+        {
+            InGameChapterMap = handle.Result.GetComponent<InGameChapterMap>();
+
+            if(InGameChapterMap != null)
+            {
+                InGameChapterMap.Init();
+            }
+        };
+    }
+
 
     protected override void LoadUI()
     {
@@ -58,16 +71,10 @@ public class InGameTycoon : InGameMode
     public override void UnLoad()
     {
         base.UnLoad();
-    }
 
-
-    private IEnumerator UpdateNavMeshProcess()
-    {
-        AsyncOperation asyncOp = NavMeshSurFace.UpdateNavMesh(NavMeshSurFace.navMeshData);
-        yield return new WaitUntil(() => asyncOp.isDone);
-
-        //navUpdateCallBack?.Invoke();
-        //_updateNavMeshProcess = null;
-        yield break;
+        if (InGameChapterMap != null)
+        {
+            InGameChapterMap.EndGame();
+        }
     }
 }

@@ -40,6 +40,7 @@ public class GameRoot : Singleton<GameRoot>
 	public PluginSystem PluginSystem { get; private set; } = new PluginSystem();
 	public BoostSystem BoostSystem { get; private set; } = new BoostSystem();
 	public EffectSystem EffectSystem { get; private set; } = new EffectSystem();
+	public FoodSystem FoodSystem { get; private set; } = new FoodSystem();
 
 	public GameNotificationSystem GameNotification { get; private set; } = new GameNotificationSystem();
 
@@ -205,7 +206,7 @@ public class GameRoot : Singleton<GameRoot>
 		}
 
 #if BANPOFRI_LOG
-			DebugConsoleObj.SetActive(true);
+		DebugConsoleObj.SetActive(true);
 #else
 		DebugConsoleObj.SetActive(false);
 #endif
@@ -243,6 +244,7 @@ public class GameRoot : Singleton<GameRoot>
 		// 로딩 팝업 어드레서블 로드
 		loadcount = 0;
 		InitUILoading();
+		AtlasManager.Instance.Init();
 
 		yield return new WaitUntil(() => loadcount == 1);
 		UserData.Load();
@@ -254,7 +256,9 @@ public class GameRoot : Singleton<GameRoot>
 
 		InGameSystem.Create();
 		GameNotification.Create();
+		FoodSystem.Create();
 
+		InitRequestAtlas();
 
 		GameRoot.instance.WaitTimeAndCallback(0.5f, () =>
 		{
@@ -274,6 +278,11 @@ public class GameRoot : Singleton<GameRoot>
 			SoundPlayer.Instance.PlayBGM("bgm", true);
 			SoundPlayer.Instance.BgmSwitch(UserData.Bgm);
 		}
+	}
+
+	void InitRequestAtlas()
+	{
+		AtlasManager.Instance.ReLoad(UserData.SlowGraphic);
 	}
 
 	public void ChangeIngameType(InGameType type, bool changeData = false)
@@ -393,8 +402,6 @@ public class GameRoot : Singleton<GameRoot>
 		else
 		{
 			if (InGameSystem.GetInGame<InGameTycoon>() == null) return;
-			if (InGameSystem.GetInGame<InGameTycoon>().curInGameStage == null) return;
-			if (InGameSystem.GetInGame<InGameTycoon>().curInGameStage.IsLoadComplete == false) return;
 
 
 			if (GameRoot.Instance.TutorialSystem.IsActive())
@@ -422,7 +429,6 @@ public class GameRoot : Singleton<GameRoot>
 			var minRewardTime = Tables.Instance.GetTable<Define>().GetData("max_offline_time").value;
 			var maxRewardTime = Tables.Instance.GetTable<Define>().GetData("offline_min_time").value;
 
-			var stage = GameRoot.instance.InGameSystem.GetInGame<InGameTycoon>().curInGameStage;
 
 			// if (diff.TotalSeconds > minRewardTime)
 			// {

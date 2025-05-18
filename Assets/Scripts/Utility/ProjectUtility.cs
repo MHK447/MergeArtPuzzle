@@ -153,37 +153,6 @@ public class ProjectUtility
 
 
 
-    public static int GetOutGameGachaGrade()
-    {
-        float total = 0;
-
-        int totalratio = 0;
-
-        List<int> gacharatiolist = new List<int>();
-
-        var tdlist = Tables.Instance.GetTable<OutGameGachaGradeInfo>().DataList.ToList();
-
-        foreach (var td in tdlist)
-        {
-            totalratio += td.ratio;
-
-            gacharatiolist.Add(td.ratio);
-        }
-
-        float randomPoint = UnityEngine.Random.Range(0, totalratio);
-
-        for (int i = 0; i < gacharatiolist.Count; i++)
-        {
-            total += gacharatiolist[i];
-            if (randomPoint <= total)
-            {
-                return tdlist[i].grade;
-            }
-        }
-
-        return 1;
-    }
-
 
     public static string GetRecordCountText(Config.RecordCountKeys key, params object[] objs)
     {
@@ -236,43 +205,6 @@ public class ProjectUtility
         return key.ToString();
     }
 
-
-    public static int GetRandGachaCard(int level)
-    {
-
-        int randgrade = 1;
-
-        var td = Tables.Instance.GetTable<UnitGradeInfo>().GetData(level);
-
-        int totalgacharatio = 0;
-
-        if (td != null)
-        {
-            for (int i = 0; i < td.gradepercent.Count; ++i)
-            {
-                totalgacharatio += td.gradepercent[i];
-            }
-
-
-            var randgacha = UnityEngine.Random.Range(0, totalgacharatio + 1);
-            int cumulativevalue = 0;
-
-            for (int i = 0; i < td.gradepercent.Count; ++i)
-            {
-                cumulativevalue += td.gradepercent[i];
-
-                if (randgacha < cumulativevalue)
-                {
-                    return i + 1;
-                }
-
-            }
-
-
-        }
-
-        return randgrade;
-    }
 
 
     public static float GetPercentValue(float value, float percent)
@@ -328,36 +260,6 @@ public class ProjectUtility
         return sb.ToString();
     }
 
-
-
-    public static System.Numerics.BigInteger CalcOfflineReward(int _difftime)
-    {
-        var curstageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
-
-        System.Numerics.BigInteger stagevalue = 0;
-
-        var tdlist = Tables.Instance.GetTable<StageInfo>().DataList.FindAll(x => x.stageidx == curstageidx).ToList();
-        var stagewavetd = Tables.Instance.GetTable<StageWaveInfo>().GetData(curstageidx);
-
-
-
-        int highfishidx = 0;
-
-      
-
-        if (highfishidx > 0)
-        {
-            var td = Tables.Instance.GetTable<FishInfo>().GetData(highfishidx);
-
-            if (td != null)
-            {
-                stagevalue = (td.base_revenue * _difftime) / GameRoot.Instance.InGameSystem.offline_value_time;
-            }
-        }
-
-
-        return stagevalue;
-    }
 
 
 

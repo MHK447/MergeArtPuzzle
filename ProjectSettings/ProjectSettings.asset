@@ -846,7 +846,7 @@ PlayerSettings:
     PS4: DOTWEEN
     PS5: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: RH_AutoComplete;AMPLIFY_SHADER_EDITOR
+    Standalone: RH_AutoComplete;AMPLIFY_SHADER_EDITOR;BANPOFRI_LOG
     WebGL: DOTWEEN
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN

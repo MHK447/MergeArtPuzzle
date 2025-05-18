@@ -38,9 +38,10 @@ public class AtlasManager : Singleton<AtlasManager>
     {
         SpriteAtlasManager.atlasRequested += OnAtlasRequest;
 
+        spriteCache.Add(Atlas.Atlas_InGame_Food_01, new Dictionary<string, Sprite>());
         spriteCache.Add(Atlas.Atlas_UI_Common, new Dictionary<string, Sprite>());
         spriteCache.Add(Atlas.Atlas_UI_Dynamic, new Dictionary<string, Sprite>());
-        spriteCache.Add(Atlas.Atlas_UI_DynamicShop, new Dictionary<string, Sprite>());
+        //spriteCache.Add(Atlas.Atlas_UI_DynamicShop, new Dictionary<string, Sprite>());
     }
 
     // 전체 로드
@@ -182,6 +183,21 @@ public class AtlasManager : Singleton<AtlasManager>
             atlasDict.Remove(Atlas.Stage);
         }
     }
+
+    void InitRequestAtlas()
+    {
+            AtlasManager.Instance.ReLoad(false);
+        
+    }
+
+    public void ReLoad(bool isLow)
+    {
+        ReleaseAll();
+        LoadAllAtlas();
+    }
+
+
+
     public void LoadStageAtlas(int stage, System.Action onLoad)
     {
         string atlasName = $"Atlas_Stage_{stage:000}";
@@ -230,7 +246,7 @@ public class AtlasManager : Singleton<AtlasManager>
     {
         return loadCount <= 0;
     }
-    
+
     // 전체 로드에서 제외될 아틀라스
     List<Atlas> ignoreAtlas = new List<Atlas>()
     {
@@ -252,23 +268,11 @@ public enum Atlas
     Atlas_UI_AdventureShop,
     Atlas_UI_Common,
     Atlas_UI_Dynamic,
-    Atlas_UI_DynamicShop,
-    Atlas_UI_Fx_Sprite_Smoke,
-    Atlas_UI_Hallow,
-    Atlas_UI_HelpInfo,
     Atlas_UI_HUD,
     Atlas_UI_Icon,
-    Atlas_UI_Icon_Adventure,
-    Atlas_UI_Icon_Character,
-    Atlas_UI_Icon_Class,
-    Atlas_UI_Icon_Facility,
     Atlas_UI_Loading,
-    Atlas_UI_LuckyBeed,
-    Atlas_UI_MagicPass,
-    Atlas_UI_Manage,
-    Atlas_UI_ManagerUnlock,
-    Atlas_UI_Recruit,
-    Atlas_UI_StageUpgrade,
+
+    Atlas_InGame_Food_01,
     // @ add here
 
 }

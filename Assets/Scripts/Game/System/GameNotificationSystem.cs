@@ -133,23 +133,6 @@ public class GameNotificationSystem
                     var upgradelist = GameRoot.Instance.UserData.CurMode.UpgradeGroupData.StageUpgradeCollectionList.ToList();
 
 
-                    foreach (var upgrade in upgradelist)
-                    {
-                        if (upgrade.IsBuyCheckProperty.Value) continue;
-
-                        var td = Tables.Instance.GetTable<UpgradeInfo>().GetData(new KeyValuePair<int, int>(upgrade.StageIdx, upgrade.UpgradeIdx));
-
-                        if (td != null)
-                        {
-                            if (GameRoot.Instance.UserData.CurMode.Money.Value >= td.cost && !upgrade.IsBuyCheckProperty.Value)
-                            {
-                                on = true;
-                                break;
-                            }
-                        }
-                    }
-
-
                     if (on != noti.on.Value)
                         noti.on.Value = on;
                 }

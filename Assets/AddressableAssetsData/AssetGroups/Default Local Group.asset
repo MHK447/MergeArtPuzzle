@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 77c8c9f5a12b8fd4faa5011e088d626a
-    m_Address: UI/Page/HUDTotal
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44e3be70f18e74797ad1eb75a9d116cb
     m_Address: UI/Page/PageFade
     m_ReadOnly: 0
@@ -263,17 +258,42 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 055ee5af5d3aaca45abf507622c5280e
-    m_Address: UI/Page/PageLoading 1
+    m_Address: UI/Page/LoadingBasic
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64b11461136fe4bdb9c4e3e3cf49e08a
-    m_Address: Atlas_Common
+    m_Address: Atlas_UI_Common
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3884f0eb0f94946d2a6597b6b3b5050f
     m_Address: Atlas_InGame_Food_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49d11929ccf7b42f58335a251b3a8e4c
+    m_Address: GameRoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2da0395338a755d4f9b6349657d4e96c
+    m_Address: UI/Page/PageLobby
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ca7532bea97c7a4387034d0ae0367ec
+    m_Address: UI/Popup/PopupInGameUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c95f3aaa263c047a9875a06a633188ae
+    m_Address: InGameFood
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2adb7cb31bfb4017956a1a4bd2d182c
+    m_Address: InGameChapter_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
