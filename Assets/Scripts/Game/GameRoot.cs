@@ -244,7 +244,6 @@ public class GameRoot : Singleton<GameRoot>
 		// 로딩 팝업 어드레서블 로드
 		loadcount = 0;
 		InitUILoading();
-		AtlasManager.Instance.Init();
 
 		yield return new WaitUntil(() => loadcount == 1);
 		UserData.Load();
@@ -282,7 +281,7 @@ public class GameRoot : Singleton<GameRoot>
 
 	void InitRequestAtlas()
 	{
-		AtlasManager.Instance.ReLoad(UserData.SlowGraphic);
+		AtlasManager.Instance.ReLoad(false);
 	}
 
 	public void ChangeIngameType(InGameType type, bool changeData = false)

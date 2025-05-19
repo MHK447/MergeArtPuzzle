@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atlas_InGame_Food_01
+  m_Name: Atlas_InGame_Food
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -206,5 +206,5 @@ SpriteAtlas:
   - Food_01_3_14
   - Food_01_1_10
   m_RenderDataMap: {}
-  m_Tag: Atlas_InGame_Food_01
+  m_Tag: Atlas_InGame_Food
   m_IsVariant: 0

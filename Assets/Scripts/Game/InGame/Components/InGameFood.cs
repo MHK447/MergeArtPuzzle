@@ -74,7 +74,7 @@ public class InGameFood : MonoBehaviour
     {
         Grade = grade;
 
-        var sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_InGame_Food_01, $"Food_0{FoodIdx}_0{Grade}");
+        var sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_InGame_Food, $"Food_0{FoodIdx}_{Grade}_03");
 
         if (sprite != null)
         {

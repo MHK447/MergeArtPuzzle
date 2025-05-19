@@ -38,9 +38,8 @@ public class AtlasManager : Singleton<AtlasManager>
     {
         SpriteAtlasManager.atlasRequested += OnAtlasRequest;
 
-        spriteCache.Add(Atlas.Atlas_InGame_Food_01, new Dictionary<string, Sprite>());
         spriteCache.Add(Atlas.Atlas_UI_Common, new Dictionary<string, Sprite>());
-        spriteCache.Add(Atlas.Atlas_UI_Dynamic, new Dictionary<string, Sprite>());
+        spriteCache.Add(Atlas.Atlas_UI_Common, new Dictionary<string, Sprite>());
         //spriteCache.Add(Atlas.Atlas_UI_DynamicShop, new Dictionary<string, Sprite>());
     }
 
@@ -186,8 +185,8 @@ public class AtlasManager : Singleton<AtlasManager>
 
     void InitRequestAtlas()
     {
-            AtlasManager.Instance.ReLoad(false);
-        
+        AtlasManager.Instance.ReLoad(false);
+
     }
 
     public void ReLoad(bool isLow)
@@ -257,22 +256,18 @@ public class AtlasManager : Singleton<AtlasManager>
 
 public enum Atlas
 {
-    // stage atlas
+// stage atlas
     Stage,
+
+
+
+
     // stage atlas
+    
+    
 
-    Atals_UI_Gacha,
-    Atals_UI_PopupImg,
-    Atals_UI_Promote,
-    Atlas_UI_Adventure,
-    Atlas_UI_AdventureShop,
     Atlas_UI_Common,
-    Atlas_UI_Dynamic,
-    Atlas_UI_HUD,
-    Atlas_UI_Icon,
-    Atlas_UI_Loading,
-
-    Atlas_InGame_Food_01,
+        Atlas_InGame_Food,
     // @ add here
 
 }

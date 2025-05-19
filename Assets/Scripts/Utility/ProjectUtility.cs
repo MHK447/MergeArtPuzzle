@@ -181,14 +181,7 @@ public class ProjectUtility
                 {
                     switch (rewardidx)
                     {
-                        case (int)Config.CurrencyID.Money:
-                            {
-                                return AtlasManager.Instance.GetSprite(Atlas.Atals_UI_Gacha, "Coin");
-                            }
-                        case (int)Config.CurrencyID.Cash:
-                            {
-                                return AtlasManager.Instance.GetSprite(Atlas.Atals_UI_Gacha, "Gem");
-                            }
+                    
                     }
                 }
                 break;

@@ -154,7 +154,7 @@ public class GoodEffect : MonoBehaviour
         StartCoroutine(WaitFrame());
         this.transform.position = worldStartPos;
 
-        icon.sprite = AtlasManager.Instance.GetSprite(Atlas.Atals_UI_PopupImg,Icon);
+        //icon.sprite = AtlasManager.Instance.GetSprite(Atlas.Atals_UI_PopupImg,Icon);
 
         itemCnt.text = "";
 

@@ -268,7 +268,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3884f0eb0f94946d2a6597b6b3b5050f
-    m_Address: Atlas_InGame_Food_01
+    m_Address: Atlas_InGame_Food
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
