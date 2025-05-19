@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   _textColorDefines:
-  - key_string: BasicBrown
-    color: {r: 0.28235295, g: 0.19607843, b: 0.13333334, a: 1}
-  - key_string: LightBrown
-    color: {r: 0.43529412, g: 0.30980393, b: 0.21960784, a: 1}
-  - key_string: BasicWhite
+  - key_string: Black
+    color: {r: 0, g: 0, b: 0, a: 1}
+  - key_string: Brown
+    color: {r: 0.3490566, g: 0.18907733, b: 0.07409222, a: 1}
+  - key_string: White
     color: {r: 1, g: 0.9882353, b: 0.9607843, a: 1}
   - key_string: DarkBlue
     color: {r: 0.105882354, g: 0.34901962, b: 0.5568628, a: 1}
@@ -48,5 +48,3 @@ MonoBehaviour:
   DisableSpriteMat: {fileID: 0}
   EnableSpriteMat: {fileID: 0}
   ImgAddtiveMat: {fileID: 0}
-  InGameAtlas: {fileID: 4343727234628468602, guid: 3884f0eb0f94946d2a6597b6b3b5050f, type: 2}
-  CommonAtlas: {fileID: 4343727234628468602, guid: 64b11461136fe4bdb9c4e3e3cf49e08a, type: 2}

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 941ec1048017e1b4781920a0da2d4d42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20efd0d35e20a7e43a3c7f2b0e618019, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -134,14 +134,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.2901961, g: 0.19607843, b: 0.16470589, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d21b01e5dabd6e4c83b273325fc7ce1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37be62b2a4e9b154a923503c1800929b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -188,7 +188,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -6, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2874184832179015587
 CanvasRenderer:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b8c0fd2fbb5a2446a0db97f0c633431, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9cdd38a392ded24589ff7b49afa1556, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -252,7 +252,6 @@ GameObject:
   - component: {fileID: 6682107120597384051}
   - component: {fileID: 7131828965646818761}
   - component: {fileID: 51140848905556170}
-  - component: {fileID: 3568980265487093004}
   m_Layer: 0
   m_Name: Progress
   m_TagString: Untagged
@@ -339,19 +338,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7664591148948943493}
   m_CullTransparentMesh: 1
---- !u!114 &3568980265487093004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7664591148948943493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716e55332d2a34b65bf6596b6984793d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Progress: {fileID: 7131828965646818761}
-  FillImg: {fileID: 5895513669448043842}
-  BaseFill: Common_Progress_Gauge
-  MaxFill: Common_Progress_Gauge_Max

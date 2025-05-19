@@ -1087,7 +1087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2326312799869407371, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
       propertyPath: m_Name
-      value: Btn_Text
+      value: Btn_Pressed
       objectReference: {fileID: 0}
     - target: {fileID: 3289327381132826293, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
       propertyPath: m_Pivot.x
@@ -1413,7 +1413,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7607118684987216968, guid: 169dbd8849f643b42ad29fb079497f19, type: 3}
       propertyPath: m_Name
-      value: TMP (1)
+      value: TMP_StartCount
       objectReference: {fileID: 0}
     - target: {fileID: 7607118684987216968, guid: 169dbd8849f643b42ad29fb079497f19, type: 3}
       propertyPath: m_IsActive
