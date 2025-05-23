@@ -53,6 +53,7 @@ public class InGameMergeCheck : MonoBehaviour
                     CurSelectFood.gameObject.SetActive(true);
                     CurSelectFood.transform.position = worldPos;
                     SelectFood.SelectOn();
+                    CurSelectFood.SetSprite(SelectFood.GetFoodIdx , SelectFood.GetGrade);
                 }
             }
         }
@@ -154,11 +155,9 @@ public class InGameMergeCheck : MonoBehaviour
     }
     void TryMergeWith(InGameFood other)
     {
-        Debug.Log("등급이 올랏다 ㅋ");
-
         if (SelectFood != null)
         {
-            if (SelectFood.GetFoodIdx == other.GetFoodIdx)
+            if (SelectFood.GetFoodIdx == other.GetFoodIdx && SelectFood.GetGrade == other.GetGrade)
             {
                 ProjectUtility.SetActiveCheck(SelectFood.gameObject , false);
                 other.SetGrade(SelectFood.GetGrade + 1);        

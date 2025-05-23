@@ -25,7 +25,7 @@ public class InGameChapterMap : MonoBehaviour
 
 
 
-    public void CreateFood(int foodidx)
+    public void CreateFood(int foodidx , int grade , int foodgroupidx)
     {
 
         FoodCreateOrder++;
@@ -42,7 +42,7 @@ public class InGameChapterMap : MonoBehaviour
             Addressables.InstantiateAsync("InGameFood").Completed += (handle) =>
          {
              var ingamefood = handle.Result.GetComponent<InGameFood>();
-             ingamefood.Set(foodidx);
+             ingamefood.Set(foodidx, grade, foodgroupidx);
              FoodList.Add(ingamefood);
              ingamefood.transform.position = CreateTrList[FoodCreateOrder].position;
              ProjectUtility.SetActiveCheck(ingamefood.gameObject, true);
@@ -52,14 +52,14 @@ public class InGameChapterMap : MonoBehaviour
         }
         else
         {
-            findfood.Set(foodidx);
+            findfood.Set(foodidx, grade, foodgroupidx);
             ProjectUtility.SetActiveCheck(findfood.gameObject, true);
             findfood.transform.SetParent(FoodParent);
 
             findfood.transform.position = CreateTrList[FoodCreateOrder].position;
         }
     }
-    
+
     public void EndGame()
     {
         foreach (var food in FoodList)

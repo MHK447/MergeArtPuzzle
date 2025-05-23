@@ -20,11 +20,19 @@ public class InGameFood : MonoBehaviour
 
     public int GetGrade { get { return Grade; } }
 
-    public void Set(int foodidx)
+    private int MergeGroupIdx = 0;
+
+    public void Set(int foodidx, int grade, int groupidx)
     {
         FoodIdx = foodidx;
 
+        Grade = grade;
+
+        MergeGroupIdx = groupidx;
+
         var td = Tables.Instance.GetTable<FoodInfo>().GetData(foodidx);
+
+        SetSprite(foodidx, grade);
 
         UpdatePolygonCollider_OnlyOuter();
 
@@ -70,8 +78,9 @@ public class InGameFood : MonoBehaviour
         FoodImg.color = color;
     }
 
-    public void SetGrade(int grade)
+    public void SetSprite(int foodidx, int grade)
     {
+        FoodIdx = foodidx;
         Grade = grade;
 
         var sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_InGame_Food, $"Food_0{FoodIdx}_{Grade}_03");
@@ -79,6 +88,36 @@ public class InGameFood : MonoBehaviour
         if (sprite != null)
         {
             FoodImg.sprite = sprite;
+        }
+    }
+
+    public void SetGrade(int grade)
+    {
+
+        GameRoot.Instance.EffectSystem.MultiPlay<MergeEffect>(this.transform.position, effect =>
+                               {
+                                   effect.SetAutoRemove(true, 3.5f);
+                               });
+
+        Grade = grade;
+
+        var sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_InGame_Food, $"Food_0{FoodIdx}_{Grade}_03");
+
+        if (sprite != null)
+        {
+            FoodImg.sprite = sprite;
+        }
+
+        if (grade == 4)
+        {
+            ProjectUtility.SetActiveCheck(this.gameObject, false);
+
+            var startPos = Utility.worldToUISpace(GameRoot.Instance.UISystem.WorldCanvas, this.transform.position);
+
+            var pos = GameRoot.Instance.UISystem.GetUI<PopupInGameUI>().GetInGameFoodSlotComponent(MergeGroupIdx).transform.position;
+
+            ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, null, 0, "", null, false
+            , false, pos);
         }
     }
 

@@ -20,4 +20,16 @@ public class PopupInGameUI : UIBase
     {   
     }
 
+    public InGameFoodSlotComponent GetInGameFoodSlotComponent(int foodgroupidx)
+    {
+        var finddata = FoodComponentList.Find(x => x.GetFoodGroupIdx == foodgroupidx);
+
+        if(finddata != null)
+        {
+            return finddata;
+        }
+
+        return null;
+    }
+
 }

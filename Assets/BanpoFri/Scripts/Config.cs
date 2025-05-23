@@ -78,6 +78,7 @@ public class Config : BanpoFri.SingletonScriptableObject<Config>, BanpoFri.ILoad
     public enum RewardType
     {
         Currency = 1,
+        Food = 101,
     }
 
     public enum RecordCountKeys

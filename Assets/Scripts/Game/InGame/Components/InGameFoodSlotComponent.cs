@@ -19,6 +19,8 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     private int FoodGroupIdx = 0;
 
+    public int GetFoodGroupIdx { get { return FoodGroupIdx; } }
+
     private FoodMergeGroupData FoodMergeGroupData;
 
     private List<int> FoodList = new List<int>();
@@ -48,7 +50,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
         if(GameRoot.Instance.UserData.Foodcreateenergy.Value > 0)
         {
             GameRoot.Instance.UserData.Foodcreateenergy.Value--;
-            GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(1);
+            GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(1, 1, FoodGroupIdx);
         }
     }
 

@@ -181,8 +181,14 @@ public class ProjectUtility
                 {
                     switch (rewardidx)
                     {
-                    
+
                     }
+                }
+                break;
+
+            case (int)Config.RewardType.Food:
+                {
+                    return AtlasManager.Instance.GetFoodSprite(rewardidx, grade - 1);
                 }
                 break;
         }

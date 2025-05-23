@@ -252,6 +252,11 @@ public class AtlasManager : Singleton<AtlasManager>
         Atlas.Stage,
     };
 
+    public Sprite GetFoodSprite(int foodidx , int grade)
+    {
+        return GetSprite(Atlas.Atlas_InGame_Food, $"Food_0{foodidx}_{grade}_03");
+    }
+
 }
 
 public enum Atlas

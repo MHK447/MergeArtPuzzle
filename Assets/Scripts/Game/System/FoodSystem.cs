@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BanpoFri;
+using System.Linq;
 
 public class FoodSystem
 {
@@ -9,9 +11,6 @@ public class FoodSystem
     {
         GameRoot.Instance.UserData.Foodcreateenergy.Value = 100;
     }
-
-
-
 
 
     public FoodMergeGroupData FindFoodMergeData(int foodgroupidx)
