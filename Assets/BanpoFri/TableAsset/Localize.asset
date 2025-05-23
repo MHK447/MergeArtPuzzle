@@ -16,6 +16,9 @@ MonoBehaviour:
   - str_toastmsg_1
   - str_toastmsg_2
   - str_toastmsg_3
+  - str_time_hour
+  - str_time_minute
+  - str_time_second
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -30,3 +33,15 @@ MonoBehaviour:
     _ko: "\uB4DC\uB798\uADF8 \uD574\uC11C \uD734\uC9C0\uD1B5\uC5D0 \uB123\uC5B4\uC8FC\uC138\uC694."
     _en: Drag object to remove
     _ja: 
+  - _idx: str_time_hour
+    _ko: H
+    _en: H
+    _ja: "\u6642\u9593"
+  - _idx: str_time_minute
+    _ko: M
+    _en: M
+    _ja: "\u5206"
+  - _idx: str_time_second
+    _ko: S
+    _en: S
+    _ja: "\u79D2"

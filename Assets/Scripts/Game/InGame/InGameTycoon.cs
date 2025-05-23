@@ -36,6 +36,14 @@ public class InGameTycoon : InGameMode
     {
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
+        var clearpercent = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.StartStage , stageidx);
+
+        if(clearpercent <= 0)
+        {
+            GameRoot.Instance.UserData.Energycoin.Value = GameRoot.Instance.FoodSystem.start_energy_coin;
+            GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.StartStage , 1 , stageidx);
+        }
+
         GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>(popup=> popup.Set(stageidx));
 
         GameRoot.Instance.UISystem.GetUI<PageLobby>().Hide();

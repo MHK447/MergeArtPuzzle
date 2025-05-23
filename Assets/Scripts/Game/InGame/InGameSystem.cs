@@ -239,8 +239,13 @@ public class InGameSystem
         var time = GameRoot.Instance.UserData.CurMode.LastLoginTime;
 
         var diff = TimeSystem.GetCurTime().Subtract(time);
-        var minRewardTime = Tables.Instance.GetTable<Define>().GetData("offline_min_time").value;
-        var maxRewardTime = Tables.Instance.GetTable<Define>().GetData("max_offline_time").value;
+
+        if (diff.TotalSeconds >= 120)
+        {
+            var addenergycoin = (int)diff.TotalSeconds / 120;
+            GameRoot.Instance.UserData.Energycoin.Value += addenergycoin;
+            GameRoot.Instance.UserData.CurMode.LastLoginTime = TimeSystem.GetCurTime();
+        }
 
 
         // if (diff.TotalSeconds > minRewardTime && time != DateTime.MinValue)

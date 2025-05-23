@@ -154,7 +154,7 @@ public class ProjectUtility
 
 
 
-    public static string GetRecordCountText(Config.RecordCountKeys key, params object[] objs)
+    public static string    GetRecordCountText(Config.RecordCountKeys key, params object[] objs)
     {
         if (key == Config.RecordCountKeys.StartStage)
             return $"{key.ToString()}_{objs[0]}";

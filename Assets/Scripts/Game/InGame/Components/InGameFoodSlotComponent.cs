@@ -67,8 +67,18 @@ public class InGameFoodSlotComponent : MonoBehaviour
     {
         if (GameRoot.Instance.UserData.Foodcreateenergy.Value > 0)
         {
-            GameRoot.Instance.UserData.Foodcreateenergy.Value--;
-            GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(1, 1, FoodGroupIdx);
+            var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+
+            var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, FoodGroupIdx));
+
+            if(td != null)
+            {
+                GameRoot.Instance.UserData.Foodcreateenergy.Value -= 1;
+
+                var randvalue = Random.Range(0, td.food_idx.Count);
+
+                GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(td.food_idx[randvalue], 1, FoodGroupIdx);
+            }
         }   
     }
 
@@ -85,6 +95,11 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
-        CreateFood();
+        if(GameRoot.Instance.UserData.Energycoin.Value > 0)
+        {
+            CreateFood();
+            GameRoot.Instance.UserData.Energycoin.Value -= 1;
+        }
+
     }
 }

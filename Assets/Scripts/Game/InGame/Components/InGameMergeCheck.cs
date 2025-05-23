@@ -138,19 +138,35 @@ public class InGameMergeCheck : MonoBehaviour
     void CheckMerge()
     {
         Vector3 checkPos = CurSelectFood != null ? CurSelectFood.transform.position : transform.position;
-        float mergeRadius = 0.5f;
+        float mergeRadius = 0.55f;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(checkPos, mergeRadius);
+        
+        InGameFood closestFood = null;
+        float closestDistance = float.MaxValue;
 
         foreach (var hit in hits)
         {
             if (hit.gameObject != SelectFood.gameObject && hit.CompareTag("Food"))
             {
-                var getobj = hit.GetComponent<InGameFood>();
-
-                TryMergeWith(getobj);
-                break;
+                var foodObj = hit.GetComponent<InGameFood>();
+                
+                if (SelectFood != null && SelectFood.GetFoodIdx == foodObj.GetFoodIdx && SelectFood.GetGrade == foodObj.GetGrade)
+                {
+                    float distance = Vector2.Distance(checkPos, hit.transform.position);
+                    
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestFood = foodObj;
+                    }
+                }
             }
+        }
+        
+        if (closestFood != null)
+        {
+            TryMergeWith(closestFood);
         }
     }
     void TryMergeWith(InGameFood other)
@@ -159,8 +175,10 @@ public class InGameMergeCheck : MonoBehaviour
         {
             if (SelectFood.GetFoodIdx == other.GetFoodIdx && SelectFood.GetGrade == other.GetGrade)
             {
-                ProjectUtility.SetActiveCheck(SelectFood.gameObject , false);
-                other.SetGrade(SelectFood.GetGrade + 1);        
+                ProjectUtility.SetActiveCheck(SelectFood.gameObject, false);
+                other.SetGrade(SelectFood.GetGrade + 1);
+                
+                // AddMergeEffect(other.transform.position);
             }
         }
     }

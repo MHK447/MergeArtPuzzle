@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BanpoFri;
 using UnityEngine.UI;
-using TMPro;
+using TMPro;    
 using UniRx;
 using System.Linq;
 
@@ -17,6 +17,9 @@ public class PopupInGameUI : UIBase
     [SerializeField]
     private List<InGameFoodSlotComponent> FoodComponentList = new List<InGameFoodSlotComponent>();
 
+    [SerializeField]
+    private HudTopCurrency TopCurrency;
+
 
     public void Set(int stageidx)
     {   
@@ -28,6 +31,8 @@ public class PopupInGameUI : UIBase
 
             FoodComponentList[i].Set(td.mergeidx);
         }
+
+        TopCurrency.Init();
     }
 
     public InGameFoodSlotComponent GetInGameFoodSlotComponent(int foodgroupidx)
