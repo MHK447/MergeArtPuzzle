@@ -36,7 +36,7 @@ public class InGameTycoon : InGameMode
     {
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-        GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>();
+        GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>(popup=> popup.Set(stageidx));
 
         GameRoot.Instance.UISystem.GetUI<PageLobby>().Hide();
 

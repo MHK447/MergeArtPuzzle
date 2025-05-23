@@ -5,6 +5,8 @@ using BanpoFri;
 using UnityEngine.UI;
 using TMPro;
 using UniRx;
+using System.Linq;
+
 
 [UIPath("UI/Popup/PopupInGameUI")]
 public class PopupInGameUI : UIBase
@@ -18,6 +20,14 @@ public class PopupInGameUI : UIBase
 
     public void Set(int stageidx)
     {   
+        var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.ToList().FindAll(x => x.stageidx == stageidx);
+
+        for(int i = 0; i < tdlist.Count; i++)
+        {
+            var td = tdlist[i];
+
+            FoodComponentList[i].Set(td.mergeidx);
+        }
     }
 
     public InGameFoodSlotComponent GetInGameFoodSlotComponent(int foodgroupidx)

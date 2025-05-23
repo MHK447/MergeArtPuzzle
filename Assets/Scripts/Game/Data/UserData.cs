@@ -238,6 +238,7 @@ public partial class UserDataSystem
         BanpoFri.Data.UserData.AddNextstagecount(builder, Nextstagecount.Value);
         BanpoFri.Data.UserData.AddStageenergycount(builder, Stageenergycount.Value);
         BanpoFri.Data.UserData.AddFoodcreateenergy(builder, Foodcreateenergy.Value);
+        BanpoFri.Data.UserData.AddEnergycoin(builder, Energycoin.Value);
         var orc = BanpoFri.Data.UserData.EndUserData(builder);
         builder.Finish(orc.Value);
 

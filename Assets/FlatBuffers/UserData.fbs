@@ -40,6 +40,7 @@ table UserData {
   stageenergycount:int = 0;// @ReactiveProperty
   foodcreateenergy:int = 0;// @ReactiveProperty 
   foodmergegroupdatas:[FoodMergeGroupData];
+  energycoin:int = 0; //@ReactiveProperty 
 }
 
 table OptionData {
@@ -61,13 +62,13 @@ table FoodMergeGroupData
 {
    foodmergeidx:int = 0;
    ingamefooddatas:[InGameFoodData];
+   foodcount:int = 0; //@ReactiveProperty
 }
 
 table InGameFoodData
 {
    foodidx:int = 0;
    mergegrade:int = 0;
-   
 }
 
 table StageData

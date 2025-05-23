@@ -4,7 +4,7 @@ using UnityEngine;
 using BanpoFri;
 using UnityEngine.UI;
 using TMPro;
-
+using UniRx;
 
 public class InGameFoodSlotComponent : MonoBehaviour
 {
@@ -17,6 +17,9 @@ public class InGameFoodSlotComponent : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI GoalText;
 
+    [SerializeField]
+    private Slider GoalSlider;
+
     private int FoodGroupIdx = 0;
 
     public int GetFoodGroupIdx { get { return FoodGroupIdx; } }
@@ -24,6 +27,8 @@ public class InGameFoodSlotComponent : MonoBehaviour
     private FoodMergeGroupData FoodMergeGroupData;
 
     private List<int> FoodList = new List<int>();
+    
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     void Awake()
     {
@@ -36,22 +41,45 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-        var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx , foodgroupidx));
-        
-        if(td != null)
+        var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, foodgroupidx));
+
+        if (td != null)
         {
             FoodList = td.food_idx;
             FoodMergeGroupData = GameRoot.Instance.FoodSystem.FindFoodMergeData(FoodGroupIdx);
+
+            if (FoodMergeGroupData != null)
+            {
+                GoalText.text = $"{FoodMergeGroupData.Foodcount.Value}/{td.goal_count}";
+                GoalSlider.value = (float)FoodMergeGroupData.Foodcount.Value / (float)td.goal_count;
+
+                disposables.Clear();
+
+                FoodMergeGroupData.Foodcount.Subscribe(count => {
+                    GoalText.text = $"{count}/{td.goal_count}";
+                    GoalSlider.value = (float)count / (float)td.goal_count;
+                }).AddTo(disposables);
+            }
         }
     }
-    
+
     public void CreateFood()
     {
-        if(GameRoot.Instance.UserData.Foodcreateenergy.Value > 0)
+        if (GameRoot.Instance.UserData.Foodcreateenergy.Value > 0)
         {
             GameRoot.Instance.UserData.Foodcreateenergy.Value--;
             GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(1, 1, FoodGroupIdx);
-        }
+        }   
+    }
+
+    void OnDestroy()
+    {
+        disposables.Clear();
+    }
+
+    void OnDisable()
+    {
+        disposables.Clear();
     }
 
 

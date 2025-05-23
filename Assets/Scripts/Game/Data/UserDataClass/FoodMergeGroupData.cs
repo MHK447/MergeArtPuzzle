@@ -40,7 +40,8 @@ public partial class UserDataSystem
                 foodmergegroupdatas_Array[index++] = BanpoFri.Data.FoodMergeGroupData.CreateFoodMergeGroupData(
                     builder,
                     item.Foodmergeidx,
-                    item_ingamefooddatas_Vector
+                    item_ingamefooddatas_Vector,
+                    item.Foodcount.Value
                 );
             }
             foodmergegroupdatas_Vector = BanpoFri.Data.UserData.CreateFoodmergegroupdatasVector(builder, foodmergegroupdatas_Array);
@@ -70,6 +71,7 @@ public partial class UserDataSystem
                 var foodmergegroupdata = new FoodMergeGroupData
                 {
                     Foodmergeidx = Foodmergegroupdatas_item.Value.Foodmergeidx,
+                    Foodcount = new ReactiveProperty<int>(Foodmergegroupdatas_item.Value.Foodcount)
                 };
 
                 // Ingamefooddatas 로드
@@ -97,6 +99,8 @@ public partial class UserDataSystem
 
 public class FoodMergeGroupData
 {
+    public IReactiveProperty<int> Foodcount { get; set; } = new ReactiveProperty<int>(0);
+
     public int Foodmergeidx { get; set; } = 0;
     public List<InGameFoodData> Ingamefooddatas = new List<InGameFoodData>();
 

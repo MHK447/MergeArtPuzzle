@@ -116,7 +116,15 @@ public class InGameFood : MonoBehaviour
 
             var pos = GameRoot.Instance.UISystem.GetUI<PopupInGameUI>().GetInGameFoodSlotComponent(MergeGroupIdx).transform.position;
 
-            ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, null, 0, "", null, false
+            ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, ()=> {
+                var finddata = GameRoot.Instance.FoodSystem.FindFoodMergeData(MergeGroupIdx);
+
+                if(finddata != null)
+                {
+                    finddata.Foodcount.Value += 1;
+                }
+
+            }, 0, "", null, false
             , false, pos);
         }
     }
