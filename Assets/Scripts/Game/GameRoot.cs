@@ -390,8 +390,12 @@ public class GameRoot : Singleton<GameRoot>
 
 		if (pause)
 		{
-
-			PluginSystem.OnApplicationPause(pause);
+			// 앱이 백그라운드로 갈 때 데이터 저장
+			if (FoodSystem != null)
+			{
+				FoodSystem.SaveOnGameExit();
+			}
+			PluginSystem.OnApplicationPause(true);
 
 			GameRoot.Instance.UserData.CurMode.LastLoginTime = TimeSystem.GetCurTime();
 		}
@@ -486,8 +490,26 @@ public class GameRoot : Singleton<GameRoot>
 	private void OnApplicationQuit()
 	{
 		PluginSystem.OnApplicationPause(true);
+		
+		// 앱 종료 시 데이터 저장
+		if (FoodSystem != null)
+		{
+			FoodSystem.SaveOnGameExit();
+		}
+		
 		UnityEditor.AssetDatabase.SaveAssets();
 		UnityEditor.AssetDatabase.Refresh();
+	}
+#else
+	private void OnApplicationQuit()
+	{
+		PluginSystem.OnApplicationPause(true);
+		
+		// 앱 종료 시 데이터 저장
+		if (FoodSystem != null)
+		{
+			FoodSystem.SaveOnGameExit();
+		}
 	}
 #endif
 

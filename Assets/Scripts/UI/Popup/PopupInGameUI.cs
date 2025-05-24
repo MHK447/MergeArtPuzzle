@@ -23,11 +23,18 @@ public class PopupInGameUI : UIBase
 
     public void Set(int stageidx)
     {   
+        foreach(var food in FoodComponentList)
+        {
+            ProjectUtility.SetActiveCheck(food.gameObject , false);
+        }
+
         var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.ToList().FindAll(x => x.stageidx == stageidx);
 
         for(int i = 0; i < tdlist.Count; i++)
         {
             var td = tdlist[i];
+            
+            ProjectUtility.SetActiveCheck(FoodComponentList[i].gameObject , true);
 
             FoodComponentList[i].Set(td.mergeidx);
         }

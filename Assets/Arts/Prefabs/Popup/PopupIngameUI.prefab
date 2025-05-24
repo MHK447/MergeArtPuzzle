@@ -1056,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4581897273967162421, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_Name
       value: Item_IngameSlot_01
@@ -1171,11 +1175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3658589299555601300, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3658589299555601300, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6837353916845378693, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1188,6 +1192,10 @@ PrefabInstance:
     - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_Name
       value: Item_IngameSlot_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1451,11 +1459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3658589299555601300, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3658589299555601300, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6837353916845378693, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1468,6 +1476,10 @@ PrefabInstance:
     - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_Name
       value: Item_IngameSlot_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

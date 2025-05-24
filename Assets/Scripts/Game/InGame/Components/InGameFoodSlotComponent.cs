@@ -20,6 +20,9 @@ public class InGameFoodSlotComponent : MonoBehaviour
     [SerializeField]
     private Slider GoalSlider;
 
+    [SerializeField]
+    private GameObject ClearObj;
+
     private int FoodGroupIdx = 0;
 
     public int GetFoodGroupIdx { get { return FoodGroupIdx; } }
@@ -52,6 +55,8 @@ public class InGameFoodSlotComponent : MonoBehaviour
             {
                 GoalText.text = $"{FoodMergeGroupData.Foodcount.Value}/{td.goal_count}";
                 GoalSlider.value = (float)FoodMergeGroupData.Foodcount.Value / (float)td.goal_count;
+                
+                ProjectUtility.SetActiveCheck(ClearObj , FoodMergeGroupData.Foodcount.Value >= td.goal_count);  
 
                 disposables.Clear();
 
@@ -95,7 +100,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
-        if(GameRoot.Instance.UserData.Energycoin.Value > 0)
+        if(GameRoot.Instance.UserData.Energycoin.Value > 0 && !ClearObj.activeSelf)
         {
             CreateFood();
             GameRoot.Instance.UserData.Energycoin.Value -= 1;

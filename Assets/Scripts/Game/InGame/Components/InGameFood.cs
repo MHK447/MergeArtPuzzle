@@ -22,6 +22,8 @@ public class InGameFood : MonoBehaviour
 
     private int MergeGroupIdx = 0;
 
+    public int GetMergeGroupIdx { get { return MergeGroupIdx; } }
+
     public void Set(int foodidx, int grade, int groupidx)
     {
         FoodIdx = foodidx;
@@ -35,8 +37,6 @@ public class InGameFood : MonoBehaviour
         SetSprite(foodidx, grade);
 
         UpdatePolygonCollider_OnlyOuter();
-
-        Grade = 1;
     }
 
 
@@ -116,10 +116,11 @@ public class InGameFood : MonoBehaviour
 
             var pos = GameRoot.Instance.UISystem.GetUI<PopupInGameUI>().GetInGameFoodSlotComponent(MergeGroupIdx).transform.position;
 
-            ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, ()=> {
+            ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, () =>
+            {
                 var finddata = GameRoot.Instance.FoodSystem.FindFoodMergeData(MergeGroupIdx);
 
-                if(finddata != null)
+                if (finddata != null)
                 {
                     finddata.Foodcount.Value += 1;
                 }

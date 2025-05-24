@@ -47,6 +47,63 @@ public class FoodSystem
         }
     }
 
+
+    public void CurCheckFoodData()
+    {
+        try
+        {
+            // InGameTycoon이나 InGameChapterMap이 없으면 데이터 저장만 하고 종료
+            var inGameTycoon = GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>();
+            if (inGameTycoon == null || inGameTycoon.InGameChapterMap == null)
+            {
+                Debug.Log("CurCheckFoodData: 인게임 참조가 없어 기존 데이터 유지");
+                GameRoot.Instance.UserData.Save();
+                return;
+            }
+
+            var foodlist = inGameTycoon.InGameChapterMap.GetFoodList.FindAll(x => x.gameObject.activeSelf).ToList();
+            
+            // 현재 상태를 데이터에 반영
+            if (foodlist.Count > 0)
+            {
+                // 기존 데이터 초기화
+                foreach (var mergegroupdata in GameRoot.Instance.UserData.Foodmergegroupdatas)
+                {
+                    mergegroupdata.Ingamefooddatas.Clear();
+                }
+
+                // 현재 활성화된 음식 데이터 추가
+                foreach (var food in foodlist)
+                {
+                    var mergedata = FindFoodMergeData(food.GetMergeGroupIdx);
+
+                    if (mergedata != null)
+                    {
+                        mergedata.Ingamefooddatas.Add(new InGameFoodData()
+                        {
+                            Foodidx = food.GetFoodIdx,
+                            Mergegrade = food.GetGrade
+                        });
+                    }
+                }
+                
+                Debug.Log($"CurCheckFoodData: {foodlist.Count}개 음식 데이터 저장");
+            }
+            else
+            {
+                Debug.Log("CurCheckFoodData: 활성화된 음식이 없어 기존 데이터 유지");
+            }
+
+            // 데이터 저장
+            GameRoot.Instance.UserData.Save(true); // 즉시 저장하도록 변경
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"CurCheckFoodData 오류: {e.Message}");
+        }
+    }
+
+
     public void OneSecondUpdate()
     {
         EnergyCoinTimeProperty.Value += 1;
@@ -58,4 +115,10 @@ public class FoodSystem
         }
     }
 
+    // 게임 종료 시 데이터 저장
+    public void SaveOnGameExit()
+    {
+        // 현재 활성화된 음식 데이터 동기화
+        CurCheckFoodData();
+    }
 }

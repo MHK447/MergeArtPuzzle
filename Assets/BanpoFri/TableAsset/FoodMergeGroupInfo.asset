@@ -35,15 +35,15 @@ MonoBehaviour:
   mDataList:
   - _stageidx: 1
     _mergeidx: 1
-    _food_idx: 01000000020000000300000004000000
+    _food_idx: 010000000200000003000000
     _goal_count: 10
   - _stageidx: 1
     _mergeidx: 2
-    _food_idx: 04000000050000000600000007000000
+    _food_idx: 040000000500000006000000
     _goal_count: 15
   - _stageidx: 1
     _mergeidx: 3
-    _food_idx: 08000000090000000a0000000b000000
+    _food_idx: 070000000800000009000000
     _goal_count: 15
   - _stageidx: 2
     _mergeidx: 1
