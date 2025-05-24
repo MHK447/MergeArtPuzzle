@@ -38,6 +38,11 @@ MonoBehaviour:
   - str_title_noads
   - str_desc_noads
   - str_name_forever
+  - str_title_shop_package
+  - str_title_package_booster
+  - str_desc_package_booster
+  - str_title_shop_gems
+  - str_title_daily
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -142,4 +147,25 @@ MonoBehaviour:
   - _idx: str_name_forever
     _ko: "\uD3C9\uC0DD \uC801\uC6A9"
     _en: Forever
+    _ja: 
+  - _idx: str_title_shop_package
+    _ko: "\uD328\uD0A4\uC9C0"
+    _en: Package
+    _ja: 
+  - _idx: str_title_package_booster
+    _ko: "\uBD80\uC2A4\uD130 \uD328\uD0A4\uC9C0"
+    _en: Booster Package
+    _ja: 
+  - _idx: str_desc_package_booster
+    _ko: "\uC0C1\uD488\uC911 \uAC00\uC7A5 \uB9D8\uC5D0 \uB4DC\uB294 \uBD80\uC2A4\uD130
+      \uD328\uD0A4\uC9C0\uB97C \uC120\uD0DD\uD558\uC138\uC694!"
+    _en: Choose the best Booster!
+    _ja: 
+  - _idx: str_title_shop_gems
+    _ko: "\uBCF4\uC11D"
+    _en: Gems
+    _ja: 
+  - _idx: str_title_daily
+    _ko: "\uC77C\uC77C \uC0C1\uC810"
+    _en: Daily Shop
     _ja: 
