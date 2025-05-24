@@ -24,7 +24,7 @@ public class FoodSystem
     }
 
 
-    public FoodMergeGroupData FindFoodMergeData(int foodgroupidx)
+    public FoodMergeGroupData FindFoodMergeGroupData(int foodgroupidx)
     {
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
@@ -75,7 +75,7 @@ public class FoodSystem
                 // 현재 활성화된 음식 데이터 추가
                 foreach (var food in foodlist)
                 {
-                    var mergedata = FindFoodMergeData(food.GetMergeGroupIdx);
+                    var mergedata = FindFoodMergeGroupData(food.GetMergeGroupIdx);
 
                     if (mergedata != null)
                     {

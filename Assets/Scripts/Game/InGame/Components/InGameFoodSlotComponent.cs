@@ -49,7 +49,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
         if (td != null)
         {
             FoodList = td.food_idx;
-            FoodMergeGroupData = GameRoot.Instance.FoodSystem.FindFoodMergeData(FoodGroupIdx);
+            FoodMergeGroupData = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(FoodGroupIdx);
 
             if (FoodMergeGroupData != null)
             {

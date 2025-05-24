@@ -72,6 +72,7 @@ public class Config : BanpoFri.SingletonScriptableObject<Config>, BanpoFri.ILoad
         Cash = 2,
         EnergyMoney = 3,
         GachaCoin = 4,
+        StarCoin = 5,
     }
 
 
@@ -87,6 +88,7 @@ public class Config : BanpoFri.SingletonScriptableObject<Config>, BanpoFri.ILoad
         StartStage,
         Navi_Start,
     }
+
 
 
 

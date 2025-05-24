@@ -41,6 +41,7 @@ table UserData {
   foodcreateenergy:int = 0;// @ReactiveProperty 
   foodmergegroupdatas:[FoodMergeGroupData];
   energycoin:int = 0; //@ReactiveProperty 
+  starcoinvalue:int = 0; //@ReactiveProperty
 }
 
 table OptionData {
@@ -63,6 +64,7 @@ table FoodMergeGroupData
    foodmergeidx:int = 0;
    ingamefooddatas:[InGameFoodData];
    foodcount:int = 0; //@ReactiveProperty
+   stageclearstarcount:int = 0; //@ReactiveProperty
 }
 
 table InGameFoodData

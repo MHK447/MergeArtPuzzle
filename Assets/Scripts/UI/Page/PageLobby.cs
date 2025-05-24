@@ -25,11 +25,16 @@ public class PageLobby : UIBase
     private TextMeshProUGUI LevelText;
 
     [SerializeField]
+    private TextMeshProUGUI StarCountText;
+
+    [SerializeField]
     private ButtonPressed PressedBtn;
+    
 
 
     [SerializeField]
     private Button StartBtn;
+
 
 
     private int StageIdx = 0;
@@ -69,12 +74,28 @@ public class PageLobby : UIBase
 
             var count = GameRoot.Instance.UserData.Stageenergycount.Value;
 
+            var starcount = GameRoot.Instance.UserData.Starcoinvalue.Value;
 
+            StarCountText.text = starcount.ToString();
+
+            StarCountCheck();
+
+            disposables.Clear();
+
+            GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x=> {StarCountCheck();}).AddTo(disposables);
         }
-
-
-
     } 
+
+    public void StarCountCheck()
+    {
+        var starcount = GameRoot.Instance.UserData.Starcoinvalue.Value;
+
+        StarCountText.text = starcount.ToString();
+
+
+        ProjectUtility.SetActiveCheck(PressedBtn.gameObject , starcount > 0);
+        ProjectUtility.SetActiveCheck(StartBtn.gameObject , starcount <= 0);
+    }
 
 
     public void CheckClearPercent()
@@ -90,12 +111,27 @@ public class PageLobby : UIBase
 
     public void OnClickPressed()
     {
+        if(GameRoot.Instance.UserData.Starcoinvalue.Value > 0)
+        {
+            GameRoot.Instance.UserData.Starcoinvalue.Value -= 1;
+
+            //GameRoot.Instance.UserData.Stageclearstarcount.Value += 1;
+        }
     }
 
 
     public void OnClickStart()
     {
         GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+    }
 
+    void OnDestroy()
+    {
+        disposables.Clear();
+    }
+
+    void OnDisable()
+    {
+        disposables.Clear();
     }
 }

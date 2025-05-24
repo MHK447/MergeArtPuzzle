@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ads_Bubble_0: -4638943477335917136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

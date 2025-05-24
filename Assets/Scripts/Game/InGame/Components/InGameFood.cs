@@ -118,13 +118,18 @@ public class InGameFood : MonoBehaviour
 
             ProjectUtility.PlayGoodsEffect(startPos, (int)Config.RewardType.Food, FoodIdx, grade, 1, false, () =>
             {
-                var finddata = GameRoot.Instance.FoodSystem.FindFoodMergeData(MergeGroupIdx);
+                var finddata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(MergeGroupIdx);
 
                 if (finddata != null)
                 {
                     finddata.Foodcount.Value += 1;
                 }
 
+                var starpos = GameRoot.Instance.UISystem.GetUI<PopupInGameUI>().GetStarImgTr.position;
+                ProjectUtility.PlayGoodsEffect(pos, (int)Config.RewardType.Currency, (int)Config.CurrencyID.StarCoin, 1, 1, false, () =>
+                {
+                    GameRoot.Instance.UserData.Starcoinvalue.Value += 1;
+                }, 0, "", null, false, false, starpos, false);
             }, 0, "", null, false
             , false, pos);
         }

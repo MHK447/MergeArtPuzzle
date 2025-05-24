@@ -34,7 +34,7 @@ public class InGameChapterMap : MonoBehaviour
 
         foreach (var foodmerge in foodmergelist)
         {
-            MergeGroupData = GameRoot.Instance.FoodSystem.FindFoodMergeData(foodmerge.mergeidx);
+            MergeGroupData = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(foodmerge.mergeidx);
 
             if (MergeGroupData != null && MergeGroupData.Ingamefooddatas != null && MergeGroupData.Ingamefooddatas.Count > 0)
             {

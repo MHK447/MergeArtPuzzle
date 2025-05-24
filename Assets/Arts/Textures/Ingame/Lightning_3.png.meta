@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lightning_3_0: -343982118684573457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
