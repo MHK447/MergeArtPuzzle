@@ -1141,10 +1141,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6954865445683585853, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -5201947865732831575, guid: 98447b93c8fbd644cab10c5207572fc3, type: 2}
     - target: {fileID: 7197266878457155920, guid: 3ea01368a54047e4ba8a396bab5add4c, type: 3}
       propertyPath: m_Name
       value: Item_IngameSlot_01
