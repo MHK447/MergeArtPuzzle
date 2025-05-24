@@ -28,11 +28,22 @@ public class PopupInGameUI : UIBase
     [SerializeField]
     private Slider SliderValue;
 
+    [SerializeField]
+    private Button TrashBtn;
+
     private int GoalValue = 0;
 
     private int MergeGroupFoodCount = 0;
 
     private CompositeDisposable disposables = new CompositeDisposable();
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        TrashBtn.onClick.AddListener(OnClickTrashBtn);
+    }
 
     public void Set(int stageidx)
     {
@@ -92,6 +103,13 @@ public class PopupInGameUI : UIBase
         }
 
         return null;
+    }
+
+    public void OnClickTrashBtn()
+    {
+        var toastmesg = Tables.Instance.GetTable<Localize>().GetString("str_toastmsg_3");
+
+        GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => popup.Show("", toastmesg));
     }
 
     void OnDestroy()

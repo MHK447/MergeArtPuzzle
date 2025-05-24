@@ -16,12 +16,15 @@ public class FoodSystem
 
     public int FoodMaxPool = 4;
 
+    public int max_food_size = 0;
+
     public void Create()
     {
         EnergyCoinTimeProperty.Value = 0;
 
         energy_add_time = Tables.Instance.GetTable<Define>().GetData("energy_add_time").value;
         start_energy_coin = Tables.Instance.GetTable<Define>().GetData("start_energy_coin").value;
+        max_food_size = Tables.Instance.GetTable<Define>().GetData("max_food_size").value;
     }
 
 

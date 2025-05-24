@@ -117,8 +117,14 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
             var randvalue = Random.Range(0, FoodRandList.Count);
 
-            if (FoodRandList.Count == 0) return -1;
+            if (FoodRandList.Count == 0)
+            {
+                var toastmesg = Tables.Instance.GetTable<Localize>().GetString("str_toastmsg_2");
 
+                GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => popup.Show("", toastmesg));
+
+                return -1;
+            }
             return FoodRandList[randvalue];
 
         }
@@ -177,6 +183,15 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
+
+        if (GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.IsFoodMaxCountCheck())
+        {
+
+            var toastmesg = Tables.Instance.GetTable<Localize>().GetString("str_toastmsg_1");
+
+            GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => popup.Show("", toastmesg));
+            return;
+        }
 
         var randselectfoodidx = RandSelectChoiceFood();
 

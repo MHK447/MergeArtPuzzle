@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using BanpoFri;
+using TMPro;
 
 [UIPath("UI/Popup/PopupToastmessage")]
 public class PopupToastmessage : UIBase
 {
     [SerializeField]
-    private Text title;
-    [SerializeField]
-    private Text desc;
+    private TextMeshProUGUI desc;
 
     private int RewardType;
     private int RewardIdx;
@@ -23,10 +22,7 @@ public class PopupToastmessage : UIBase
 
     public void Show(string _title, string _desc, string _renovateImgName)
     {
-        ProjectUtility.SetActiveCheck(title.gameObject, _title.Length > 0);
-
         //icon.sprite = Config.Instance.GetRenovateImg(_renovateImgName);
-        title.text = _title;
         desc.text = _desc;
     }
 
@@ -66,7 +62,6 @@ public class PopupToastmessage : UIBase
     public void ShowPrepareStage()
     {
         //TpUtility.SetActiveCheck(icon.gameObject, true);
-        ProjectUtility.SetActiveCheck(title.gameObject, false);
 
         //icon.sprite = Config.Instance.GetRenovateImg("Renovate_Icon_Stage_Prepare");
         desc.text = Tables.Instance.GetTable<Localize>().GetString("str_stage_allclear");

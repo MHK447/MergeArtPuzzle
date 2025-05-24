@@ -60,6 +60,14 @@ public class InGameChapterMap : MonoBehaviour
     }
 
 
+    public bool IsFoodMaxCountCheck()
+    {
+        var foodlist = FoodList.FindAll(x => x.gameObject.activeSelf == true);
+
+        return foodlist.Count >= GameRoot.Instance.FoodSystem.max_food_size;
+    }
+
+
     public void CreateFood(int foodidx, int grade, int foodgroupidx, bool isinit = false)
     {
         FoodCreateOrder++;

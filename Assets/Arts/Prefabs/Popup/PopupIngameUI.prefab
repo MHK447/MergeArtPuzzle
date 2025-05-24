@@ -455,6 +455,7 @@ MonoBehaviour:
   StarGoalValueText: {fileID: 4722199600838314374}
   GetStarImgTr: {fileID: 1531947176309183379}
   SliderValue: {fileID: 3411333911375164095}
+  TrashBtn: {fileID: 76933989879835463}
 --- !u!223 &8113461725749285611
 Canvas:
   m_ObjectHideFlags: 0
@@ -774,6 +775,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a07e0d71da001944ac98d1d54cfa75f, type: 3}
+--- !u!114 &76933989879835463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 207756761318217299, guid: 0a07e0d71da001944ac98d1d54cfa75f, type: 3}
+  m_PrefabInstance: {fileID: 284653261502168340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8295223159195500530 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8137379048416264934, guid: 0a07e0d71da001944ac98d1d54cfa75f, type: 3}

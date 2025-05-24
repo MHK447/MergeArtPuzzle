@@ -32,6 +32,7 @@ MonoBehaviour:
   - energy_add_time
   - max_energy_count
   - start_energy_coin
+  - max_food_size
   mSecondKey: []
   mDataList:
   - _index: casher_move_speed
@@ -72,3 +73,5 @@ MonoBehaviour:
     _value: 100
   - _index: start_energy_coin
     _value: 100
+  - _index: max_food_size
+    _value: 120

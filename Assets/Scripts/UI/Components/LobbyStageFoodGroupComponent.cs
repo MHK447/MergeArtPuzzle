@@ -18,6 +18,9 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
     [SerializeField]
     private Image StoreBgImage;
 
+    [SerializeField]
+    private Slider SliderValue;
+
 
     private int FoodMergeGroupIdx = 0;
 
@@ -57,7 +60,7 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
 
     public void SetStageClearCheck(int curcount)
     {
-        ProgressStoreImage.fillAmount = (float)curcount / (float)ClearGoalCount;
+        SliderValue.value = (float)curcount / (float)ClearGoalCount;
 
         var percentvalue = ProgressStoreImage.fillAmount * 100;
 
