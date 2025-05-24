@@ -99,8 +99,11 @@ public class InGameMergeCheck : MonoBehaviour
 
                             if (CurSelectFood != null)
                             {
+                                SelectFood = hit.GetComponent<InGameFood>();
                                 CurSelectFood.gameObject.SetActive(true);
                                 CurSelectFood.transform.position = worldPos;
+                                SelectFood.SelectOn();
+                                CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx, SelectFood.GetFoodIdx, SelectFood.GetGrade);
                             }
                         }
                         break;
@@ -123,8 +126,9 @@ public class InGameMergeCheck : MonoBehaviour
                             isDragging = false;
                             fingerId = -1;
 
-                            if (CurSelectFood != null)
+                            if (CurSelectFood != null && SelectFood != null)
                             {
+                                SelectFood.SelectOff();
                                 CurSelectFood.gameObject.SetActive(false);
                             }
 

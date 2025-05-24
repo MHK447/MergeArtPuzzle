@@ -140,6 +140,23 @@ public class CheatWindow : MonoBehaviour
         GameRoot.Instance.UserData.CurMode.GachaCoin.Value += (int)convert;
     }
 
+    public void SetStarAdd()
+    {
+        if (string.IsNullOrEmpty(inputField.text))
+        {
+            TpLog.LogError("input field empty!");
+            return;
+        }
+        BigInteger convert;
+        if (!BigInteger.TryParse(inputField.text, out convert))
+        {
+            TpLog.LogError("input field string don't convert number!");
+            return;
+        }
+        inputField.text = "";
+        GameRoot.Instance.UserData.Starcoinvalue.Value += (int)convert;
+    }
+
 
 #if UNITY_EDITOR
     [UnityEditor.MenuItem("BanpoFri/ShowCheat _F3")]

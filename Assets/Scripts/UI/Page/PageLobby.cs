@@ -7,6 +7,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine.AddressableAssets;
 using UniRx;
+using Unity.VisualScripting;
 
 [UIPath("UI/Page/PageLobby")]
 public class PageLobby : UIBase
@@ -183,13 +184,13 @@ public class PageLobby : UIBase
 
         if (isclear)
         {
-            GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value += 1;
+            GameRoot.Instance.UserData.Stageidx.Value += 1;
 
             LevelText.text = $"Lv.{GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value}";
 
             GameRoot.Instance.UserData.Foodmergegroupdatas.Clear();
 
-
+            GameRoot.Instance.UserData.Save();
         }
 
 
