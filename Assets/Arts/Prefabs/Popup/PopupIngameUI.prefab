@@ -600,6 +600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Top
       objectReference: {fileID: 0}
+    - target: {fileID: 8612949188006602162, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -654,6 +658,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergycoinText: {fileID: 1833990664786646388}
   EnergyCoinTimeText: {fileID: 4928608465611250401}
+  CashText: {fileID: 6556199551034081134}
+--- !u!114 &6556199551034081134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6496044066506201226, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
+  m_PrefabInstance: {fileID: 61600587075348452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &284653261502168340
 PrefabInstance:
   m_ObjectHideFlags: 0

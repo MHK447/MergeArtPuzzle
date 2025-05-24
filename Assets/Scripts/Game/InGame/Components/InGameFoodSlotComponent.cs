@@ -183,6 +183,11 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
+        if (GameRoot.Instance.UserData.Energycoin.Value <= 0)
+        {
+            GameRoot.Instance.UISystem.OpenUI<PopupPurchaseLightning>(popup => popup.Init());
+            return;
+        }
 
         if (GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.IsFoodMaxCountCheck())
         {
@@ -197,10 +202,10 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
         if (randselectfoodidx > 0)
         {
-
             CreateFood(randselectfoodidx);
             GameRoot.Instance.UserData.Energycoin.Value -= 1;
         }
+
 
     }
 }

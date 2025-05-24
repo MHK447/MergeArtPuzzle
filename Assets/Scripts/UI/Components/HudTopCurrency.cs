@@ -14,6 +14,10 @@ public class HudTopCurrency : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI EnergyCoinTimeText;
 
+
+    [SerializeField]
+    private TextMeshProUGUI CashText;
+
     
 
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -28,6 +32,11 @@ public class HudTopCurrency : MonoBehaviour
 
         GameRoot.Instance.UserData.Energycoin.Subscribe(count => {
             EnergycoinText.text = $"{count}";
+        }).AddTo(disposables);
+
+        GameRoot.Instance.UserData.Cash.Subscribe(x=> {
+            
+            CashText.text = $"{x}";
         }).AddTo(disposables);
 
 

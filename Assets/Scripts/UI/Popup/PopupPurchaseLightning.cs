@@ -16,7 +16,7 @@ public class PopupPurchaseLightning : UIBase
     [SerializeField]
     private Button PurchaseBtn;
 
-    private int PriceCount = 0;
+    private int PriceCount = 60;
 
 
     protected override void Awake()
@@ -27,6 +27,16 @@ public class PopupPurchaseLightning : UIBase
 
     public void OnClickPurchase()
     {
+        if(GameRoot.Instance.UserData.Cash.Value >= PriceCount)
+        {
+            GameRoot.Instance.UserData.Cash.Value -= PriceCount;
+
+            GameRoot.Instance.UserData.Energycoin.Value = 100;
+
+            Hide();
+        }
+
+
 
     }
 
@@ -34,7 +44,7 @@ public class PopupPurchaseLightning : UIBase
 
     public void Init()
     {
-        
+
     }
     
 }
