@@ -29,6 +29,7 @@ public class InGameChapterMap : MonoBehaviour
 
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
+        
         StartFoodCreation();
     }
     public void StartFoodCreation()

@@ -57,9 +57,9 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
 
     public void SetStageClearCheck(int curcount)
     {
-        StoreBgImage.fillAmount = (float)curcount / (float)ClearGoalCount;
+        ProgressStoreImage.fillAmount = (float)curcount / (float)ClearGoalCount;
 
-        var percentvalue = StoreBgImage.fillAmount * 100;
+        var percentvalue = ProgressStoreImage.fillAmount * 100;
 
         StagePercentText.text = $"{percentvalue.ToString("F0")}%";
     }
@@ -69,8 +69,4 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
         disposables.Clear();
     }
 
-    void OnDisable()
-    {
-        disposables.Clear();
-    }
 }

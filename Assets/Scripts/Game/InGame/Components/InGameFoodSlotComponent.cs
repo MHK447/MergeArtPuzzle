@@ -22,7 +22,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
     private Slider GoalSlider;
 
     [SerializeField]
-    private GameObject ClearObj;
+    private Button ClearBtn;
 
     private int FoodGroupIdx = 0;
 
@@ -37,6 +37,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
     void Awake()
     {
         FoodBtn.onClick.AddListener(OnClickFoodBtn);
+        ClearBtn.onClick.AddListener(OnClickClearBtn);
     }
 
     public void Set(int foodgroupidx)
@@ -57,7 +58,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
                 GoalText.text = $"{FoodMergeGroupData.Foodcount.Value}/{td.goal_count}";
                 GoalSlider.value = (float)FoodMergeGroupData.Foodcount.Value / (float)td.goal_count;
 
-                ProjectUtility.SetActiveCheck(ClearObj, FoodMergeGroupData.Foodcount.Value >= td.goal_count);
+                ProjectUtility.SetActiveCheck(ClearBtn.gameObject, FoodMergeGroupData.Foodcount.Value >= td.goal_count);
 
                 disposables.Clear();
 
@@ -65,6 +66,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
                 {
                     GoalText.text = $"{count}/{td.goal_count}";
                     GoalSlider.value = (float)count / (float)td.goal_count;
+                    ProjectUtility.SetActiveCheck(ClearBtn.gameObject, count >= td.goal_count);
                 }).AddTo(disposables);
             }
         }
@@ -122,6 +124,13 @@ public class InGameFoodSlotComponent : MonoBehaviour
         }
 
         return -1;
+    }
+
+    public void OnClickClearBtn()
+    {
+        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+
+        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().GoToLobby(stageidx, FoodGroupIdx);
     }
 
     public void CreateFood(int foodidx)

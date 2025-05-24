@@ -58,7 +58,7 @@ public class InGameTycoon : InGameMode
 
 
 
-        Addressables.InstantiateAsync($"InGameChapter_{stageidx.ToString("D2")}").Completed += (handle) =>
+        Addressables.InstantiateAsync("InGameChapter_Map").Completed += (handle) =>
         {
             InGameChapterMap = handle.Result.GetComponent<InGameChapterMap>();
 
@@ -67,6 +67,15 @@ public class InGameTycoon : InGameMode
                 InGameChapterMap.Init();
             }
         };
+    }
+
+
+    public void GoToLobby(int stageidx , int foodgroupidx)
+    {
+        GameRoot.Instance.UISystem.OpenUI<PageLobby>(pagelobby => pagelobby.Set(stageidx, foodgroupidx));
+
+
+        ProjectUtility.SetActiveCheck(InGameChapterMap.gameObject, false);
     }
 
 

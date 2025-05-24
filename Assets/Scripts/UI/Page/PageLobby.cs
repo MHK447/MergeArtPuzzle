@@ -12,14 +12,8 @@ using UniRx;
 public class PageLobby : UIBase
 {
     [SerializeField]
-    private Image StageImg;
+    private Transform ContentsRoot;
 
-    [SerializeField]
-    private Image StageClearProgress;
-
-
-    [SerializeField]
-    private TextMeshProUGUI PercentText;
 
     [SerializeField]
     private TextMeshProUGUI LevelText;
@@ -30,9 +24,8 @@ public class PageLobby : UIBase
     [SerializeField]
     private ButtonPressed PressedBtn;
 
-    [SerializeField]
-    private LobbyStageFoodGroupComponent LobbyStageFoodGroupComponent;
-    
+    private LobbyFoodComponentGroup LobbyStageFoodGroupComponent;
+
 
 
     [SerializeField]
@@ -43,6 +36,8 @@ public class PageLobby : UIBase
     private int StageIdx = 0;
 
     private int GoalClearCount = 0;
+
+    private int SelectFoodGroupIdx = 0;
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -63,15 +58,15 @@ public class PageLobby : UIBase
 
         var stagetd = Tables.Instance.GetTable<StageInfo>().GetData(stageidx);
 
-        if(stagetd != null)
+        if (stagetd != null)
         {
             GoalClearCount = stagetd.next_stage_count;
 
             disposables.Clear();
 
-            CheckClearPercent();
-            
-            GameRoot.Instance.UserData.Nextstagecount.Subscribe(x=> {CheckClearPercent();}).AddTo(disposables);
+            //CheckClearPercent();
+
+            //GameRoot.Instance.UserData.Nextstagecount.Subscribe(x => { CheckClearPercent(); }).AddTo(disposables);
 
             LevelText.text = $"Lv.{stageidx}";
 
@@ -85,11 +80,32 @@ public class PageLobby : UIBase
 
             disposables.Clear();
 
-            GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x=> {StarCountCheck();}).AddTo(disposables);
+            GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x => { StarCountCheck(); }).AddTo(disposables);
 
-            LobbyStageFoodGroupComponent.Set(selectfoodgroupidx);
+            if (LobbyStageFoodGroupComponent != null)
+            {
+                Destroy(LobbyStageFoodGroupComponent.gameObject);
+                LobbyStageFoodGroupComponent = null;
+            }
+
+            Addressables.InstantiateAsync($"Stage_Map_{stageidx.ToString("D2")}").Completed += (handle) =>
+            {
+                LobbyStageFoodGroupComponent = handle.Result.GetComponent<LobbyFoodComponentGroup>();
+
+                if (LobbyStageFoodGroupComponent != null)
+                {
+                    LobbyStageFoodGroupComponent.Set(GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value);
+
+                    LobbyStageFoodGroupComponent.transform.SetParent(ContentsRoot, false);
+
+                    LobbyStageFoodGroupComponent.transform.localPosition = Vector3.zero;
+                }
+            };
+
+
+            //LobbyStageFoodGroupComponent.Set(selectfoodgroupidx);
         }
-    } 
+    }
 
     public void StarCountCheck()
     {
@@ -98,36 +114,85 @@ public class PageLobby : UIBase
         StarCountText.text = starcount.ToString();
 
 
-        ProjectUtility.SetActiveCheck(PressedBtn.gameObject , starcount > 0);
-        ProjectUtility.SetActiveCheck(StartBtn.gameObject , starcount <= 0);
+        ProjectUtility.SetActiveCheck(PressedBtn.gameObject, starcount > 0);
+        ProjectUtility.SetActiveCheck(StartBtn.gameObject, starcount <= 0);
     }
 
 
-    public void CheckClearPercent()
-    {
-        var clearpercent = GameRoot.Instance.UserData.Nextstagecount.Value;
+    // public void CheckClearPercent()
+    // {
+    //     var clearpercent = GameRoot.Instance.UserData.Nextstagecount.Value;
 
-        var fillvalue = (float)clearpercent / (float)GoalClearCount;;
+    //     var fillvalue = (float)clearpercent / (float)GoalClearCount; ;
 
-        StageClearProgress.fillAmount = fillvalue;
+    //     StageClearProgress.fillAmount = fillvalue;
 
-        PercentText.text = $"{fillvalue.ToString("F0")}%";
-    }
+    //     PercentText.text = $"{fillvalue.ToString("F0")}%";
+    // }
 
     public void OnClickPressed()
     {
-        if(GameRoot.Instance.UserData.Starcoinvalue.Value > 0)
-        {
-            GameRoot.Instance.UserData.Starcoinvalue.Value -= 1;
+        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-            //GameRoot.Instance.UserData.Stageclearstarcount.Value += 1;
+        var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
+
+        foreach (var td in tdlist)
+        {
+            var findgroupdata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(td.mergeidx);
+
+            if (findgroupdata != null)
+            {
+                if (findgroupdata.Stageclearstarcount.Value < td.goal_count)
+                {
+                    findgroupdata.Stageclearstarcount.Value += 1;
+
+                    GameRoot.Instance.UserData.Starcoinvalue.Value -= 1;
+
+                    break;
+                }
+
+            }
         }
+
+        CheckNextStage();
     }
 
 
     public void OnClickStart()
     {
-       // GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+    }
+
+
+    public void CheckNextStage()
+    {
+        bool isclear = true;
+
+        var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == StageIdx).ToList();
+
+        foreach (var td in tdlist)
+        {
+            var findgroupdata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(td.mergeidx);
+
+            if (findgroupdata.Stageclearstarcount.Value < td.goal_count)
+            {
+                isclear = false;
+                break;
+            }
+        }
+
+        if (isclear)
+        {
+            GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value += 1;
+
+            LevelText.text = $"Lv.{GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value}";
+
+            GameRoot.Instance.UserData.Foodmergegroupdatas.Clear();
+
+
+        }
+
+
     }
 
     void OnDestroy()
