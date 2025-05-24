@@ -26,7 +26,7 @@ public class PopupToastmessage : UIBase
         desc.text = _desc;
 
 
-        GameRoot.Instance.WaitTimeAndCallback(3f, ()=> {  Hide(); });
+        GameRoot.Instance.WaitTimeAndCallback(3f, () => { Hide(); ProjectUtility.SetActiveCheck(this.gameObject, false); });
     }
 
     public override void CustomSortingOrder()
@@ -74,8 +74,8 @@ public class PopupToastmessage : UIBase
     {
         base.OnHideAfter();
 
-            OnUIHide?.Invoke();
-            OnUIHide = null;
-        
+        OnUIHide?.Invoke();
+        OnUIHide = null;
+
     }
 }
