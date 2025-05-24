@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c128cb75e1077f349ab7a473c3044089
+guid: a7f6d3c8d6489f643a32afbf4c35bf95
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -311813929138852086
     second: Layer 15_0
+  - first:
+      213: -6048940162410927490
+    second: Layer 15_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,8 +134,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 99
-        height: 62
+        width: 129
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,6 +145,27 @@ TextureImporter:
       bones: []
       spriteID: a0fe8ad22e63cabf0800000000000000
       internalID: -311813929138852086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer 15_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 139
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a27ef88f8dd0ca0800000000000000
+      internalID: -6048940162410927490
       vertices: []
       indices: 
       edges: []
@@ -158,6 +182,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Layer 15_0: -311813929138852086
+      Layer 15_1: -6048940162410927490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
