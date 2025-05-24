@@ -74,4 +74,4 @@ MonoBehaviour:
   - _index: start_energy_coin
     _value: 100
   - _index: max_food_size
-    _value: 120
+    _value: 48
