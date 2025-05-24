@@ -275,7 +275,7 @@ public class InGameSystem
 
         if (!firstInit)
         {
-            GameRoot.Instance.WaitTimeAndCallback(2f, () =>
+            GameRoot.Instance.WaitTimeAndCallback(3f, () =>
             {
                 GameRoot.Instance.Loading.Hide(true, () =>
                 {

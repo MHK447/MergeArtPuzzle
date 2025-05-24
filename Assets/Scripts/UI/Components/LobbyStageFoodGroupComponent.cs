@@ -41,6 +41,8 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
 
             var finddata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(foodmergegroupidx);
 
+            //ProgressStoreImage.sprite = StoreBgImage.sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_InGame_Food , )
+
             if(finddata != null)
             {
                 disposables.Clear();
@@ -49,7 +51,6 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
 
                 SetStageClearCheck(finddata.Stageclearstarcount.Value);
             }
-
 
         }
     }

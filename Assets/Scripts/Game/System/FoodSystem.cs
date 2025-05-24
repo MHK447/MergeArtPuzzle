@@ -14,6 +14,8 @@ public class FoodSystem
 
     public int start_energy_coin = 0;
 
+    public int FoodMaxPool = 4;
+
     public void Create()
     {
         GameRoot.Instance.UserData.Foodcreateenergy.Value = 100;

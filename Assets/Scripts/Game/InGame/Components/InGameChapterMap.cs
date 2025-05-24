@@ -29,8 +29,18 @@ public class InGameChapterMap : MonoBehaviour
 
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-        var foodmergelist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
+        StartFoodCreation();
+    }
+    public void StartFoodCreation()
+    {
+        StartCoroutine(CreateFoodsCoroutine());
+    }
 
+    private IEnumerator CreateFoodsCoroutine()
+    {
+        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+
+        var foodmergelist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
 
         foreach (var foodmerge in foodmergelist)
         {
@@ -42,11 +52,11 @@ public class InGameChapterMap : MonoBehaviour
                 foreach (var fooddata in foodDataCopy)
                 {
                     CreateFood(fooddata.Foodidx, fooddata.Mergegrade, MergeGroupData.Foodmergeidx, true);
+                    yield return new WaitForSeconds(0.1f); // 0.05초 대기
                 }
             }
         }
     }
-
 
 
     public void CreateFood(int foodidx, int grade, int foodgroupidx, bool isinit = false)

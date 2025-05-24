@@ -65,12 +65,19 @@ table FoodMergeGroupData
    ingamefooddatas:[InGameFoodData];
    foodcount:int = 0; //@ReactiveProperty
    stageclearstarcount:int = 0; //@ReactiveProperty
+   drawfooddatas:[DrawFoodData];
 }
 
 table InGameFoodData
 {
    foodidx:int = 0;
    mergegrade:int = 0;
+}
+
+table DrawFoodData
+{
+   foodidx:int = 0; 
+   drawfoodcount:int = 0;
 }
 
 table StageData

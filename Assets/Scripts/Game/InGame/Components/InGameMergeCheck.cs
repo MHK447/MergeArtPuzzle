@@ -53,7 +53,7 @@ public class InGameMergeCheck : MonoBehaviour
                     CurSelectFood.gameObject.SetActive(true);
                     CurSelectFood.transform.position = worldPos;
                     SelectFood.SelectOn();
-                    CurSelectFood.SetSprite(SelectFood.GetFoodIdx , SelectFood.GetGrade);
+                    CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx , SelectFood.GetFoodIdx, SelectFood.GetGrade);
                 }
             }
         }

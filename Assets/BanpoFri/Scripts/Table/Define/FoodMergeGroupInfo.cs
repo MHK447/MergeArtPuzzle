@@ -21,18 +21,18 @@ namespace BanpoFri
 			set { _mergeidx = value;}
 		}
 		[SerializeField]
-		private List<int> _food_idx;
-		public List<int> food_idx
-		{
-			get { return _food_idx;}
-			set { _food_idx = value;}
-		}
-		[SerializeField]
 		private int _goal_count;
 		public int goal_count
 		{
 			get { return _goal_count;}
 			set { _goal_count = value;}
+		}
+		[SerializeField]
+		private string _stage_prefab;
+		public string stage_prefab
+		{
+			get { return _stage_prefab;}
+			set { _stage_prefab = value;}
 		}
 
     }

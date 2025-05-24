@@ -29,6 +29,9 @@ public class PageLobby : UIBase
 
     [SerializeField]
     private ButtonPressed PressedBtn;
+
+    [SerializeField]
+    private LobbyStageFoodGroupComponent LobbyStageFoodGroupComponent;
     
 
 
@@ -54,7 +57,7 @@ public class PageLobby : UIBase
 
     }
 
-    public void Set(int stageidx)
+    public void Set(int stageidx, int selectfoodgroupidx)
     {
         StageIdx = stageidx;
 
@@ -83,6 +86,8 @@ public class PageLobby : UIBase
             disposables.Clear();
 
             GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x=> {StarCountCheck();}).AddTo(disposables);
+
+            LobbyStageFoodGroupComponent.Set(selectfoodgroupidx);
         }
     } 
 
@@ -122,7 +127,7 @@ public class PageLobby : UIBase
 
     public void OnClickStart()
     {
-        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+       // GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
     }
 
     void OnDestroy()

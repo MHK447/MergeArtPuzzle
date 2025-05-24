@@ -14,58 +14,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mFirstKey:
   - 1
-  - 1
-  - 1
-  - 2
-  - 2
   - 2
   - 3
   - 3
-  - 3
+  - 4
+  - 4
+  - 4
+  - 5
+  - 5
+  - 5
   mSecondKey:
-  - 1
-  - 2
-  - 3
   - 1
   - 2
   - 3
   - 4
   - 5
   - 6
+  - 7
+  - 8
+  - 9
+  - 10
   mDataList:
   - _stageidx: 1
     _mergeidx: 1
-    _food_idx: 010000000200000003000000
-    _goal_count: 10
-  - _stageidx: 1
-    _mergeidx: 2
-    _food_idx: 040000000500000006000000
-    _goal_count: 15
-  - _stageidx: 1
-    _mergeidx: 3
-    _food_idx: 070000000800000009000000
-    _goal_count: 15
-  - _stageidx: 2
-    _mergeidx: 1
-    _food_idx: 0c0000000d0000000e0000000f00000010000000
-    _goal_count: 15
+    _goal_count: 14
+    _stage_prefab: Stage_Map_01
   - _stageidx: 2
     _mergeidx: 2
-    _food_idx: 1100000012000000130000001400000015000000
-    _goal_count: 15
-  - _stageidx: 2
+    _goal_count: 20
+    _stage_prefab: Stage_Map_02
+  - _stageidx: 3
     _mergeidx: 3
-    _food_idx: 160000001700000018000000190000001a000000
     _goal_count: 15
+    _stage_prefab: Stage_Map_03
   - _stageidx: 3
     _mergeidx: 4
-    _food_idx: 1b0000001c0000001d0000001e0000001f000000
     _goal_count: 15
-  - _stageidx: 3
+    _stage_prefab: Stage_Map_03
+  - _stageidx: 4
     _mergeidx: 5
-    _food_idx: 2000000021000000220000002300000024000000
-    _goal_count: 15
-  - _stageidx: 3
+    _goal_count: 20
+    _stage_prefab: Stage_Map_04
+  - _stageidx: 4
     _mergeidx: 6
-    _food_idx: 2500000026000000270000002800000029000000
-    _goal_count: 15
+    _goal_count: 20
+    _stage_prefab: Stage_Map_04
+  - _stageidx: 4
+    _mergeidx: 7
+    _goal_count: 20
+    _stage_prefab: Stage_Map_04
+  - _stageidx: 5
+    _mergeidx: 8
+    _goal_count: 20
+    _stage_prefab: Stage_Map_05
+  - _stageidx: 5
+    _mergeidx: 9
+    _goal_count: 20
+    _stage_prefab: Stage_Map_05
+  - _stageidx: 5
+    _mergeidx: 10
+    _goal_count: 20
+    _stage_prefab: Stage_Map_05

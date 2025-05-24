@@ -27,13 +27,17 @@ public struct FoodMergeGroupData : IFlatbufferObject
   public bool MutateFoodcount(int foodcount) { int o = __p.__offset(8); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, foodcount); return true; } else { return false; } }
   public int Stageclearstarcount { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
   public bool MutateStageclearstarcount(int stageclearstarcount) { int o = __p.__offset(10); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, stageclearstarcount); return true; } else { return false; } }
+  public BanpoFri.Data.DrawFoodData? Drawfooddatas(int j) { int o = __p.__offset(12); return o != 0 ? (BanpoFri.Data.DrawFoodData?)(new BanpoFri.Data.DrawFoodData()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public int DrawfooddatasLength { get { int o = __p.__offset(12); return o != 0 ? __p.__vector_len(o) : 0; } }
 
   public static Offset<BanpoFri.Data.FoodMergeGroupData> CreateFoodMergeGroupData(FlatBufferBuilder builder,
       int foodmergeidx = 0,
       VectorOffset ingamefooddatasOffset = default(VectorOffset),
       int foodcount = 0,
-      int stageclearstarcount = 0) {
-    builder.StartTable(4);
+      int stageclearstarcount = 0,
+      VectorOffset drawfooddatasOffset = default(VectorOffset)) {
+    builder.StartTable(5);
+    FoodMergeGroupData.AddDrawfooddatas(builder, drawfooddatasOffset);
     FoodMergeGroupData.AddStageclearstarcount(builder, stageclearstarcount);
     FoodMergeGroupData.AddFoodcount(builder, foodcount);
     FoodMergeGroupData.AddIngamefooddatas(builder, ingamefooddatasOffset);
@@ -41,7 +45,7 @@ public struct FoodMergeGroupData : IFlatbufferObject
     return FoodMergeGroupData.EndFoodMergeGroupData(builder);
   }
 
-  public static void StartFoodMergeGroupData(FlatBufferBuilder builder) { builder.StartTable(4); }
+  public static void StartFoodMergeGroupData(FlatBufferBuilder builder) { builder.StartTable(5); }
   public static void AddFoodmergeidx(FlatBufferBuilder builder, int foodmergeidx) { builder.AddInt(0, foodmergeidx, 0); }
   public static void AddIngamefooddatas(FlatBufferBuilder builder, VectorOffset ingamefooddatasOffset) { builder.AddOffset(1, ingamefooddatasOffset.Value, 0); }
   public static VectorOffset CreateIngamefooddatasVector(FlatBufferBuilder builder, Offset<BanpoFri.Data.InGameFoodData>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
@@ -51,6 +55,12 @@ public struct FoodMergeGroupData : IFlatbufferObject
   public static void StartIngamefooddatasVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static void AddFoodcount(FlatBufferBuilder builder, int foodcount) { builder.AddInt(2, foodcount, 0); }
   public static void AddStageclearstarcount(FlatBufferBuilder builder, int stageclearstarcount) { builder.AddInt(3, stageclearstarcount, 0); }
+  public static void AddDrawfooddatas(FlatBufferBuilder builder, VectorOffset drawfooddatasOffset) { builder.AddOffset(4, drawfooddatasOffset.Value, 0); }
+  public static VectorOffset CreateDrawfooddatasVector(FlatBufferBuilder builder, Offset<BanpoFri.Data.DrawFoodData>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateDrawfooddatasVectorBlock(FlatBufferBuilder builder, Offset<BanpoFri.Data.DrawFoodData>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateDrawfooddatasVectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<BanpoFri.Data.DrawFoodData>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateDrawfooddatasVectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<BanpoFri.Data.DrawFoodData>>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static void StartDrawfooddatasVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static Offset<BanpoFri.Data.FoodMergeGroupData> EndFoodMergeGroupData(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<BanpoFri.Data.FoodMergeGroupData>(o);
@@ -66,6 +76,8 @@ public struct FoodMergeGroupData : IFlatbufferObject
     for (var _j = 0; _j < this.IngamefooddatasLength; ++_j) {_o.Ingamefooddatas.Add(this.Ingamefooddatas(_j).HasValue ? this.Ingamefooddatas(_j).Value.UnPack() : null);}
     _o.Foodcount = this.Foodcount;
     _o.Stageclearstarcount = this.Stageclearstarcount;
+    _o.Drawfooddatas = new List<BanpoFri.Data.DrawFoodDataT>();
+    for (var _j = 0; _j < this.DrawfooddatasLength; ++_j) {_o.Drawfooddatas.Add(this.Drawfooddatas(_j).HasValue ? this.Drawfooddatas(_j).Value.UnPack() : null);}
   }
   public static Offset<BanpoFri.Data.FoodMergeGroupData> Pack(FlatBufferBuilder builder, FoodMergeGroupDataT _o) {
     if (_o == null) return default(Offset<BanpoFri.Data.FoodMergeGroupData>);
@@ -75,12 +87,19 @@ public struct FoodMergeGroupData : IFlatbufferObject
       for (var _j = 0; _j < __ingamefooddatas.Length; ++_j) { __ingamefooddatas[_j] = BanpoFri.Data.InGameFoodData.Pack(builder, _o.Ingamefooddatas[_j]); }
       _ingamefooddatas = CreateIngamefooddatasVector(builder, __ingamefooddatas);
     }
+    var _drawfooddatas = default(VectorOffset);
+    if (_o.Drawfooddatas != null) {
+      var __drawfooddatas = new Offset<BanpoFri.Data.DrawFoodData>[_o.Drawfooddatas.Count];
+      for (var _j = 0; _j < __drawfooddatas.Length; ++_j) { __drawfooddatas[_j] = BanpoFri.Data.DrawFoodData.Pack(builder, _o.Drawfooddatas[_j]); }
+      _drawfooddatas = CreateDrawfooddatasVector(builder, __drawfooddatas);
+    }
     return CreateFoodMergeGroupData(
       builder,
       _o.Foodmergeidx,
       _ingamefooddatas,
       _o.Foodcount,
-      _o.Stageclearstarcount);
+      _o.Stageclearstarcount,
+      _drawfooddatas);
   }
 }
 
@@ -94,12 +113,15 @@ public class FoodMergeGroupDataT
   public int Foodcount { get; set; }
   [Newtonsoft.Json.JsonProperty("stageclearstarcount")]
   public int Stageclearstarcount { get; set; }
+  [Newtonsoft.Json.JsonProperty("drawfooddatas")]
+  public List<BanpoFri.Data.DrawFoodDataT> Drawfooddatas { get; set; }
 
   public FoodMergeGroupDataT() {
     this.Foodmergeidx = 0;
     this.Ingamefooddatas = null;
     this.Foodcount = 0;
     this.Stageclearstarcount = 0;
+    this.Drawfooddatas = null;
   }
 }
 
@@ -113,6 +135,7 @@ static public class FoodMergeGroupDataVerify
       && verifier.VerifyVectorOfTables(tablePos, 6 /*Ingamefooddatas*/, BanpoFri.Data.InGameFoodDataVerify.Verify, false)
       && verifier.VerifyField(tablePos, 8 /*Foodcount*/, 4 /*int*/, 4, false)
       && verifier.VerifyField(tablePos, 10 /*Stageclearstarcount*/, 4 /*int*/, 4, false)
+      && verifier.VerifyVectorOfTables(tablePos, 12 /*Drawfooddatas*/, BanpoFri.Data.DrawFoodDataVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

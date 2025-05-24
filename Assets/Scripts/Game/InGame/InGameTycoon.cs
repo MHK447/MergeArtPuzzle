@@ -26,7 +26,8 @@ public class InGameTycoon : InGameMode
 
         if (td != null)
         {
-            GameRoot.Instance.UISystem.OpenUI<PageLobby>();
+            GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+            //GameRoot.Instance.UISystem.OpenUI<PageLobby>(pagelobby => pagelobby.Set(stageidx, 1));
         }
 
     }
@@ -36,17 +37,17 @@ public class InGameTycoon : InGameMode
     {
         var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-        var clearpercent = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.StartStage , stageidx);
+        var clearpercent = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.StartStage, stageidx);
 
-        if(clearpercent <= 0)
+        if (clearpercent <= 0)
         {
             GameRoot.Instance.UserData.Energycoin.Value = GameRoot.Instance.FoodSystem.start_energy_coin;
-            GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.StartStage , 1 , stageidx);
+            GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.StartStage, 1, stageidx);
         }
 
-        GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>(popup=> popup.Set(stageidx));
+        GameRoot.Instance.UISystem.OpenUI<PopupInGameUI>(popup => popup.Set(stageidx));
 
-        GameRoot.Instance.UISystem.GetUI<PageLobby>().Hide();
+        GameRoot.Instance.UISystem.GetUI<PageLobby>()?.Hide();
 
         if (InGameChapterMap != null)
         {
@@ -61,7 +62,7 @@ public class InGameTycoon : InGameMode
         {
             InGameChapterMap = handle.Result.GetComponent<InGameChapterMap>();
 
-            if(InGameChapterMap != null)
+            if (InGameChapterMap != null)
             {
                 InGameChapterMap.Init();
             }
