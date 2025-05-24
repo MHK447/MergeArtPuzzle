@@ -28,6 +28,8 @@ MonoBehaviour:
   - str_focus_free_3
   - str_desc_focus_collect
   - str_desc_focus_progress
+  - str_desc_purchaselight
+  - str_btn_taptoclose
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -91,4 +93,12 @@ MonoBehaviour:
     _ko: "\uD0ED\uD558\uBA74 \uC5D0\uB108\uC9C0\uB97C {0}\uB9CC\uD07C \uD68D\uB4DD\uD558\uAC70\uB098,
       \uD569\uCCD0\uC11C \uB354 \uAC15\uB825\uD558\uAC8C \uB9CC\uB4E4 \uC218 \uC788\uC5B4\uC694!"
     _en: Tap to collect {0} units of energy or Merge for more!
+    _ja: 
+  - _idx: str_desc_purchaselight
+    _ko: "\uCD94\uAC00 \uC5D0\uB108\uC9C0\uB97C \uC5BB\uC5B4\uBCF4\uC138\uC694."
+    _en: Get more energy
+    _ja: 
+  - _idx: str_btn_taptoclose
+    _ko: "\uB20C\uB7EC\uC11C \uCC3D \uB2EB\uAE30"
+    _en: Tap to close
     _ja: 
