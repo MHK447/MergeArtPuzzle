@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7177299388982554004}
   - component: {fileID: 985777510980798332}
   - component: {fileID: 3369429288066846872}
-  - component: {fileID: 5677332610510012945}
   - component: {fileID: 2315177844004706828}
   m_Layer: 0
   m_Name: PopupSet
@@ -113,19 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5677332610510012945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3832932629032703140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99af6a10a21bf4438185d69a36a14a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mute: 0
 --- !u!225 &2315177844004706828
 CanvasGroup:
   m_ObjectHideFlags: 0

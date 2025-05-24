@@ -30,6 +30,14 @@ MonoBehaviour:
   - str_desc_focus_progress
   - str_desc_purchaselight
   - str_btn_taptoclose
+  - str_chapter_1
+  - str_chapter_2
+  - str_chapter_3
+  - str_chapter_4
+  - str_chapter_5
+  - str_title_noads
+  - str_desc_noads
+  - str_name_forever
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -101,4 +109,37 @@ MonoBehaviour:
   - _idx: str_btn_taptoclose
     _ko: "\uB20C\uB7EC\uC11C \uCC3D \uB2EB\uAE30"
     _en: Tap to close
+    _ja: 
+  - _idx: str_chapter_1
+    _ko: "1. \uBBF8\uAD6D \uC11C\uBD80"
+    _en: 1. Western US
+    _ja: 
+  - _idx: str_chapter_2
+    _ko: "2. \uD504\uB791\uC2A4 \uB0A8\uBD80"
+    _en: 2. Southern France
+    _ja: 
+  - _idx: str_chapter_3
+    _ko: "3. \uBBF8\uAD6D \uB3D9\uBD80"
+    _en: 3. Eastern US
+    _ja: 
+  - _idx: str_chapter_4
+    _ko: "4. \uB3D9\uC544\uC2DC\uC544 - 1"
+    _en: 4. East Asia - 1
+    _ja: 
+  - _idx: str_chapter_5
+    _ko: "5. \uB3D9\uC544\uC2DC\uC544 - 2"
+    _en: 5. Western US
+    _ja: 
+  - _idx: str_title_noads
+    _ko: "\uAD11\uACE0 \uC81C\uAC70"
+    _en: No Ads
+    _ja: 
+  - _idx: str_desc_noads
+    _ko: "\uBC30\uB108\uC640 \uAC15\uC81C \uAD11\uACE0\uB9CC \uC81C\uAC70 \uB429\uB2C8\uB2E4.
+      \uBCF4\uC0C1\uD615 \uAD11\uACE0\uB294 \uC81C\uAC70 \uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+    _en: Removes Banners & full screen ADS. Rewarded ads are not removed.
+    _ja: 
+  - _idx: str_name_forever
+    _ko: "\uD3C9\uC0DD \uC801\uC6A9"
+    _en: Forever
     _ja: 
