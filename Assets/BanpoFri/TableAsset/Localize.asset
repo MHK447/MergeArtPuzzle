@@ -19,6 +19,7 @@ MonoBehaviour:
   - str_time_hour
   - str_time_minute
   - str_time_second
+  - str_goal
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -45,3 +46,7 @@ MonoBehaviour:
     _ko: S
     _en: S
     _ja: "\u79D2"
+  - _idx: str_goal
+    _ko: "\uBAA9\uD45C"
+    _en: GOAL
+    _ja: 
