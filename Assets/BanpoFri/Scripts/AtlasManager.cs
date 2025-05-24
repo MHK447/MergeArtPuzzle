@@ -273,6 +273,7 @@ public enum Atlas
 
     Atlas_UI_Common,
         Atlas_InGame_Food,
+        Atlas_UI_Store,
     // @ add here
 
 }

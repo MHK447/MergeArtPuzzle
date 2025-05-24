@@ -13,7 +13,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
     private Button FoodBtn;
 
     [SerializeField]
-    private Image FoodImg;
+    private Image StoreImg;
 
     [SerializeField]
     private TextMeshProUGUI GoalText;
@@ -58,7 +58,10 @@ public class InGameFoodSlotComponent : MonoBehaviour
                 GoalText.text = $"{FoodMergeGroupData.Foodcount.Value}/{td.goal_count}";
                 GoalSlider.value = (float)FoodMergeGroupData.Foodcount.Value / (float)td.goal_count;
 
+
                 ProjectUtility.SetActiveCheck(ClearBtn.gameObject, FoodMergeGroupData.Foodcount.Value >= td.goal_count);
+
+                StoreImg.sprite = AtlasManager.Instance.GetSprite(Atlas.Atlas_UI_Store, $"Store_{td.mergeidx.ToString("D2")}");
 
                 disposables.Clear();
 

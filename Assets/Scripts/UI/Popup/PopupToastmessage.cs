@@ -24,6 +24,9 @@ public class PopupToastmessage : UIBase
     {
         //icon.sprite = Config.Instance.GetRenovateImg(_renovateImgName);
         desc.text = _desc;
+
+
+        GameRoot.Instance.WaitTimeAndCallback(3f, ()=> {  Hide(); });
     }
 
     public override void CustomSortingOrder()
