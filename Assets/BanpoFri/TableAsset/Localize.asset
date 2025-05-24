@@ -20,6 +20,14 @@ MonoBehaviour:
   - str_time_minute
   - str_time_second
   - str_goal
+  - str_free
+  - str_get
+  - str_focus_ads
+  - str_focus_free_1
+  - str_focus_free_2
+  - str_focus_free_3
+  - str_desc_focus_collect
+  - str_desc_focus_progress
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -49,4 +57,38 @@ MonoBehaviour:
   - _idx: str_goal
     _ko: "\uBAA9\uD45C"
     _en: GOAL
+    _ja: 
+  - _idx: str_free
+    _ko: "\uBB34\uB8CC"
+    _en: Free
+    _ja: 
+  - _idx: str_get
+    _ko: "\uC5BB\uAE30"
+    _en: Collect
+    _ja: 
+  - _idx: str_focus_ads
+    _ko: "\uAD11\uACE0"
+    _en: Ads
+    _ja: 
+  - _idx: str_focus_free_1
+    _ko: "\uC5D0\uB108\uC9C0 (Lv.1)"
+    _en: Energy (Lv.1)
+    _ja: 
+  - _idx: str_focus_free_2
+    _ko: "\uC5D0\uB108\uC9C0 (Lv.2)"
+    _en: Energy (Lv.2)
+    _ja: 
+  - _idx: str_focus_free_3
+    _ko: "\uC5D0\uB108\uC9C0 (Lv.3)"
+    _en: Energy (Lv.3)
+    _ja: 
+  - _idx: str_desc_focus_collect
+    _ko: "\uC7A0\uACA8 \uC788\uB294 \uC544\uC774\uD15C, \uD130\uCE58\uD574\uC11C
+      \uC7A0\uADF8 \uD574\uC81C"
+    _en: Locket item. Pop to unlock.
+    _ja: 
+  - _idx: str_desc_focus_progress
+    _ko: "\uD0ED\uD558\uBA74 \uC5D0\uB108\uC9C0\uB97C {0}\uB9CC\uD07C \uD68D\uB4DD\uD558\uAC70\uB098,
+      \uD569\uCCD0\uC11C \uB354 \uAC15\uB825\uD558\uAC8C \uB9CC\uB4E4 \uC218 \uC788\uC5B4\uC694!"
+    _en: Tap to collect {0} units of energy or Merge for more!
     _ja: 

@@ -25,6 +25,8 @@ MonoBehaviour:
     color: {r: 0.6509804, g: 0.15294118, b: 0.11764706, a: 1}
   - key_string: BlueGreen
     color: {r: 0, g: 0.4528302, b: 0.35555553, a: 1}
+  - key_string: Yellow
+    color: {r: 1, g: 0.9153609, b: 0, a: 1}
   _eventTextColorDefines: []
   _imageColorDefines:
   - key_string: Bg_Yellow
