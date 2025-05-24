@@ -18,7 +18,6 @@ public class FoodSystem
 
     public void Create()
     {
-        GameRoot.Instance.UserData.Foodcreateenergy.Value = 100;
         EnergyCoinTimeProperty.Value = 0;
 
         energy_add_time = Tables.Instance.GetTable<Define>().GetData("energy_add_time").value;

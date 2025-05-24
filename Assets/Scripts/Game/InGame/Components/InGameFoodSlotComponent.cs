@@ -5,6 +5,7 @@ using BanpoFri;
 using UnityEngine.UI;
 using TMPro;
 using UniRx;
+using Unity.VisualScripting;
 
 public class InGameFoodSlotComponent : MonoBehaviour
 {
@@ -107,50 +108,51 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
             for (int i = 0; i < GameRoot.Instance.FoodSystem.FoodMaxPool; ++i)
             {
+                if (FoodPoolList.Count <= i) break;
+
                 FoodRandList.Add(FoodPoolList[i]);
             }
 
             var randvalue = Random.Range(0, FoodRandList.Count);
 
+            if (FoodRandList.Count == 0) return -1;
+
             return FoodRandList[randvalue];
 
         }
 
-        return 0;
+        return -1;
     }
 
-    public void CreateFood()
+    public void CreateFood(int foodidx)
     {
-        if (GameRoot.Instance.UserData.Foodcreateenergy.Value > 0)
+        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+
+        var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, FoodGroupIdx));
+
+        if (td != null)
         {
-            var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
 
-            var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, FoodGroupIdx));
+            var randvalue = foodidx;
 
-            if (td != null)
+            var drawfooddata = FoodMergeGroupData.Drawfooddatas.Find(x => x.Foodidx == randvalue);
+
+            if (drawfooddata != null)
             {
-                GameRoot.Instance.UserData.Foodcreateenergy.Value -= 1;
-
-                var randvalue = RandSelectChoiceFood();
-
-                var drawfooddata = FoodMergeGroupData.Drawfooddatas.Find(x => x.Foodidx == randvalue);
-
-                if (drawfooddata != null)
-                {
-                    drawfooddata.Drawfoodcount += 1;
-                }
-                else
-                {
-                    FoodMergeGroupData.Drawfooddatas.Add(new DrawFoodData()
-                    {
-                        Foodidx = randvalue,
-                        Drawfoodcount = 1
-                    });
-                }
-
-                GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(randvalue, 1, FoodGroupIdx);
+                drawfooddata.Drawfoodcount += 1;
             }
+            else
+            {
+                FoodMergeGroupData.Drawfooddatas.Add(new DrawFoodData()
+                {
+                    Foodidx = randvalue,
+                    Drawfoodcount = 1
+                });
+            }
+
+            GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(randvalue, 1, FoodGroupIdx);
         }
+
     }
 
     void OnDestroy()
@@ -166,9 +168,13 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
-        if (GameRoot.Instance.UserData.Energycoin.Value > 0 && !ClearObj.activeSelf)
+
+        var randselectfoodidx = RandSelectChoiceFood();
+
+        if (randselectfoodidx > 0)
         {
-            CreateFood();
+
+            CreateFood(randselectfoodidx);
             GameRoot.Instance.UserData.Energycoin.Value -= 1;
         }
 

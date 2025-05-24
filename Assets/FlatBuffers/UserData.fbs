@@ -38,7 +38,6 @@ table UserData {
   stagedata:StageData;
   nextstagecount:int =0;// @ReactiveProperty
   stageenergycount:int = 0;// @ReactiveProperty
-  foodcreateenergy:int = 0;// @ReactiveProperty 
   foodmergegroupdatas:[FoodMergeGroupData];
   energycoin:int = 0; //@ReactiveProperty 
   starcoinvalue:int = 0; //@ReactiveProperty
