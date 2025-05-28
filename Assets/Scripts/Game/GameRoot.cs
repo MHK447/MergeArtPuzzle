@@ -317,10 +317,8 @@ public class GameRoot : Singleton<GameRoot>
 
 		var count = GameRoot.instance.UserData.GetRecordCount(Config.RecordCountKeys.Init);
 
-		if (GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value == 0)
-			GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value = 1;
 
-		if (GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value == 1 && count == 0)
+		if (GameRoot.Instance.UserData.Stagedata.Stageidx.Value == 1 && count == 0)
 		{
 			GameRoot.instance.UserData.AddRecordCount(Config.RecordCountKeys.Init, 1);
 

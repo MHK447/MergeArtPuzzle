@@ -110,7 +110,7 @@ public class InGameSystem
 
         // 2. 스테이지 데이터 업데이트
         var saveTime = TimeSystem.GetCurTime().Ticks;
-        var curidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value += 1;
+        var curidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value += 1;
 
         // 3. 시스템 초기화 순서 명확히 하기
         try
@@ -174,7 +174,7 @@ public class InGameSystem
 
     public void LoadCallBack()
     {
-        var curstageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var curstageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var stagetd = Tables.Instance.GetTable<StageInfo>().GetData(curstageidx);
 

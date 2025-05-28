@@ -27,7 +27,7 @@ public class InGameChapterMap : MonoBehaviour
         ProjectUtility.SetActiveCheck(this.gameObject, true);
         FoodCreateOrder = 0;
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         
         StartFoodCreation();
@@ -39,7 +39,7 @@ public class InGameChapterMap : MonoBehaviour
 
     private IEnumerator CreateFoodsCoroutine()
     {
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var foodmergelist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
 

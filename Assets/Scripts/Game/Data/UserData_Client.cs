@@ -80,7 +80,6 @@ public partial class UserDataSystem
     public List<int> Ordertest = new List<int>();
     public int Testmoney { get; set; } = 0;
     public List<string> Tutorial = new List<string>();
-    public IReactiveProperty<int> Stageidx { get; private set; } = new ReactiveProperty<int>(0);
     public IReactiveProperty<double> Money { get; private set; } = new ReactiveProperty<double>(0.0f);
     public int Abtestvalue { get; set; } = 0;
     public long Uuid { get; set; } = 0;

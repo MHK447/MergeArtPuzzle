@@ -95,7 +95,7 @@ public class PageLobby : UIBase
 
                 if (LobbyStageFoodGroupComponent != null)
                 {
-                    LobbyStageFoodGroupComponent.Set(GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value);
+                    LobbyStageFoodGroupComponent.Set(GameRoot.Instance.UserData.Stagedata.Stageidx.Value);
 
                     LobbyStageFoodGroupComponent.transform.SetParent(ContentsRoot, false);
 
@@ -133,7 +133,7 @@ public class PageLobby : UIBase
 
     public void OnClickPressed()
     {
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
 
@@ -184,16 +184,14 @@ public class PageLobby : UIBase
 
         if (isclear)
         {
-            GameRoot.Instance.UserData.Stageidx.Value += 1;
+            GameRoot.Instance.UserData.Stagedata.Stageidx.Value += 1;
 
-            LevelText.text = $"Lv.{GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value}";
+            LevelText.text = $"Lv.{GameRoot.Instance.UserData.Stagedata.Stageidx.Value}";
 
             GameRoot.Instance.UserData.Foodmergegroupdatas.Clear();
 
             GameRoot.Instance.UserData.Save();
         }
-
-
     }
 
     void OnDestroy()

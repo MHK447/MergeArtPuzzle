@@ -34,7 +34,7 @@ public class LobbyStageFoodGroupComponent : MonoBehaviour
     {
         FoodMergeGroupIdx = foodmergegroupidx;
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx , FoodMergeGroupIdx));
 

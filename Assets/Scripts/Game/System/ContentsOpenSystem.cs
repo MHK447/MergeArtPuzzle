@@ -20,7 +20,7 @@ public class ContentsOpenSystem : MonoBehaviour
 
         var td = Tables.Instance.GetTable<ContentsOpenCheck>().GetData((int)opentype);
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         if(td != null)
         {

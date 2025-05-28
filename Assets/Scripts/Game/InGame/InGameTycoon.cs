@@ -20,7 +20,7 @@ public class InGameTycoon : InGameMode
     {
         base.Load();
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var td = Tables.Instance.GetTable<StageInfo>().GetData(stageidx);
 
@@ -35,7 +35,7 @@ public class InGameTycoon : InGameMode
 
     public void StartGame()
     {
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var clearpercent = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.StartStage, stageidx);
 

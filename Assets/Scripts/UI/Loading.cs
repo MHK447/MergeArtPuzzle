@@ -73,7 +73,7 @@ public class Loading : UIBase
 
     public void SetStageImage()
     {
-        var curStage = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var curStage = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
         // var PrevTd = Tables.Instance.GetTable<StageSet>().GetData(curStage - 1);
         // var Td = Tables.Instance.GetTable<StageSet>().GetData(curStage);
 

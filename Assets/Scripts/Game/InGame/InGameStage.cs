@@ -26,7 +26,7 @@ public class InGameStage : MonoBehaviour
         IsLoadComplete = false;
         disposable.Clear();
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var td = Tables.Instance.GetTable<StageInfo>().GetData(stageidx);
     }

@@ -344,6 +344,7 @@ MonoBehaviour:
   StagePercentText: {fileID: 5810200719716156307}
   ProgressStoreImage: {fileID: 2115829649440705621}
   StoreBgImage: {fileID: 8351865800777225516}
+  SliderValue: {fileID: 2303239957016132414}
 --- !u!1 &3796302574533242012
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +513,7 @@ MonoBehaviour:
   StagePercentText: {fileID: 6869973503426417582}
   ProgressStoreImage: {fileID: 4016471695087895767}
   StoreBgImage: {fileID: 102814303194130140}
+  SliderValue: {fileID: 8244267109252031751}
 --- !u!1001 &124941285707889772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,7 +813,11 @@ PrefabInstance:
     - target: {fileID: 78051970930469992, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d98a9f652319a04ebcee3c520d1f21e, type: 3}
+      objectReference: {fileID: 21300000, guid: 8de87bd7fed11004e90fe4ae5281061a, type: 3}
+    - target: {fileID: 78051970930469992, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.593
+      objectReference: {fileID: 0}
     - target: {fileID: 298292545924039656, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_SizeDelta.x
       value: 290
@@ -828,6 +834,10 @@ PrefabInstance:
       propertyPath: keyLocalize
       value: str_chapter_5
       objectReference: {fileID: 0}
+    - target: {fileID: 1047726339572693364, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: m_Value
+      value: 0.593
+      objectReference: {fileID: 0}
     - target: {fileID: 1553401745344291879, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_Name
       value: Stage_Map_05
@@ -840,10 +850,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 74e07a22a88e2ab42b54989f57c554b3, type: 3}
+    - target: {fileID: 2219686417771423251, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: LobbyStageFoodGroupComponentList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219686417771423251, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: 'LobbyStageFoodGroupComponentList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6900903432171765000}
+    - target: {fileID: 2219686417771423251, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: 'LobbyStageFoodGroupComponentList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8687288202828035622}
     - target: {fileID: 3609248096258169929, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d98a9f652319a04ebcee3c520d1f21e, type: 3}
+      objectReference: {fileID: 21300000, guid: 8de87bd7fed11004e90fe4ae5281061a, type: 3}
     - target: {fileID: 3720568511216751944, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_Sprite
       value: 

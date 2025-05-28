@@ -44,7 +44,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
     {
         FoodGroupIdx = foodgroupidx;
 
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, foodgroupidx));
 
@@ -137,14 +137,14 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickClearBtn()
     {
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().GoToLobby(stageidx, FoodGroupIdx);
     }
 
     public void CreateFood(int foodidx)
     {
-        var stageidx = GameRoot.Instance.UserData.CurMode.StageData.Stageidx.Value;
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
         var td = Tables.Instance.GetTable<FoodMergeGroupInfo>().GetData(new KeyValuePair<int, int>(stageidx, FoodGroupIdx));
 

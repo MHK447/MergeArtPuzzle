@@ -181,6 +181,7 @@ MonoBehaviour:
   StagePercentText: {fileID: 9017482106248111504}
   ProgressStoreImage: {fileID: 2494880302559344136}
   StoreBgImage: {fileID: 1007945812195149334}
+  SliderValue: {fileID: 3377201339061268028}
 --- !u!1 &1884825828219160319
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +441,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 74e07a22a88e2ab42b54989f57c554b3, type: 3}
+    - target: {fileID: 2219686417771423251, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: LobbyStageFoodGroupComponentList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219686417771423251, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
+      propertyPath: 'LobbyStageFoodGroupComponentList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 650761012642166669}
     - target: {fileID: 3609248096258169929, guid: 2687365683317bb4fbda216fd9e517ed, type: 3}
       propertyPath: m_Sprite
       value: 

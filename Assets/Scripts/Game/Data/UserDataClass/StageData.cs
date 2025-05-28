@@ -34,13 +34,31 @@ public partial class UserDataSystem
         if (fb_Stagedata.HasValue)
         {
             Stagedata.Stageidx.Value = fb_Stagedata.Value.Stageidx;
+            
+            // mainData의 StageData와 동기화
+            if (mainData != null && mainData.StageData != null)
+            {
+                mainData.StageData.Stageidx.Value = Stagedata.Stageidx.Value;
+            }
         }
     }
 
+    // StageData 값이 변경될 때 두 속성 간 동기화를 위한 메소드 추가
+    public void UpdateStageIdx(int stageIdx)
+    {
+        Stagedata.Stageidx.Value = stageIdx;
+        
+        if (mainData != null && mainData.StageData != null)
+        {
+            mainData.StageData.Stageidx.Value = stageIdx;
+        }
+        
+        Save();
+    }
 }
 
 public class StageData
 {
-    public IReactiveProperty<int> Stageidx { get; set; } = new ReactiveProperty<int>(0);
+    public IReactiveProperty<int> Stageidx { get; set; } = new ReactiveProperty<int>(1);
 
 }

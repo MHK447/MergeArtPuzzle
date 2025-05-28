@@ -9,7 +9,6 @@ public interface IUserDataMode
 	IReactiveProperty<BigInteger> Money { get; set; }
 	DateTime LastLoginTime { get; set; }
 	DateTime CurPlayDateTime { get; set; }
-	public StageData StageData { get; set; }
 	IReactiveProperty<BigInteger> EnergyMoney { get; set; }
 	IReactiveProperty<int> GachaCoin { get; set; }
 	public UpgradeGroupData UpgradeGroupData { get; set; }
