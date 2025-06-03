@@ -18,6 +18,10 @@ public class FoodSystem
 
     public int max_food_size = 0;
 
+    public int MaxEnergyCoin = 100;
+
+    public int energy_add_count = 0;
+
     public void Create()
     {
         EnergyCoinTimeProperty.Value = 0;
@@ -25,6 +29,7 @@ public class FoodSystem
         energy_add_time = Tables.Instance.GetTable<Define>().GetData("energy_add_time").value;
         start_energy_coin = Tables.Instance.GetTable<Define>().GetData("start_energy_coin").value;
         max_food_size = Tables.Instance.GetTable<Define>().GetData("max_food_size").value;
+        energy_add_count = Tables.Instance.GetTable<Define>().GetData("energy_add_count").value;
     }
 
 
@@ -66,7 +71,7 @@ public class FoodSystem
             }
 
             var foodlist = inGameTycoon.InGameChapterMap.GetFoodList.FindAll(x => x.gameObject.activeSelf).ToList();
-            
+
             // 현재 상태를 데이터에 반영
             if (foodlist.Count > 0)
             {
@@ -90,7 +95,7 @@ public class FoodSystem
                         });
                     }
                 }
-                
+
                 Debug.Log($"CurCheckFoodData: {foodlist.Count}개 음식 데이터 저장");
             }
             else
@@ -114,8 +119,11 @@ public class FoodSystem
 
         if (EnergyCoinTimeProperty.Value >= energy_add_time)
         {
-            GameRoot.Instance.UserData.Energycoin.Value += 1;
-            EnergyCoinTimeProperty.Value = 0;
+            if (GameRoot.Instance.UserData.Energycoin.Value < MaxEnergyCoin)
+            {
+                GameRoot.Instance.UserData.Energycoin.Value += 1;
+                EnergyCoinTimeProperty.Value = 0;
+            }
         }
     }
 

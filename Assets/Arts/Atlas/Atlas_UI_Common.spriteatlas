@@ -93,7 +93,10 @@ SpriteAtlas:
     - a8c4bbd386a7a30409040277f4711f99: 21300000
     - 2174bc4436dee8d4497e601bba82061a: 21300000
     - 57e69d252f458c14197462573cbc0602: 21300000
+    - f742f495452524be78a432218c8cce53: 21300000
     - f7c4289558e809147bc88c3923057976: 21300000
+    - 519970c63619c464cad28218d7a64e96: 21300000
+    - f98686e68b2534ab6910ff41a1b2ced1: 21300000
     - d2ee1817ed7a9164086523d539e12998: 21300000
     - 37e530a798bcec346be4a64c009493af: 21300000
     - 7b7bd868905c5914a8b35e9a5c320bec: 21300000
@@ -105,10 +108,12 @@ SpriteAtlas:
     - f00192ba367468143931fa2d04c5c2c6: 21300000
     - 034a516b58822bf4ca7b7d8d8c309bdf: 21300000
     - 21fd8e6c8f46f2345bdbe4be38f7d3e9: 21300000
+    - 135ec3ac624374d1eb93212520c5727a: 21300000
     - da5f97bce2eef5b48b7b6e5cc7d0135f: 21300000
     - 73621ddc1d677514db0e937917086288: 21300000
     - 214dc7bdbed888b4bbbeada7c1ccacc1: 21300000
     - 4ac703ddb9f6dfe489d863dd0d82c2c1: 21300000
+    - 5a6fb38ee51ee427ea98f97153596cba: 21300000
     - 042e8baec872a5049adf8843350b7a28: 21300000
     - ea3f607f004da2046bed6add8747f8c5: 21300000
     - 5c57089f668e3aa4dbfd6474cf9cc07a: 21300000
@@ -131,7 +136,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a8c4bbd386a7a30409040277f4711f99, type: 3}
   - {fileID: 21300000, guid: 2174bc4436dee8d4497e601bba82061a, type: 3}
   - {fileID: 21300000, guid: 57e69d252f458c14197462573cbc0602, type: 3}
+  - {fileID: 21300000, guid: f742f495452524be78a432218c8cce53, type: 3}
   - {fileID: 21300000, guid: f7c4289558e809147bc88c3923057976, type: 3}
+  - {fileID: 21300000, guid: 519970c63619c464cad28218d7a64e96, type: 3}
+  - {fileID: 21300000, guid: f98686e68b2534ab6910ff41a1b2ced1, type: 3}
   - {fileID: 21300000, guid: d2ee1817ed7a9164086523d539e12998, type: 3}
   - {fileID: 21300000, guid: 37e530a798bcec346be4a64c009493af, type: 3}
   - {fileID: 21300000, guid: 7b7bd868905c5914a8b35e9a5c320bec, type: 3}
@@ -143,10 +151,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f00192ba367468143931fa2d04c5c2c6, type: 3}
   - {fileID: 21300000, guid: 034a516b58822bf4ca7b7d8d8c309bdf, type: 3}
   - {fileID: 21300000, guid: 21fd8e6c8f46f2345bdbe4be38f7d3e9, type: 3}
+  - {fileID: 21300000, guid: 135ec3ac624374d1eb93212520c5727a, type: 3}
   - {fileID: 21300000, guid: da5f97bce2eef5b48b7b6e5cc7d0135f, type: 3}
   - {fileID: 21300000, guid: 73621ddc1d677514db0e937917086288, type: 3}
   - {fileID: 21300000, guid: 214dc7bdbed888b4bbbeada7c1ccacc1, type: 3}
   - {fileID: 21300000, guid: 4ac703ddb9f6dfe489d863dd0d82c2c1, type: 3}
+  - {fileID: 21300000, guid: 5a6fb38ee51ee427ea98f97153596cba, type: 3}
   - {fileID: 21300000, guid: 042e8baec872a5049adf8843350b7a28, type: 3}
   - {fileID: 21300000, guid: ea3f607f004da2046bed6add8747f8c5, type: 3}
   - {fileID: 21300000, guid: 5c57089f668e3aa4dbfd6474cf9cc07a, type: 3}
@@ -168,7 +178,10 @@ SpriteAtlas:
   - Common_Frame_R20
   - Common_Icon_Goods_NoAds
   - Common_Btn_HUD_Home
+  - Common_Lightning_1
   - Common_Btn_Trash
+  - Common_Ads_Bubble
+  - Common_Focus
   - Common_Frame_BottomBg_Purple
   - Common_Icon_LightningSet
   - Common_Btn_HUD_Plus
@@ -180,10 +193,12 @@ SpriteAtlas:
   - Common_Frame_Gradation
   - Common_Icon_ShopGems_02
   - Common_Frame_BubbleMsg
+  - Common_Lightning_2
   - Common_Frame_Popup
   - Common_Icon_NoAds
   - Common_Icon_Ads
   - Common_Btn_Default_Cash
+  - Common_Lightning_3
   - Common_Bg_IngameSlot
   - Common_Icon_ShopGems_01
   - Common_Btn_HUD_Option

@@ -10,6 +10,7 @@ TagManager:
   - PlanetBullet
   - Tile
   - Food
+  - EnergyAd
   layers:
   - Default
   - TransparentFX

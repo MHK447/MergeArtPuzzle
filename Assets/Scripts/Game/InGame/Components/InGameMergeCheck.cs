@@ -17,6 +17,8 @@ public class InGameMergeCheck : MonoBehaviour
     private Collider2D col;
     private int fingerId = -1;
 
+    private InGameEnergyAd SelectEnergyAd;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -50,10 +52,28 @@ public class InGameMergeCheck : MonoBehaviour
                 if (CurSelectFood != null)
                 {
                     SelectFood = hit.GetComponent<InGameFood>();
-                    CurSelectFood.gameObject.SetActive(true);
+                    CurSelectFood.gameObject.SetActive(true); 
                     CurSelectFood.transform.position = worldPos;
                     SelectFood.SelectOn();
-                    CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx , SelectFood.GetFoodIdx, SelectFood.GetGrade);
+                    CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx, SelectFood.GetFoodIdx, SelectFood.GetGrade);
+                }
+            }
+            else if (hit != null && hit.CompareTag("EnergyAd"))
+            {
+
+                if (SelectEnergyAd != null)
+                {
+                    SelectEnergyAd.SelectActiveCheck(false);
+                }
+
+                SelectEnergyAd = hit.GetComponent<InGameEnergyAd>();
+
+                var getui = GameRoot.Instance.UISystem.GetUI<PopupCollectionInfo>();
+
+                if (SelectEnergyAd != null)
+                {
+                    SelectEnergyAd.SelectActiveCheck(true);
+                    GameRoot.Instance.UISystem.OpenUI<PopupCollectionInfo>(popup => popup.Set(SelectEnergyAd.GetEnergyIdx, SelectEnergyAd));
                 }
             }
         }
@@ -145,7 +165,7 @@ public class InGameMergeCheck : MonoBehaviour
         float mergeRadius = 0.55f;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(checkPos, mergeRadius);
-        
+
         InGameFood closestFood = null;
         float closestDistance = float.MaxValue;
 
@@ -154,11 +174,11 @@ public class InGameMergeCheck : MonoBehaviour
             if (hit.gameObject != SelectFood.gameObject && hit.CompareTag("Food"))
             {
                 var foodObj = hit.GetComponent<InGameFood>();
-                
+
                 if (SelectFood != null && SelectFood.GetFoodIdx == foodObj.GetFoodIdx && SelectFood.GetGrade == foodObj.GetGrade)
                 {
                     float distance = Vector2.Distance(checkPos, hit.transform.position);
-                    
+
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -167,7 +187,7 @@ public class InGameMergeCheck : MonoBehaviour
                 }
             }
         }
-        
+
         if (closestFood != null)
         {
             TryMergeWith(closestFood);
@@ -181,11 +201,11 @@ public class InGameMergeCheck : MonoBehaviour
             {
                 var mergegroupdata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(SelectFood.GetMergeGroupIdx);
 
-                if(mergegroupdata != null)
+                if (mergegroupdata != null)
                 {
                     var finddata = mergegroupdata.Ingamefooddatas.Find(x => x.Foodidx == SelectFood.GetFoodIdx && x.Mergegrade == SelectFood.GetGrade);
 
-                    if(finddata != null)
+                    if (finddata != null)
                     {
                         mergegroupdata.Ingamefooddatas.Remove(finddata);
                     }
@@ -194,7 +214,7 @@ public class InGameMergeCheck : MonoBehaviour
 
                 ProjectUtility.SetActiveCheck(SelectFood.gameObject, false);
                 other.SetGrade(SelectFood.GetGrade + 1);
-                
+
                 // AddMergeEffect(other.transform.position);
             }
         }

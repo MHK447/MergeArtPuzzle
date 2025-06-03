@@ -347,6 +347,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc145e8ceb6ad61488d39a4541e426be
+    m_Address: UI/Popup/PopupCollectionInfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1ba2885282604226aa97ac1cbed4118
+    m_Address: InGameEnergy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 33d34b1065dcd4c0db03f94efd6e0ee1, type: 2}
   m_SchemaSet:

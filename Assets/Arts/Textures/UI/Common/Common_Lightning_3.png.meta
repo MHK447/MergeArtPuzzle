@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf5c69adaf829164dbc4630b2fd7e751
+guid: 5a6fb38ee51ee427ea98f97153596cba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4638943477335917136
-    second: Ads_Bubble_0
+      213: -343982118684573457
+    second: Lightning_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ads_Bubble_0
+      name: Lightning_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 196
-        height: 196
+        width: 129
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0bdf64c4c792f9fb0800000000000000
-      internalID: -4638943477335917136
+      spriteID: fe048b6e51ee93bf0800000000000000
+      internalID: -343982118684573457
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ads_Bubble_0: -4638943477335917136
+      Lightning_3_0: -343982118684573457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

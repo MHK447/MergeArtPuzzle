@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: c163b7a385c878a418f78fb28863ad5c
+guid: f98686e68b2534ab6910ff41a1b2ced1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5468124936831443121
-    second: Lightning_1_0
+      213: 5034282583614132872
+    second: Focus_0
+  - first:
+      213: -6730462130933001806
+    second: Focus_1
+  - first:
+      213: 62759413904516566
+    second: Focus_2
+  - first:
+      213: -8437560188721049360
+    second: Focus_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lightning_1_0
+      name: Focus_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 56
-        height: 80
+        y: 74
+        width: 51
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +149,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4fd4b067515d14b0800000000000000
-      internalID: -5468124936831443121
+      spriteID: 8829147465d5dd540800000000000000
+      internalID: 5034282583614132872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Focus_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 74
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b11587f9589892a0800000000000000
+      internalID: -6730462130933001806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Focus_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5271cba57fed000800000000000000
+      internalID: 62759413904516566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Focus_3
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0dd4466b3c7ea80800000000000000
+      internalID: -8437560188721049360
       vertices: []
       indices: 
       edges: []
@@ -157,7 +229,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lightning_1_0: -5468124936831443121
+      Focus_0: 5034282583614132872
+      Focus_1: -6730462130933001806
+      Focus_2: 62759413904516566
+      Focus_3: -8437560188721049360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

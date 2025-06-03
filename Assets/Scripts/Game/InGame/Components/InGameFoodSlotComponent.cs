@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UniRx;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class InGameFoodSlotComponent : MonoBehaviour
 {
@@ -151,6 +152,13 @@ public class InGameFoodSlotComponent : MonoBehaviour
         if (td != null)
         {
 
+            GameRoot.Instance.UserData.Energycreatefood += 1;
+
+            if (GameRoot.Instance.UserData.Energycreatefood % GameRoot.Instance.FoodSystem.energy_add_count == 0)
+            {
+                AddRandInGameEnergy();
+            }
+
             var randvalue = foodidx;
 
             var drawfooddata = FoodMergeGroupData.Drawfooddatas.Find(x => x.Foodidx == randvalue);
@@ -170,6 +178,14 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
             GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateFood(randvalue, 1, FoodGroupIdx);
         }
+    }
+
+
+    public void AddRandInGameEnergy()
+    {
+        var tdlist = Tables.Instance.GetTable<InGameEnergyInfo>().DataList.ToList();
+        var randvalue = Random.Range(0, tdlist.Count);
+        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateEnergy(tdlist[randvalue].energy_idx);
 
     }
 

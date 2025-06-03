@@ -71,6 +71,7 @@ public partial class UserDataSystem
     public IReactiveProperty<double> HUDArtifactStone = new ReactiveProperty<double>(0);
 
     // @변수 자동 등록 위치
+    public int Energycreatefood { get; set; } = 0;
     public IReactiveProperty<int> Starcoinvalue { get; set; } = new ReactiveProperty<int>(0);
     public IReactiveProperty<int> Starvalue { get; set; } = new ReactiveProperty<int>(0);
     public IReactiveProperty<int> Energycoin { get; set; } = new ReactiveProperty<int>(0);
@@ -149,6 +150,7 @@ public partial class UserDataSystem
         SetLoadDatas();
 
         // @변수 자동 데이터 추가
+        Energycreatefood = flatBufferUserData.Energycreatefood;
         Starcoinvalue.Value = flatBufferUserData.Starcoinvalue;
         Energycoin.Value = flatBufferUserData.Energycoin;
         Stageenergycount.Value = flatBufferUserData.Stageenergycount;

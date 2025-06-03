@@ -41,6 +41,7 @@ table UserData {
   foodmergegroupdatas:[FoodMergeGroupData];
   energycoin:int = 0; //@ReactiveProperty 
   starcoinvalue:int = 0; //@ReactiveProperty
+  energycreatefood:int = 0; 
 }
 
 table OptionData {

@@ -13,16 +13,18 @@ public class HudTopCurrency : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI EnergyCoinTimeText;
-
+    
+    [SerializeField]
+    private GameObject EnergyRoot; 
 
     [SerializeField]
     private TextMeshProUGUI CashText;
 
-    
+
 
     private CompositeDisposable disposables = new CompositeDisposable();
-    
-    
+
+
 
 
 
@@ -30,19 +32,27 @@ public class HudTopCurrency : MonoBehaviour
     {
         disposables.Clear();
 
-        GameRoot.Instance.UserData.Energycoin.Subscribe(count => {
+        GameRoot.Instance.UserData.Energycoin.Subscribe(count =>
+        {
             EnergycoinText.text = $"{count}";
         }).AddTo(disposables);
 
-        GameRoot.Instance.UserData.Cash.Subscribe(x=> {
-            
+        GameRoot.Instance.UserData.Cash.Subscribe(x =>
+        {
+
             CashText.text = $"{x}";
         }).AddTo(disposables);
 
 
-        GameRoot.Instance.FoodSystem.EnergyCoinTimeProperty.Subscribe(x=> {
+        GameRoot.Instance.FoodSystem.EnergyCoinTimeProperty.Subscribe(x =>
+        {
             var timevalue = GameRoot.Instance.FoodSystem.energy_add_time - x;
             EnergyCoinTimeText.text = ProjectUtility.GetTimeStringFormattingShort(timevalue);
+        }).AddTo(disposables);
+
+        GameRoot.Instance.UserData.Energycoin.Subscribe(x =>
+        {
+            ProjectUtility.SetActiveCheck(EnergyRoot, x < GameRoot.Instance.FoodSystem.MaxEnergyCoin);
         }).AddTo(disposables);
     }
 

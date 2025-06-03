@@ -57,6 +57,8 @@ public struct UserData : IFlatbufferObject
   public bool MutateEnergycoin(int energycoin) { int o = __p.__offset(32); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, energycoin); return true; } else { return false; } }
   public int Starcoinvalue { get { int o = __p.__offset(34); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
   public bool MutateStarcoinvalue(int starcoinvalue) { int o = __p.__offset(34); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, starcoinvalue); return true; } else { return false; } }
+  public int Energycreatefood { get { int o = __p.__offset(36); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public bool MutateEnergycreatefood(int energycreatefood) { int o = __p.__offset(36); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, energycreatefood); return true; } else { return false; } }
 
   public static Offset<BanpoFri.Data.UserData> CreateUserData(FlatBufferBuilder builder,
       double money = 0.0,
@@ -74,12 +76,14 @@ public struct UserData : IFlatbufferObject
       int stageenergycount = 0,
       VectorOffset foodmergegroupdatasOffset = default(VectorOffset),
       int energycoin = 0,
-      int starcoinvalue = 0) {
-    builder.StartTable(16);
+      int starcoinvalue = 0,
+      int energycreatefood = 0) {
+    builder.StartTable(17);
     UserData.AddUuid(builder, uuid);
     UserData.AddGamestarttime(builder, gamestarttime);
     UserData.AddLastlogintime(builder, lastlogintime);
     UserData.AddMoney(builder, money);
+    UserData.AddEnergycreatefood(builder, energycreatefood);
     UserData.AddStarcoinvalue(builder, starcoinvalue);
     UserData.AddEnergycoin(builder, energycoin);
     UserData.AddFoodmergegroupdatas(builder, foodmergegroupdatasOffset);
@@ -95,7 +99,7 @@ public struct UserData : IFlatbufferObject
     return UserData.EndUserData(builder);
   }
 
-  public static void StartUserData(FlatBufferBuilder builder) { builder.StartTable(16); }
+  public static void StartUserData(FlatBufferBuilder builder) { builder.StartTable(17); }
   public static void AddMoney(FlatBufferBuilder builder, double money) { builder.AddDouble(0, money, 0.0); }
   public static void AddCash(FlatBufferBuilder builder, int cash) { builder.AddInt(1, cash, 0); }
   public static void AddBuyinappids(FlatBufferBuilder builder, StringOffset buyinappidsOffset) { builder.AddOffset(2, buyinappidsOffset.Value, 0); }
@@ -132,6 +136,7 @@ public struct UserData : IFlatbufferObject
   public static void StartFoodmergegroupdatasVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static void AddEnergycoin(FlatBufferBuilder builder, int energycoin) { builder.AddInt(14, energycoin, 0); }
   public static void AddStarcoinvalue(FlatBufferBuilder builder, int starcoinvalue) { builder.AddInt(15, starcoinvalue, 0); }
+  public static void AddEnergycreatefood(FlatBufferBuilder builder, int energycreatefood) { builder.AddInt(16, energycreatefood, 0); }
   public static Offset<BanpoFri.Data.UserData> EndUserData(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<BanpoFri.Data.UserData>(o);
@@ -164,6 +169,7 @@ public struct UserData : IFlatbufferObject
     for (var _j = 0; _j < this.FoodmergegroupdatasLength; ++_j) {_o.Foodmergegroupdatas.Add(this.Foodmergegroupdatas(_j).HasValue ? this.Foodmergegroupdatas(_j).Value.UnPack() : null);}
     _o.Energycoin = this.Energycoin;
     _o.Starcoinvalue = this.Starcoinvalue;
+    _o.Energycreatefood = this.Energycreatefood;
   }
   public static Offset<BanpoFri.Data.UserData> Pack(FlatBufferBuilder builder, UserDataT _o) {
     if (_o == null) return default(Offset<BanpoFri.Data.UserData>);
@@ -211,7 +217,8 @@ public struct UserData : IFlatbufferObject
       _o.Stageenergycount,
       _foodmergegroupdatas,
       _o.Energycoin,
-      _o.Starcoinvalue);
+      _o.Starcoinvalue,
+      _o.Energycreatefood);
   }
 }
 
@@ -249,6 +256,8 @@ public class UserDataT
   public int Energycoin { get; set; }
   [Newtonsoft.Json.JsonProperty("starcoinvalue")]
   public int Starcoinvalue { get; set; }
+  [Newtonsoft.Json.JsonProperty("energycreatefood")]
+  public int Energycreatefood { get; set; }
 
   public UserDataT() {
     this.Money = 0.0;
@@ -267,6 +276,7 @@ public class UserDataT
     this.Foodmergegroupdatas = null;
     this.Energycoin = 0;
     this.Starcoinvalue = 0;
+    this.Energycreatefood = 0;
   }
 
   public static UserDataT DeserializeFromJson(string jsonText) {
@@ -307,6 +317,7 @@ static public class UserDataVerify
       && verifier.VerifyVectorOfTables(tablePos, 30 /*Foodmergegroupdatas*/, BanpoFri.Data.FoodMergeGroupDataVerify.Verify, false)
       && verifier.VerifyField(tablePos, 32 /*Energycoin*/, 4 /*int*/, 4, false)
       && verifier.VerifyField(tablePos, 34 /*Starcoinvalue*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 36 /*Energycreatefood*/, 4 /*int*/, 4, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
