@@ -17,8 +17,6 @@ public class PopupInGameUI : UIBase
     [SerializeField]
     private List<InGameFoodSlotComponent> FoodComponentList = new List<InGameFoodSlotComponent>();
 
-    [SerializeField]
-    private HudTopCurrency TopCurrency;
 
     [SerializeField]
     private TextMeshProUGUI StarGoalValueText;
@@ -30,6 +28,11 @@ public class PopupInGameUI : UIBase
 
     [SerializeField]
     private Button TrashBtn;
+
+    [SerializeField]
+    private Button ShopBtn;
+
+
 
     private int GoalValue = 0;
 
@@ -43,6 +46,8 @@ public class PopupInGameUI : UIBase
         base.Awake();
 
         TrashBtn.onClick.AddListener(OnClickTrashBtn);
+
+        ShopBtn.onClick.AddListener(OnClickShopBtn);
     }
 
     public void Set(int stageidx)
@@ -75,8 +80,6 @@ public class PopupInGameUI : UIBase
         }).AddTo(disposables);
 
         CheckStarGoalValue();
-
-        TopCurrency.Init();
     }
 
     public void CheckStarGoalValue()
@@ -91,6 +94,8 @@ public class PopupInGameUI : UIBase
         StarGoalValueText.text = $"{MergeGroupFoodCount}/{GoalValue}";
 
         SliderValue.value = (float)MergeGroupFoodCount / (float)GoalValue;
+
+        
     }
 
     public InGameFoodSlotComponent GetInGameFoodSlotComponent(int foodgroupidx)
@@ -110,6 +115,13 @@ public class PopupInGameUI : UIBase
         var toastmesg = Tables.Instance.GetTable<Localize>().GetString("str_toastmsg_3");
 
         GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => popup.Show("", toastmesg));
+    }
+
+    public void OnClickShopBtn()
+    {
+        GameRoot.Instance.UISystem.OpenUI<PageShop>(page => {     
+            page.Init();
+        });
     }
 
     void OnDestroy()

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307e64f94c5f24d878b90a035326b336, type: 3}
+  m_Name: ShopProduct
+  m_EditorClassIdentifier: 
+  mFirstKey:
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 1
+  - 2
+  mSecondKey: []
+  mDataList:
+  - _idx: 101
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 170
+    _product_id: Currency_Gem_01
+  - _idx: 102
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 550
+    _product_id: Currency_Gem_02
+  - _idx: 103
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 1250
+    _product_id: Currency_Gem_03
+  - _idx: 104
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 3000
+    _product_id: Currency_Gem_04
+  - _idx: 105
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 8450
+    _product_id: Currency_Gem_05
+  - _idx: 106
+    _type: 1
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 17500
+    _product_id: Currency_Gem_06
+  - _idx: 1
+    _type: 2
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 15
+    _product_id: 
+  - _idx: 2
+    _type: 2
+    _reward_type: 1
+    _reward_idx: 2
+    _value: 45
+    _product_id: 

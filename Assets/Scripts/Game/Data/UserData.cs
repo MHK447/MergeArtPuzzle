@@ -230,6 +230,7 @@ public partial class UserDataSystem
         // @저장 함수 콜백 호출
         cb_SaveAddDatas?.Invoke();
         cb_SaveAddDatas = null;
+        BanpoFri.Data.UserData.AddCash(builder, Cash.Value);
         BanpoFri.Data.UserData.AddBuyinappids(builder, buyInappIds);
         BanpoFri.Data.UserData.AddLastlogintime(builder, mainData.LastLoginTime.Ticks);
         BanpoFri.Data.UserData.AddOptiondata(builder, option);
@@ -240,6 +241,7 @@ public partial class UserDataSystem
         BanpoFri.Data.UserData.AddEnergycoin(builder, Energycoin.Value);
         BanpoFri.Data.UserData.AddStarcoinvalue(builder, Starcoinvalue.Value);
         BanpoFri.Data.UserData.AddEnergycreatefood(builder, Energycreatefood);
+        BanpoFri.Data.UserData.AddDayinitialtime(builder, Dayinitialtime.Ticks);
         var orc = BanpoFri.Data.UserData.EndUserData(builder);
         builder.Finish(orc.Value);
 

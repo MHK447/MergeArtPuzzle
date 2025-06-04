@@ -16,9 +16,7 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
     // 상품 ID 정의
     public static class ProductIDs
     {
-        // 소모품
-
-        // 비소모품
+        
         public const string REMOVE_ADS = "otterfishshop_noads_100";
     }
 

@@ -135,6 +135,7 @@ public class GameRoot : Singleton<GameRoot>
 		{
 			deltaTime -= 1f;
 			FoodSystem.OneSecondUpdate();
+			ShopSystem.UpdateOneSecond();
 		}
 		deltaTime += Time.deltaTime;
 
@@ -253,6 +254,7 @@ public class GameRoot : Singleton<GameRoot>
 		InGameSystem.Create();
 		GameNotification.Create();
 		FoodSystem.Create();
+		ShopSystem.Create();
 
 		InitRequestAtlas();
 

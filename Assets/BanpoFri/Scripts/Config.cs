@@ -87,6 +87,8 @@ public class Config : BanpoFri.SingletonScriptableObject<Config>, BanpoFri.ILoad
         Init,
         StartStage,
         Navi_Start,
+        FreeGemCount,
+        AdGemCount,
     }
 
 

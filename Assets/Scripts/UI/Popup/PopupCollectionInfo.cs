@@ -23,6 +23,15 @@ public class PopupCollectionInfo : UIBase
     [SerializeField]
     private TextMeshProUGUI NameText;
 
+    [SerializeField]
+    private TextMeshProUGUI DescText;
+
+    [SerializeField]
+    private GameObject FreeObj;
+
+    [SerializeField]
+    private GameObject AdObj;
+
 
     private int AdCostValue = 25;
 
@@ -47,6 +56,11 @@ public class PopupCollectionInfo : UIBase
             EnergyRewardValue = td.value;
             RewardAdText.text = EnergyRewardValue.ToString();
             NameText.text = Tables.Instance.GetTable<Localize>().GetString(td.name);
+            DescText.text = Tables.Instance.GetTable<Localize>().GetString(td.desc);
+                        
+            ProjectUtility.SetActiveCheck(AdObj, energyidx > 1);
+            ProjectUtility.SetActiveCheck(FreeObj, energyidx == 1);
+
 
             EnergyAd = energyad;
         }
@@ -82,7 +96,7 @@ public class PopupCollectionInfo : UIBase
 
     public void OnClickCashBtn()
     {
-        if (AdCostValue >= GameRoot.Instance.UserData.Cash.Value)
+        if (AdCostValue <= GameRoot.Instance.UserData.Cash.Value)
         {
             GameRoot.Instance.UserData.SetReward((int)Config.RewardType.Currency, (int)Config.CurrencyID.Cash, -AdCostValue);
             GameRoot.Instance.UserData.Energycoin.Value += EnergyRewardValue;
@@ -90,6 +104,5 @@ public class PopupCollectionInfo : UIBase
 
             Hide();
         }
-
     }
 }

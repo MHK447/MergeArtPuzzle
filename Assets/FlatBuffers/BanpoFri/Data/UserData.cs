@@ -59,6 +59,8 @@ public struct UserData : IFlatbufferObject
   public bool MutateStarcoinvalue(int starcoinvalue) { int o = __p.__offset(34); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, starcoinvalue); return true; } else { return false; } }
   public int Energycreatefood { get { int o = __p.__offset(36); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
   public bool MutateEnergycreatefood(int energycreatefood) { int o = __p.__offset(36); if (o != 0) { __p.bb.PutInt(o + __p.bb_pos, energycreatefood); return true; } else { return false; } }
+  public long Dayinitialtime { get { int o = __p.__offset(38); return o != 0 ? __p.bb.GetLong(o + __p.bb_pos) : (long)0; } }
+  public bool MutateDayinitialtime(long dayinitialtime) { int o = __p.__offset(38); if (o != 0) { __p.bb.PutLong(o + __p.bb_pos, dayinitialtime); return true; } else { return false; } }
 
   public static Offset<BanpoFri.Data.UserData> CreateUserData(FlatBufferBuilder builder,
       double money = 0.0,
@@ -77,8 +79,10 @@ public struct UserData : IFlatbufferObject
       VectorOffset foodmergegroupdatasOffset = default(VectorOffset),
       int energycoin = 0,
       int starcoinvalue = 0,
-      int energycreatefood = 0) {
-    builder.StartTable(17);
+      int energycreatefood = 0,
+      long dayinitialtime = 0) {
+    builder.StartTable(18);
+    UserData.AddDayinitialtime(builder, dayinitialtime);
     UserData.AddUuid(builder, uuid);
     UserData.AddGamestarttime(builder, gamestarttime);
     UserData.AddLastlogintime(builder, lastlogintime);
@@ -99,7 +103,7 @@ public struct UserData : IFlatbufferObject
     return UserData.EndUserData(builder);
   }
 
-  public static void StartUserData(FlatBufferBuilder builder) { builder.StartTable(17); }
+  public static void StartUserData(FlatBufferBuilder builder) { builder.StartTable(18); }
   public static void AddMoney(FlatBufferBuilder builder, double money) { builder.AddDouble(0, money, 0.0); }
   public static void AddCash(FlatBufferBuilder builder, int cash) { builder.AddInt(1, cash, 0); }
   public static void AddBuyinappids(FlatBufferBuilder builder, StringOffset buyinappidsOffset) { builder.AddOffset(2, buyinappidsOffset.Value, 0); }
@@ -137,6 +141,7 @@ public struct UserData : IFlatbufferObject
   public static void AddEnergycoin(FlatBufferBuilder builder, int energycoin) { builder.AddInt(14, energycoin, 0); }
   public static void AddStarcoinvalue(FlatBufferBuilder builder, int starcoinvalue) { builder.AddInt(15, starcoinvalue, 0); }
   public static void AddEnergycreatefood(FlatBufferBuilder builder, int energycreatefood) { builder.AddInt(16, energycreatefood, 0); }
+  public static void AddDayinitialtime(FlatBufferBuilder builder, long dayinitialtime) { builder.AddLong(17, dayinitialtime, 0); }
   public static Offset<BanpoFri.Data.UserData> EndUserData(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<BanpoFri.Data.UserData>(o);
@@ -170,6 +175,7 @@ public struct UserData : IFlatbufferObject
     _o.Energycoin = this.Energycoin;
     _o.Starcoinvalue = this.Starcoinvalue;
     _o.Energycreatefood = this.Energycreatefood;
+    _o.Dayinitialtime = this.Dayinitialtime;
   }
   public static Offset<BanpoFri.Data.UserData> Pack(FlatBufferBuilder builder, UserDataT _o) {
     if (_o == null) return default(Offset<BanpoFri.Data.UserData>);
@@ -218,7 +224,8 @@ public struct UserData : IFlatbufferObject
       _foodmergegroupdatas,
       _o.Energycoin,
       _o.Starcoinvalue,
-      _o.Energycreatefood);
+      _o.Energycreatefood,
+      _o.Dayinitialtime);
   }
 }
 
@@ -258,6 +265,8 @@ public class UserDataT
   public int Starcoinvalue { get; set; }
   [Newtonsoft.Json.JsonProperty("energycreatefood")]
   public int Energycreatefood { get; set; }
+  [Newtonsoft.Json.JsonProperty("dayinitialtime")]
+  public long Dayinitialtime { get; set; }
 
   public UserDataT() {
     this.Money = 0.0;
@@ -277,6 +286,7 @@ public class UserDataT
     this.Energycoin = 0;
     this.Starcoinvalue = 0;
     this.Energycreatefood = 0;
+    this.Dayinitialtime = 0;
   }
 
   public static UserDataT DeserializeFromJson(string jsonText) {
@@ -318,6 +328,7 @@ static public class UserDataVerify
       && verifier.VerifyField(tablePos, 32 /*Energycoin*/, 4 /*int*/, 4, false)
       && verifier.VerifyField(tablePos, 34 /*Starcoinvalue*/, 4 /*int*/, 4, false)
       && verifier.VerifyField(tablePos, 36 /*Energycreatefood*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 38 /*Dayinitialtime*/, 8 /*long*/, 8, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

@@ -22,11 +22,14 @@ MonoBehaviour:
     _value: 5
     _image: Common_Lightning_1
     _name: str_focus_free_1
+    _desc: str_desc_focus_progress
   - _energy_idx: 2
     _value: 10
     _image: Common_Lightning_2
     _name: str_focus_free_2
+    _desc: str_desc_focus_collect
   - _energy_idx: 3
     _value: 25
     _image: Common_Lightning_3
     _name: str_focus_free_3
+    _desc: str_desc_focus_collect

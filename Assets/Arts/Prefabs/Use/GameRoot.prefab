@@ -752,6 +752,10 @@ GameObject:
   - component: {fileID: 9084572751578744685}
   - component: {fileID: 31885915522602182}
   - component: {fileID: 4615111472151539500}
+  - component: {fileID: 1167453929045138712}
+  - component: {fileID: 8313289233805096599}
+  - component: {fileID: 4449524919486717860}
+  - component: {fileID: 8321841956039697245}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -798,8 +802,8 @@ MonoBehaviour:
   CheatWindow: {fileID: 2530233792324399667}
   DebugConsoleObj: {fileID: 927367955552788177}
   Loading: {fileID: 0}
-  AdManager: {fileID: 0}
-  inAppPurchaseManager: {fileID: 0}
+  AdManager: {fileID: 1167453929045138712}
+  inAppPurchaseManager: {fileID: 4449524919486717860}
   UILock: {fileID: 927367955552756237}
 --- !u!222 &4615111472151539500
 CanvasRenderer:
@@ -809,6 +813,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9084572751578744687}
   m_CullTransparentMesh: 1
+--- !u!114 &1167453929045138712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084572751578744687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46aff577a1024bdca72f7e8c8c04c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8313289233805096599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084572751578744687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumePurchase: 1
+  dontDestroyOnLoad: 1
+  onProductsFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseDetailedFailedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4449524919486717860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084572751578744687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69d52c95a4164bc1b807501bb2b3272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WebHookDiscord: {fileID: 8321841956039697245}
+--- !u!114 &8321841956039697245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084572751578744687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0f4407e8dfd49c8bd896fd7d2cc5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9084572752029594849
 GameObject:
   m_ObjectHideFlags: 0

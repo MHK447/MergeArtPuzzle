@@ -13,9 +13,9 @@ public class HudTopCurrency : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI EnergyCoinTimeText;
-    
+
     [SerializeField]
-    private GameObject EnergyRoot; 
+    private GameObject EnergyRoot;
 
     [SerializeField]
     private TextMeshProUGUI CashText;
@@ -28,7 +28,7 @@ public class HudTopCurrency : MonoBehaviour
 
 
 
-    public void Init()
+    void OnEnable()
     {
         disposables.Clear();
 

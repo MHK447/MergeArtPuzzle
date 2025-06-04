@@ -34,6 +34,13 @@ namespace BanpoFri
 			get { return _name;}
 			set { _name = value;}
 		}
+		[SerializeField]
+		private string _desc;
+		public string desc
+		{
+			get { return _desc;}
+			set { _desc = value;}
+		}
 
     }
 

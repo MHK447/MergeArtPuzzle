@@ -42,6 +42,9 @@ table UserData {
   energycoin:int = 0; //@ReactiveProperty 
   starcoinvalue:int = 0; //@ReactiveProperty
   energycreatefood:int = 0; 
+  // @EndCreate
+  dayinitialtime:long = 0;
+  // @AutoCreate
 }
 
 table OptionData {

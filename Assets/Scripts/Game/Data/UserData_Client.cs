@@ -71,6 +71,7 @@ public partial class UserDataSystem
     public IReactiveProperty<double> HUDArtifactStone = new ReactiveProperty<double>(0);
 
     // @변수 자동 등록 위치
+    public DateTime Dayinitialtime { get; set; }
     public int Energycreatefood { get; set; } = 0;
     public IReactiveProperty<int> Starcoinvalue { get; set; } = new ReactiveProperty<int>(0);
     public IReactiveProperty<int> Starvalue { get; set; } = new ReactiveProperty<int>(0);
@@ -89,14 +90,15 @@ public partial class UserDataSystem
     public string Buyinappids { get; set; } = "";
 
 
-    void SetLoadDatas(){
+    void SetLoadDatas()
+    {
         /* 아래 @주석 위치를 찾아서 함수가 자동 추가됩니다 ConnectReadOnlyDatas 함수에서 SetLoadDatas를 호출해주세요 */
         // @자동 로드 데이터 함수들
         LoadData_FoodMergeGroupData();
         LoadData_StageData();
         LoadData_RecordCount();
         LoadData_OptionData();
-    }    
+    }
     void ConnectReadOnlyDatas()
     {
         GameNotifications.Clear();
@@ -104,9 +106,9 @@ public partial class UserDataSystem
 
 
 
-    
 
-   
+
+
         FirstStartTime = new System.DateTime(flatBufferUserData.Gamestarttime);
 
         BuyInappIds.Clear();
@@ -140,7 +142,7 @@ public partial class UserDataSystem
             RecordValue.Add(data.Value.Idx, data.Value.Count);
         }
 
-    
+
 
         mainData.LastLoginTime = new System.DateTime(flatBufferUserData.Lastlogintime);
 
@@ -150,12 +152,14 @@ public partial class UserDataSystem
         SetLoadDatas();
 
         // @변수 자동 데이터 추가
+        Dayinitialtime = new System.DateTime(flatBufferUserData.Dayinitialtime);
         Energycreatefood = flatBufferUserData.Energycreatefood;
         Starcoinvalue.Value = flatBufferUserData.Starcoinvalue;
         Energycoin.Value = flatBufferUserData.Energycoin;
         Stageenergycount.Value = flatBufferUserData.Stageenergycount;
         Nextstagecount.Value = flatBufferUserData.Nextstagecount;
-       
+        Cash.Value = flatBufferUserData.Cash;
+
 
 
         ChangeDataMode(LastMode == GameType.Event ? DataState.Event : DataState.Main);
@@ -321,7 +325,7 @@ public partial class UserDataSystem
                 {
                     switch (rewardIdx)
                     {
-                    
+
                         case (int)Config.CurrencyID.Cash:
                             {
                                 Cash.Value += (int)rewardCnt;
@@ -331,7 +335,6 @@ public partial class UserDataSystem
                     GameRoot.Instance.UserData.Save();
                 }
                 break;
-        
         }
 
         if (hudRefresh)

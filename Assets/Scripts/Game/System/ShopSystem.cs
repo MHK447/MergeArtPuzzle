@@ -2,16 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using BanpoFri;
 
 public class ShopSystem
 {
+    public System.DateTime ResetTime { get; private set; }
+    public System.DateTime ResetStartTime { get; private set; }
+    public enum ShopType
+    {
+        ShopCurrencyGem_01 = 101,
+        ShopCurrencyGem_02 = 102,
+        ShopCurrencyGem_03 = 103,
+        ShopCurrencyGem_04 = 104,
+        ShopCurrencyGem_05 = 105,
+        ShopCurrencyGem_06 = 106,
+
+        FreeGem = 1,
+        AdGem = 2,
+    }
+
     public ReactiveProperty<bool> IsVipProperty = new ReactiveProperty<bool>(false);
+
+    public IReactiveProperty<int> FreeAdRemindTime = new ReactiveProperty<int>(-1);
 
     private float curdeltatime = 0f;
 
     private float InterAdTime = 300f; // 기본값 4분
     private float currentInterAdTimer = 0f;
     private bool isInterAdReady = false;
+
+    public int daily_reward_reset_time = 0;
 
     public void Create()
     {
@@ -24,6 +44,10 @@ public class ShopSystem
             // VIP 사용자는 광고 표시 안함
             isInterAdReady = !isVip;
         });
+
+        daily_reward_reset_time = Tables.Instance.GetTable<Define>().GetData("daily_reward_reset_time").value / 1000;
+
+        DayInitTime();
     }
 
     public void UpdateOneTimeSecond()
@@ -80,4 +104,84 @@ public class ShopSystem
             currentInterAdTimer = 0f;
         }
     }
+
+    public void UpdateOneSecond()
+    {
+        if (GameRoot.Instance.UserData.Dayinitialtime != default(System.DateTime))
+        {
+            var CurTime = TimeSystem.GetCurTime();
+
+            var diff = GameRoot.Instance.UserData.Dayinitialtime.Subtract(CurTime);
+            FreeAdRemindTime.Value = (int)diff.TotalSeconds;
+            if (diff.TotalSeconds < 0)
+            {
+                DayInitTime();
+                //TestMinuteInitTime();
+            }
+        }
+    }
+
+
+    public void RewardPay(int rewardtype, int rewardidx, int rewardvalue)
+    {
+        switch (rewardtype)
+        {
+            case (int)Config.RewardType.Currency:
+                {
+                    switch (rewardidx)
+                    {
+                        case (int)Config.CurrencyID.Cash:
+                            {
+                                GameRoot.Instance.UserData.SetReward(rewardtype, rewardidx, rewardvalue);
+                            }
+                            break;
+                    }
+
+                }
+                break;
+        }
+    }
+
+
+
+    public void DayInitTime()
+    {
+        var CurTime = TimeSystem.GetCurTime();
+      
+
+        ResetStartTime = ResetTime = new System.DateTime(CurTime.Year, CurTime.Month, CurTime.Day, daily_reward_reset_time, 0, 0);
+
+        if (CurTime.Hour >= daily_reward_reset_time)
+        {
+            ResetTime = ResetTime.AddDays(1);
+        }
+        else
+        {
+            ResetStartTime = ResetTime.AddDays(-1);
+        }
+
+
+        if (GameRoot.Instance.UserData.Dayinitialtime == default(System.DateTime))
+        {
+            Reset();    
+        }
+        else
+        {
+            var diff = ResetStartTime.Subtract(GameRoot.Instance.UserData.Dayinitialtime);
+            if (diff.TotalSeconds >= 0)
+            {
+                Reset();
+            }
+        }
+    }
+
+
+    public void Reset()
+    {
+
+        GameRoot.Instance.UserData.Dayinitialtime = ResetTime;
+        GameRoot.Instance.UserData.ResetRecordCount(Config.RecordCountKeys.AdGemCount, 0);
+        GameRoot.Instance.UserData.ResetRecordCount(Config.RecordCountKeys.FreeGemCount, 0);
+    }
+
 }
