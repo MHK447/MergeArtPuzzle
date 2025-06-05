@@ -8,8 +8,8 @@ using UnityEngine.Purchasing.Extension;
 [RequireComponent(typeof(IAPListener))]
 public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
 {
-    [SerializeField]
-    private WebHookDiscord WebHookDiscord;
+    //[SerializeField]
+    //private WebHookDiscord WebHookDiscord;
 
     public static InAppPurchaseManager Instance { get; private set; }
 
@@ -235,11 +235,11 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
             string localizedPrice = args.purchasedProduct.metadata.localizedPriceString; // ₩1,100 이런 형식
             decimal rawPrice = args.purchasedProduct.metadata.localizedPrice; // 1100.00 (숫자만)
 
-            // 구매 복원 중이 아닐 때만 디스코드에 메시지 전송
-            if (!isRestoringPurchases)
-            {
-                WebHookDiscord.SendToDiscord($"🐚 해달이 결제 왔쎼! 상품: {productId}, 금액: {localizedPrice} ({rawPrice})");
-            }
+            // // 구매 복원 중이 아닐 때만 디스코드에 메시지 전송
+            // if (!isRestoringPurchases)
+            // {
+            //     WebHookDiscord.SendToDiscord($"🐚 해달이 결제 왔쎼! 상품: {productId}, 금액: {localizedPrice} ({rawPrice})");
+            // }
 
             // 상품별 보상 처리
             GrantProductReward(productId);

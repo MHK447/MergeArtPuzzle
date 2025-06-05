@@ -490,7 +490,10 @@ MonoBehaviour:
   StoreImg: {fileID: 4889023982471240615}
   GoalText: {fileID: 6954865445683585853}
   GoalSlider: {fileID: 4449053011533985979}
+  RestRoot: {fileID: 4581897273967162421}
+  RestSliderImg: {fileID: 4446015623436045009}
   ClearBtn: {fileID: 5890049337640625016}
+  CurRestTime: 0
 --- !u!95 &8351434465578827827
 Animator:
   serializedVersion: 7

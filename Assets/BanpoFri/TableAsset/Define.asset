@@ -38,6 +38,8 @@ MonoBehaviour:
   - ad_energy_time
   - energy_add_count
   - daily_reward_reset_time
+  - merge_add_cooltime_count
+  - merge_cooltime
   mSecondKey: []
   mDataList:
   - _index: casher_move_speed
@@ -87,6 +89,10 @@ MonoBehaviour:
   - _index: ad_energy_time
     _value: 120
   - _index: energy_add_count
-    _value: 20
+    _value: 15
   - _index: daily_reward_reset_time
     _value: 5000
+  - _index: merge_add_cooltime_count
+    _value: 15
+  - _index: merge_cooltime
+    _value: 20

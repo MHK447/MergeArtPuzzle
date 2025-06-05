@@ -321,6 +321,8 @@ MonoBehaviour:
   PurchaseBtn: {fileID: 6872733068617796021}
   PriceText: {fileID: 8785810135045691079}
   RewardValueText: {fileID: 3867544678779254535}
+  CoolTimeRoot: {fileID: 0}
+  CoolTimeText: {fileID: 0}
 --- !u!1 &8943028750119715709
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,10 +504,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4ac703ddb9f6dfe489d863dd0d82c2c1, type: 3}
+    - target: {fileID: 3430659768883677549, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3917509022955373311, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4ac703ddb9f6dfe489d863dd0d82c2c1, type: 3}
+    - target: {fileID: 3917509022955373311, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5057113625906835175, guid: 0442447de3ab08c4b91f628d3c5657d9, type: 3}
       propertyPath: m_text
       value: 6,600

@@ -23,17 +23,29 @@ public class InGameFoodSlotComponent : MonoBehaviour
     private Slider GoalSlider;
 
     [SerializeField]
+    private GameObject RestRoot;
+
+    [SerializeField]
+    private Image RestSliderImg;
+
+
+    [SerializeField]
     private Button ClearBtn;
 
     private int FoodGroupIdx = 0;
 
     public int GetFoodGroupIdx { get { return FoodGroupIdx; } }
 
+
     private FoodMergeGroupData FoodMergeGroupData;
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private int FoodGoalCount = 0;
+
+    private bool IsRestActive = false;
+
+    public int CurRestTime = 0;
 
     void Awake()
     {
@@ -43,7 +55,13 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void Set(int foodgroupidx)
     {
+        IsRestActive = false;
+
+        FoodBtn.interactable = true;
+
         FoodGroupIdx = foodgroupidx;
+
+        CurRestTime = 0;
 
         var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
@@ -72,6 +90,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
                     GoalSlider.value = (float)count / (float)td.goal_count;
                     ProjectUtility.SetActiveCheck(ClearBtn.gameObject, count >= td.goal_count);
                 }).AddTo(disposables);
+
             }
         }
     }
@@ -223,8 +242,61 @@ public class InGameFoodSlotComponent : MonoBehaviour
         {
             CreateFood(randselectfoodidx);
             GameRoot.Instance.UserData.Energycoin.Value -= 1;
+
+            GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.SelectFoodUpgrade(FoodGroupIdx);
+
+
+            if (GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.FoodCount >= GameRoot.Instance.FoodSystem.merge_add_cooltime_count)
+            {
+                ActiveRestTime();
+            }
         }
 
 
+    }
+
+    private float RestDelTime = 0f;
+
+    public void ActiveRestTime()
+    {
+        FoodBtn.interactable = false;
+        IsRestActive = true;
+        ProjectUtility.SetActiveCheck(RestRoot, true);
+        RestSliderImg.fillAmount = 0f;
+
+        GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => popup.Show("", Tables.Instance.GetTable<Localize>().GetString("str_desc_loading")));
+    }
+
+
+    void Update()
+    {
+        if (IsRestActive)
+        {
+            RestDelTime += Time.deltaTime;
+
+            if (RestDelTime >= 1f)
+            {
+                CurRestTime += 1;
+                RestDelTime = 0f;
+
+                RestSliderImg.fillAmount = (float)CurRestTime / (float)GameRoot.Instance.FoodSystem.merge_cooltime;
+
+                if (CurRestTime >= GameRoot.Instance.FoodSystem.merge_cooltime)
+                {
+                    CurRestTime = 0;
+
+                    IsRestActive = false;
+
+                    RestSliderImg.fillAmount = 0f;
+
+                    ProjectUtility.SetActiveCheck(RestRoot, false);
+
+                    GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.ClearFoodData();
+
+                    FoodBtn.interactable = true;
+                }
+            }
+
+        }
     }
 }

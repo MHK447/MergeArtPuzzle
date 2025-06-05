@@ -427,58 +427,25 @@ public class GameRoot : Singleton<GameRoot>
 			var diff = TimeSystem.GetCurTime().Subtract(time);
 
 
-			if(diff.TotalSeconds >= 120)
+			if (diff.TotalSeconds >= 120)
 			{
 				var addenergycoin = (int)diff.TotalSeconds / 120;
-				GameRoot.Instance.UserData.Energycoin.Value += addenergycoin;
+
+				var energycoin = GameRoot.Instance.UserData.Energycoin.Value + addenergycoin;
+
+				if (energycoin >= GameRoot.Instance.FoodSystem.MaxEnergyCoin)
+				{
+					GameRoot.Instance.UserData.Energycoin.Value = GameRoot.Instance.FoodSystem.MaxEnergyCoin;
+				}
+				else
+				{
+					GameRoot.Instance.UserData.Energycoin.Value += addenergycoin;
+				}
+
 				GameRoot.Instance.UserData.CurMode.LastLoginTime = TimeSystem.GetCurTime();
 			}
 
-			// if (diff.TotalSeconds > minRewardTime)
-			// {
-			// 	PauseActions.Enqueue(() =>
-			// 	{
-			// 		var offlinereward = GameRoot.instance.UISystem.GetUI<PopupOfflineReward>();
-
-			// 		if (offlinereward != null)
-			// 		{
-			// 			if (!offlinereward.gameObject.activeSelf)
-			// 			{
-			// 				if ((int)diff.TotalSeconds >= maxRewardTime)
-			// 					GameRoot.instance.UISystem.OpenUI<PopupOfflineReward>(popup => popup.Set(maxRewardTime), NextAction);
-			// 				else
-			// 					GameRoot.instance.UISystem.OpenUI<PopupOfflineReward>(popup => popup.Set((int)diff.TotalSeconds), NextAction);
-			// 			}
-			// 			else
-			// 			{
-			// 				offlinereward.OnUIHideAfter = NextAction;
-
-			// 				//기존 열린 팝업의 시간이 맥스가 아니면 오프라인 시간을 더해서 보상을 준다.
-			// 				if (offlinereward.TimeSecond < maxRewardTime)
-			// 				{
-			// 					int rewardTime = 0;
-			// 					var newRewardTime = offlinereward.TimeSecond + (int)diff.TotalSeconds;
-			// 					if (newRewardTime >= maxRewardTime)
-			// 					{
-			// 						rewardTime = maxRewardTime;
-			// 					}
-			// 					else
-			// 					{
-			// 						rewardTime = newRewardTime;
-			// 					}
-
-			// 					offlinereward.Set(rewardTime);
-			// 				}
-			// 			}
-			// 		}
-			// 		else
-			// 		{
-			// 		}
-			// 	});
-
-			// }
 			NextAction.Invoke();
-
 		}
 
 
@@ -490,13 +457,13 @@ public class GameRoot : Singleton<GameRoot>
 	private void OnApplicationQuit()
 	{
 		PluginSystem.OnApplicationPause(true);
-		
+
 		// 앱 종료 시 데이터 저장
 		if (FoodSystem != null)
 		{
 			FoodSystem.SaveOnGameExit();
 		}
-		
+
 		UnityEditor.AssetDatabase.SaveAssets();
 		UnityEditor.AssetDatabase.Refresh();
 	}

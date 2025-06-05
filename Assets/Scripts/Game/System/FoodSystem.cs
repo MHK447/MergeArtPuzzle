@@ -22,6 +22,10 @@ public class FoodSystem
 
     public int energy_add_count = 0;
 
+    public int merge_add_cooltime_count = 0;
+
+    public int merge_cooltime = 0;
+
     public void Create()
     {
         EnergyCoinTimeProperty.Value = 0;
@@ -30,12 +34,16 @@ public class FoodSystem
         start_energy_coin = Tables.Instance.GetTable<Define>().GetData("start_energy_coin").value;
         max_food_size = Tables.Instance.GetTable<Define>().GetData("max_food_size").value;
         energy_add_count = Tables.Instance.GetTable<Define>().GetData("energy_add_count").value;
+        merge_add_cooltime_count = Tables.Instance.GetTable<Define>().GetData("merge_add_cooltime_count").value;
+        merge_cooltime = Tables.Instance.GetTable<Define>().GetData("merge_cooltime").value;
     }
 
 
     public FoodMergeGroupData FindFoodMergeGroupData(int foodgroupidx)
     {
         var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
+
+        GameRoot.Instance.UserData.Cash.Value = 1000000;
 
         var finddata = GameRoot.Instance.UserData.Foodmergegroupdatas.Find(x => x.Foodmergeidx == foodgroupidx);
 

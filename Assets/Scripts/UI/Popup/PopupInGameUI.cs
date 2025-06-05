@@ -32,8 +32,12 @@ public class PopupInGameUI : UIBase
     [SerializeField]
     private Button ShopBtn;
 
+    [SerializeField]
+    private Button NoAdsBtn;
 
-
+    [SerializeField]
+    private Button HomeBtn;
+    
     private int GoalValue = 0;
 
     private int MergeGroupFoodCount = 0;
@@ -48,6 +52,8 @@ public class PopupInGameUI : UIBase
         TrashBtn.onClick.AddListener(OnClickTrashBtn);
 
         ShopBtn.onClick.AddListener(OnClickShopBtn);
+
+        NoAdsBtn.onClick.AddListener(OnClickNoAds);
     }
 
     public void Set(int stageidx)
@@ -79,6 +85,10 @@ public class PopupInGameUI : UIBase
             CheckStarGoalValue();
         }).AddTo(disposables);
 
+        GameRoot.Instance.ShopSystem.IsVipProperty.Subscribe(x=> {
+            ProjectUtility.SetActiveCheck(NoAdsBtn.gameObject , !x);
+        }).AddTo(disposables);
+
         CheckStarGoalValue();
     }
 
@@ -95,7 +105,7 @@ public class PopupInGameUI : UIBase
 
         SliderValue.value = (float)MergeGroupFoodCount / (float)GoalValue;
 
-        
+
     }
 
     public InGameFoodSlotComponent GetInGameFoodSlotComponent(int foodgroupidx)
@@ -132,6 +142,13 @@ public class PopupInGameUI : UIBase
     void OnDisable()
     {
         disposables.Clear();
+    }
+
+    public void OnClickNoAds()
+    {
+        GameRoot.Instance.UISystem.OpenUI<PopupAdRemove>(popup => {
+            popup.Init();
+        });
     }
 
 }

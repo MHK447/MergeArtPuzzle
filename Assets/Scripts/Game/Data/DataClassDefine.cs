@@ -73,6 +73,33 @@ public class UpgradeData
 	}
 }
 
+public class SelectFoodUpgradeData
+{
+	public int FoodIdx = 0;
+	
+	public int FoodCount = 0;
+
+	public void ClearFoodData()
+	{
+		FoodIdx = 0;
+		FoodCount = 0;
+	}
+
+
+	public void SelectFoodUpgrade(int foodidx)
+	{
+		if(FoodIdx == foodidx)
+		{
+			FoodCount += 1;
+		}
+		else 
+		{
+			FoodIdx = foodidx;
+			FoodCount = 0;
+		}
+	}
+}
+
 
 public class StageFishUpgradeData
 {

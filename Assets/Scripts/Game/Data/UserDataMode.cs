@@ -20,6 +20,8 @@ public interface IUserDataMode
 
 	public IReactiveProperty<int> BoostTime { get; set; }
 
+	public SelectFoodUpgradeData SelectFoodUpgradeData { get; set; }
+
 }
 
 public class UserDataMain : IUserDataMode
@@ -34,6 +36,8 @@ public class UserDataMain : IUserDataMode
 	public List<StageFishUpgradeData> FishUpgradeDatas { get; set; } = new List<StageFishUpgradeData>();
 	public PlayerData PlayerData { get; set; } = new PlayerData();
 	public IReactiveProperty<int> BoostTime { get; set; } = new ReactiveProperty<int>();
+
+	public SelectFoodUpgradeData SelectFoodUpgradeData { get; set; } = new SelectFoodUpgradeData();
 
 	public IReactiveCollection<NoticeData> NoticeCollections { get; set; } = new ReactiveCollection<NoticeData>();
 }

@@ -43,6 +43,7 @@ MonoBehaviour:
   - str_desc_package_booster
   - str_title_shop_gems
   - str_title_daily
+  - str_desc_loading
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -103,9 +104,8 @@ MonoBehaviour:
     _en: Locket item. Pop to unlock.
     _ja: 
   - _idx: str_desc_focus_progress
-    _ko: "\uD0ED\uD558\uBA74 \uC5D0\uB108\uC9C0\uB97C {0}\uB9CC\uD07C \uD68D\uB4DD\uD558\uAC70\uB098,
-      \uD569\uCCD0\uC11C \uB354 \uAC15\uB825\uD558\uAC8C \uB9CC\uB4E4 \uC218 \uC788\uC5B4\uC694!"
-    _en: Tap to collect {0} units of energy or Merge for more!
+    _ko: "\uD0ED\uD574\uC11C \uC5D0\uB108\uC9C0\uB97C \uD68D\uB4DD\uD574 \uBCF4\uC138\uC694!"
+    _en: Tap to collect energy!
     _ja: 
   - _idx: str_desc_purchaselight
     _ko: "\uCD94\uAC00 \uC5D0\uB108\uC9C0\uB97C \uC5BB\uC5B4\uBCF4\uC138\uC694."
@@ -169,3 +169,7 @@ MonoBehaviour:
     _ko: "\uC77C\uC77C \uC0C1\uC810"
     _en: Daily Shop
     _ja: 
+  - _idx: str_desc_loading
+    _ko: Reloading....
+    _en: Reloading....
+    _ja: Reloading....
