@@ -12,8 +12,8 @@ public class AdManager : MonoBehaviour
     private InterstitialAd _interstitialAd;
 
     // 안드로이드용 광고 ID
-    private string _adUnitIdAndroid_Reward = "ca-app-pub-4348570103813665/2176085665";
-    private string _adUnitIdAndroid_Interstitial = "ca-app-pub-4348570103813665/4816058422";
+    private string _adUnitIdAndroid_Reward = "ca-app-pub-4449379001767537/5084819999";
+    private string _adUnitIdAndroid_Interstitial = "ca-app-pub-4449379001767537/6415710398";
     
     // iOS용 광고 ID
     private string _adUnitIdIOS_Reward = "ca-app-pub-4348570103813665/7269743639"; // TODO: 실제 iOS 리워드 광고 ID로 변경 필요
@@ -118,7 +118,7 @@ public class AdManager : MonoBehaviour
             // 오류 발생 시 더 짧은 시간 후 다시 시도
             GameRoot.Instance.WaitTimeAndCallback(3f, InitializeAds);
         }
-    }
+    }   
 
     public void LoadInterstitialAd()
     {

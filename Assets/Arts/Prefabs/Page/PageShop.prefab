@@ -3857,6 +3857,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4658902035326460170, guid: be9aaf8ad6ca47c458224c0c03a46a66, type: 3}
+      propertyPath: PriceText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658902035326460170, guid: be9aaf8ad6ca47c458224c0c03a46a66, type: 3}
       propertyPath: CoolTimeRoot
       value: 
       objectReference: {fileID: 1395034817313077411}

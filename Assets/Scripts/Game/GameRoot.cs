@@ -136,6 +136,7 @@ public class GameRoot : Singleton<GameRoot>
 			deltaTime -= 1f;
 			FoodSystem.OneSecondUpdate();
 			ShopSystem.UpdateOneSecond();
+			ShopSystem.UpdateOneTimeSecond();
 		}
 		deltaTime += Time.deltaTime;
 
@@ -255,6 +256,7 @@ public class GameRoot : Singleton<GameRoot>
 		GameNotification.Create();
 		FoodSystem.Create();
 		ShopSystem.Create();
+		GameRoot.instance.inAppPurchaseManager.InitializePurchasing();
 
 		InitRequestAtlas();
 

@@ -8,7 +8,7 @@ public class ShopSystem
 {
     public System.DateTime ResetTime { get; private set; }
     public System.DateTime ResetStartTime { get; private set; }
-    public enum ShopType
+    public enum ProductShopType
     {
         ShopCurrencyGem_01 = 101,
         ShopCurrencyGem_02 = 102,
@@ -27,7 +27,7 @@ public class ShopSystem
 
     private float curdeltatime = 0f;
 
-    private float InterAdTime = 300f; // 기본값 4분
+    private float InterAdTime = 240f; // 기본값 4분
     private float currentInterAdTimer = 0f;
     private bool isInterAdReady = false;
 

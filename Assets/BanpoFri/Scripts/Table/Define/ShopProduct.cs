@@ -48,6 +48,13 @@ namespace BanpoFri
 			get { return _product_id;}
 			set { _product_id = value;}
 		}
+		[SerializeField]
+		private int _consumable_check;
+		public int consumable_check
+		{
+			get { return _consumable_check;}
+			set { _consumable_check = value;}
+		}
 
     }
 

@@ -9,7 +9,7 @@ using UniRx;
 public class ShopProductComponent : MonoBehaviour
 {
     [SerializeField]
-    private ShopSystem.ShopType Type;
+    private ShopSystem.ProductShopType Type;
 
     [SerializeField]
     private Button PurchaseBtn;
@@ -77,13 +77,13 @@ public class ShopProductComponent : MonoBehaviour
 
         switch (Type)
         {
-            case ShopSystem.ShopType.AdGem:
+            case ShopSystem.ProductShopType.AdGem:
                 {
                     var count = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.AdGemCount);
                     ProjectUtility.SetActiveCheck(CoolTimeRoot, count > 0);
                 }
                 break;
-            case ShopSystem.ShopType.FreeGem:
+            case ShopSystem.ProductShopType.FreeGem:
                 {
                     var count = GameRoot.Instance.UserData.GetRecordCount(Config.RecordCountKeys.FreeGemCount);
                     ProjectUtility.SetActiveCheck(CoolTimeRoot, count > 0);
@@ -123,7 +123,7 @@ public class ShopProductComponent : MonoBehaviour
 
             switch (Type)
             {
-                case ShopSystem.ShopType.AdGem:
+                case ShopSystem.ProductShopType.AdGem:
                     {
                         GameRoot.Instance.ShopSystem.RewardPay(td.reward_type, td.reward_idx, td.value);
 
@@ -131,7 +131,7 @@ public class ShopProductComponent : MonoBehaviour
                         CoolTimeCheck();
                     }
                     break;
-                case ShopSystem.ShopType.FreeGem:
+                case ShopSystem.ProductShopType.FreeGem:
                     {
                         GameRoot.Instance.ShopSystem.RewardPay(td.reward_type, td.reward_idx, td.value);
 

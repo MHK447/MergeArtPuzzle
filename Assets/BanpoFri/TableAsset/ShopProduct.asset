@@ -28,46 +28,54 @@ MonoBehaviour:
     _reward_type: 1
     _reward_idx: 2
     _value: 170
-    _product_id: Currency_Gem_01
+    _product_id: currency_gem_01
+    _consumable_check: 0
   - _idx: 102
     _type: 1
     _reward_type: 1
     _reward_idx: 2
     _value: 550
-    _product_id: Currency_Gem_02
+    _product_id: currency_gem_02
+    _consumable_check: 0
   - _idx: 103
     _type: 1
     _reward_type: 1
     _reward_idx: 2
     _value: 1250
-    _product_id: Currency_Gem_03
+    _product_id: currency_gem_03
+    _consumable_check: 0
   - _idx: 104
     _type: 1
     _reward_type: 1
     _reward_idx: 2
     _value: 3000
-    _product_id: Currency_Gem_04
+    _product_id: currency_gem_04
+    _consumable_check: 0
   - _idx: 105
     _type: 1
     _reward_type: 1
     _reward_idx: 2
     _value: 8450
-    _product_id: Currency_Gem_05
+    _product_id: currency_gem_05
+    _consumable_check: 0
   - _idx: 106
     _type: 1
     _reward_type: 1
     _reward_idx: 2
     _value: 17500
-    _product_id: Currency_Gem_06
+    _product_id: currency_gem_06
+    _consumable_check: 0
   - _idx: 1
     _type: 2
     _reward_type: 1
     _reward_idx: 2
     _value: 15
     _product_id: 
+    _consumable_check: 0
   - _idx: 2
     _type: 2
     _reward_type: 1
     _reward_idx: 2
     _value: 45
     _product_id: 
+    _consumable_check: 0

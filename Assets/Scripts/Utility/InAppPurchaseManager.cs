@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using BanpoFri;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
@@ -16,8 +18,7 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
     // 상품 ID 정의
     public static class ProductIDs
     {
-        
-        public const string REMOVE_ADS = "otterfishshop_noads_100";
+        public const string REMOVE_ADS = "mergeartpuzzle_noads_100";
     }
 
     // 상품 정보 매핑
@@ -53,7 +54,6 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            InitializePurchasing();
         }
         else
         {
@@ -68,10 +68,14 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
 
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
-        // // 소모품 추가
-        // builder.AddProduct(ProductIDs.GOLD_SMALL, ProductType.Consumable);
-        // builder.AddProduct(ProductIDs.GOLD_MEDIUM, ProductType.Consumable);
-        // builder.AddProduct(ProductIDs.GOLD_LARGE, ProductType.Consumable);
+        var tdlist = Tables.Instance.GetTable<ShopProduct>().DataList.ToList();
+
+        foreach(var td in tdlist)
+        {
+            if(td.type !=  1) continue;
+
+            builder.AddProduct(td.product_id , (ProductType)td.consumable_check);
+        }
 
         // 비소모품 추가
         builder.AddProduct(ProductIDs.REMOVE_ADS, ProductType.NonConsumable);
