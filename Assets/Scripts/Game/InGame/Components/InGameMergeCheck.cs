@@ -111,19 +111,39 @@ public class InGameMergeCheck : MonoBehaviour
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
-                        Collider2D hit = Physics2D.OverlapPoint(worldPos);
-                        if (hit != null && hit.CompareTag("Food"))
+                        if (!IsPointerOverUIObject(touch.position))
                         {
-                            fingerId = touch.fingerId;
-                            isDragging = true;
-
-                            if (CurSelectFood != null)
+                            Collider2D hit = Physics2D.OverlapPoint(worldPos);
+                            if (hit != null && hit.CompareTag("Food"))
                             {
-                                SelectFood = hit.GetComponent<InGameFood>();
-                                CurSelectFood.gameObject.SetActive(true);
-                                CurSelectFood.transform.position = worldPos;
-                                SelectFood.SelectOn();
-                                CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx, SelectFood.GetFoodIdx, SelectFood.GetGrade);
+                                fingerId = touch.fingerId;
+                                isDragging = true;
+
+                                if (CurSelectFood != null)
+                                {
+                                    SelectFood = hit.GetComponent<InGameFood>();
+                                    CurSelectFood.gameObject.SetActive(true);
+                                    CurSelectFood.transform.position = worldPos;
+                                    SelectFood.SelectOn();
+                                    CurSelectFood.SetSprite(SelectFood.GetMergeGroupIdx, SelectFood.GetFoodIdx, SelectFood.GetGrade);
+                                }
+                            }
+                            else if (hit != null && hit.CompareTag("EnergyAd"))
+                            {
+                                if (SelectEnergyAd != null)
+                                {
+                                    SelectEnergyAd.SelectActiveCheck(false);
+                                }
+
+                                SelectEnergyAd = hit.GetComponent<InGameEnergyAd>();
+
+                                if (SelectEnergyAd != null)
+                                {
+                                    SelectEnergyAd.SelectActiveCheck(true);
+                                    GameRoot.Instance.UISystem.OpenUI<PopupCollectionInfo>(popup => popup.Set(SelectEnergyAd.GetEnergyIdx, SelectEnergyAd));
+                                    
+                                    Debug.Log("Energy Ad touched: " + SelectEnergyAd.GetEnergyIdx);
+                                }
                             }
                         }
                         break;
@@ -159,6 +179,42 @@ public class InGameMergeCheck : MonoBehaviour
             }
         }
     }
+
+    private bool IsPointerOverUIObject(Vector2 touchPos)
+    {
+        if (UnityEngine.EventSystems.EventSystem.current == null)
+            return false;
+            
+        UnityEngine.EventSystems.PointerEventData eventDataCurrentPosition = 
+            new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
+        
+        eventDataCurrentPosition.position = touchPos;
+        
+        List<UnityEngine.EventSystems.RaycastResult> results = new List<UnityEngine.EventSystems.RaycastResult>();
+        UnityEngine.EventSystems.EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        
+        // 결과 필터링 - 특정 UI 요소는 무시하고 게임 플레이에 영향을 주는 UI만 체크
+        if (results.Count > 0)
+        {
+            // 무시할 UI 요소 목록 (예: 배경 이미지, 효과 등)
+            string[] ignoreUITags = new string[] { "Background", "Effect" };
+            
+            foreach (var result in results)
+            {
+                // 무시할 UI가 아니라면 UI 위에 있다고 판단
+                if (result.gameObject != null && !System.Array.Exists(ignoreUITags, tag => result.gameObject.CompareTag(tag)))
+                {
+                    // UI 요소 이름 로그로 출력하여 디버깅
+                    Debug.Log("UI Blocking Touch: " + result.gameObject.name);
+                    return true;
+                }
+            }
+        }
+        
+        // 모든 UI 요소가 무시 가능하거나 UI가 없음
+        return false;
+    }
+
     void CheckMerge()
     {
         Vector3 checkPos = CurSelectFood != null ? CurSelectFood.transform.position : transform.position;

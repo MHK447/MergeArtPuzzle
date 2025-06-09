@@ -22,6 +22,14 @@ public class InGameChapterMap : MonoBehaviour
 
     [SerializeField]
     private Transform FoodParent;
+
+
+    [SerializeField]
+    private Transform LeftTr;
+
+    [SerializeField]
+    private Transform RightTr;
+
     private int FoodCreateOrder = 0;
 
     public void Init()
@@ -31,9 +39,37 @@ public class InGameChapterMap : MonoBehaviour
 
         var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
-
+        AdjustPositionsForScreenResolution();
         StartFoodCreation();
     }
+    float screenLeftX = 0f; // 화면의 가장 왼쪽 X 위치
+
+  private void AdjustPositionsForScreenResolution()
+{
+    if (LeftTr == null || RightTr == null)
+        return;
+
+    float screenY = Screen.height * 0.5f; // 중앙 높이 정도 (원하는 값으로 수정)
+    float distanceFromCamera = 5f; // 카메라로부터의 거리
+
+    // ----------------
+    // 화면의 가장 왼쪽
+    Vector3 screenPointLeft = new Vector3(0f, screenY, distanceFromCamera);
+    Vector3 worldPosLeft = Camera.main.ScreenToWorldPoint(screenPointLeft);
+    LeftTr.position = new Vector3(worldPosLeft.x, transform.position.y, transform.position.z);
+
+    // ----------------
+    // 화면의 가장 오른쪽
+    Vector3 screenPointRight = new Vector3(Screen.width, screenY, distanceFromCamera);
+    Vector3 worldPosRight = Camera.main.ScreenToWorldPoint(screenPointRight);
+    RightTr.position = new Vector3(worldPosRight.x, transform.position.y, transform.position.z);
+}
+
+    void Update()
+    {
+        AdjustPositionsForScreenResolution();
+    }
+
     public void StartFoodCreation()
     {
         StartCoroutine(CreateFoodsCoroutine());
@@ -55,7 +91,7 @@ public class InGameChapterMap : MonoBehaviour
                 foreach (var fooddata in foodDataCopy)
                 {
                     CreateFood(fooddata.Foodidx, fooddata.Mergegrade, MergeGroupData.Foodmergeidx, true);
-                    yield return new WaitForSeconds(0.1f); // 0.05초 대기
+                    yield return new WaitForSeconds(0.2f); // 0.05초 대기
                 }
             }
         }
@@ -158,4 +194,5 @@ public class InGameChapterMap : MonoBehaviour
             FoodList.Remove(food);
         }
     }
+
 }

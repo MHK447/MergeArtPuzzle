@@ -23,6 +23,7 @@ public class InGameEnergyAd : MonoBehaviour
 
     private float deltime = 0f;
 
+
     public void Set(int energyidx)
     {
         EnergyIdx = energyidx;

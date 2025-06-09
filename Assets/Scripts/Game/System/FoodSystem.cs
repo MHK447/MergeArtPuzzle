@@ -42,9 +42,7 @@ public class FoodSystem
     public FoodMergeGroupData FindFoodMergeGroupData(int foodgroupidx)
     {
         var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
-
-        GameRoot.Instance.UserData.Cash.Value = 1000000;
-
+        
         var finddata = GameRoot.Instance.UserData.Foodmergegroupdatas.Find(x => x.Foodmergeidx == foodgroupidx);
 
         if (finddata != null)

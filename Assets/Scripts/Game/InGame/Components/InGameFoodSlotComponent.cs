@@ -245,10 +245,12 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
             GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.SelectFoodUpgrade(FoodGroupIdx);
 
-
-            if (GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.FoodCount >= GameRoot.Instance.FoodSystem.merge_add_cooltime_count)
+            if (GameRoot.Instance.UserData.Stagedata.Stageidx.Value > 2)
             {
-                ActiveRestTime();
+                if (GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.FoodCount >= GameRoot.Instance.FoodSystem.merge_add_cooltime_count)
+                {
+                    ActiveRestTime();
+                }
             }
         }
 

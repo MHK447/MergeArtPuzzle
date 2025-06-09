@@ -110,6 +110,7 @@ SpriteAtlas:
     - 21fd8e6c8f46f2345bdbe4be38f7d3e9: 21300000
     - 135ec3ac624374d1eb93212520c5727a: 21300000
     - da5f97bce2eef5b48b7b6e5cc7d0135f: 21300000
+    - d65acabc04c81284b99dcf08238eeb2f: 21300000
     - 73621ddc1d677514db0e937917086288: 21300000
     - 214dc7bdbed888b4bbbeada7c1ccacc1: 21300000
     - 4ac703ddb9f6dfe489d863dd0d82c2c1: 21300000
@@ -153,6 +154,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 21fd8e6c8f46f2345bdbe4be38f7d3e9, type: 3}
   - {fileID: 21300000, guid: 135ec3ac624374d1eb93212520c5727a, type: 3}
   - {fileID: 21300000, guid: da5f97bce2eef5b48b7b6e5cc7d0135f, type: 3}
+  - {fileID: 21300000, guid: d65acabc04c81284b99dcf08238eeb2f, type: 3}
   - {fileID: 21300000, guid: 73621ddc1d677514db0e937917086288, type: 3}
   - {fileID: 21300000, guid: 214dc7bdbed888b4bbbeada7c1ccacc1, type: 3}
   - {fileID: 21300000, guid: 4ac703ddb9f6dfe489d863dd0d82c2c1, type: 3}
@@ -195,6 +197,7 @@ SpriteAtlas:
   - Common_Frame_BubbleMsg
   - Common_Lightning_2
   - Common_Frame_Popup
+  - Common_Icon_Goods_Shop
   - Common_Icon_NoAds
   - Common_Icon_Ads
   - Common_Btn_Default_Cash

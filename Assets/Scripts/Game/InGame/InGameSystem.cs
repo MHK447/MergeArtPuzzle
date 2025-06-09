@@ -111,6 +111,7 @@ public class InGameSystem
         // 2. 스테이지 데이터 업데이트
         var saveTime = TimeSystem.GetCurTime().Ticks;
         var curidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value += 1;
+        GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.FoodCount = 0;
 
         // 3. 시스템 초기화 순서 명확히 하기
         try
