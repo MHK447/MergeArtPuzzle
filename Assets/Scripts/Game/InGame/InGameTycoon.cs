@@ -70,9 +70,9 @@ public class InGameTycoon : InGameMode
     }
 
 
-    public void GoToLobby(int stageidx , int foodgroupidx)
+    public void GoToLobby(int stageidx)
     {
-        GameRoot.Instance.UISystem.OpenUI<PageLobby>(pagelobby => pagelobby.Set(stageidx, foodgroupidx));
+        GameRoot.Instance.UISystem.OpenUI<PageLobby>(pagelobby => pagelobby.Set(stageidx));
 
 
         ProjectUtility.SetActiveCheck(InGameChapterMap.gameObject, false);

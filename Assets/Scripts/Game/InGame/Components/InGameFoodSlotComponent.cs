@@ -159,7 +159,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
     {
         var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
 
-        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().GoToLobby(stageidx, FoodGroupIdx);
+        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().GoToLobby(stageidx);
     }
 
     public void CreateFood(int foodidx)

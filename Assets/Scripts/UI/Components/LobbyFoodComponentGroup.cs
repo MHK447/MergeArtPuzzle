@@ -22,10 +22,15 @@ public class LobbyFoodComponentGroup : MonoBehaviour
 
         var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == stageidx).ToList();
 
-        for(int i = 0; i < tdlist.Count; i++)
+        for (int i = 0; i < tdlist.Count; i++)
         {
             ProjectUtility.SetActiveCheck(LobbyStageFoodGroupComponentList[i].gameObject, true);
             LobbyStageFoodGroupComponentList[i].Set(tdlist[i].mergeidx);
+
+        
+
+
+            StageNameText.text = $"{Tables.Instance.GetTable<Localize>().GetString($"str_stagemap_{StageIdx}")}";
         }
     }
 }

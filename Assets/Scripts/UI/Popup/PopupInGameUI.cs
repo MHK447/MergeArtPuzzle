@@ -37,7 +37,7 @@ public class PopupInGameUI : UIBase
 
     [SerializeField]
     private Button HomeBtn;
-    
+
     private int GoalValue = 0;
 
     private int MergeGroupFoodCount = 0;
@@ -54,6 +54,8 @@ public class PopupInGameUI : UIBase
         ShopBtn.onClick.AddListener(OnClickShopBtn);
 
         NoAdsBtn.onClick.AddListener(OnClickNoAds);
+
+        HomeBtn.onClick.AddListener(OnClickHomeBtn);
     }
 
     public void Set(int stageidx)
@@ -78,15 +80,17 @@ public class PopupInGameUI : UIBase
 
             FoodComponentList[i].Set(td.mergeidx);
         }
-        
+
         disposables.Clear();
 
-        GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x=> {
+        GameRoot.Instance.UserData.Starcoinvalue.Subscribe(x =>
+        {
             CheckStarGoalValue();
         }).AddTo(disposables);
 
-        GameRoot.Instance.ShopSystem.IsVipProperty.Subscribe(x=> {
-            ProjectUtility.SetActiveCheck(NoAdsBtn.gameObject , !x);
+        GameRoot.Instance.ShopSystem.IsVipProperty.Subscribe(x =>
+        {
+            ProjectUtility.SetActiveCheck(NoAdsBtn.gameObject, !x);
         }).AddTo(disposables);
 
         CheckStarGoalValue();
@@ -129,7 +133,8 @@ public class PopupInGameUI : UIBase
 
     public void OnClickShopBtn()
     {
-        GameRoot.Instance.UISystem.OpenUI<PageShop>(page => {     
+        GameRoot.Instance.UISystem.OpenUI<PageShop>(page =>
+        {
             page.Init();
         });
     }
@@ -139,6 +144,13 @@ public class PopupInGameUI : UIBase
         disposables.Clear();
     }
 
+    public void OnClickHomeBtn()
+    {
+
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
+        GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().GoToLobby(stageidx);
+    }
+
     void OnDisable()
     {
         disposables.Clear();
@@ -146,7 +158,8 @@ public class PopupInGameUI : UIBase
 
     public void OnClickNoAds()
     {
-        GameRoot.Instance.UISystem.OpenUI<PopupAdRemove>(popup => {
+        GameRoot.Instance.UISystem.OpenUI<PopupAdRemove>(popup =>
+        {
             popup.Init();
         });
     }

@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.AddressableAssets;
 using UniRx;
 using Unity.VisualScripting;
+using DG.Tweening;
 
 [UIPath("UI/Page/PageLobby")]
 public class PageLobby : UIBase
@@ -23,6 +24,9 @@ public class PageLobby : UIBase
     private TextMeshProUGUI StarCountText;
 
     [SerializeField]
+    private TextMeshProUGUI StageClearNameText;
+
+    [SerializeField]
     private ButtonPressed PressedBtn;
 
     [SerializeField]
@@ -30,6 +34,9 @@ public class PageLobby : UIBase
 
     [SerializeField]
     private Slider SliderValue;
+
+    [SerializeField]
+    private Image StarGoalImage;
 
     [SerializeField]
     private TextMeshProUGUI StarGoalValueText;
@@ -51,6 +58,8 @@ public class PageLobby : UIBase
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
+    private int GoalValue = 0;
+
 
     protected override void Awake()
     {
@@ -62,7 +71,7 @@ public class PageLobby : UIBase
 
     }
 
-    public void Set(int stageidx, int selectfoodgroupidx)
+    public void Set(int stageidx)
     {
         StageIdx = stageidx;
 
@@ -85,6 +94,8 @@ public class PageLobby : UIBase
             var starcount = GameRoot.Instance.UserData.Starcoinvalue.Value;
 
             StarCountText.text = starcount.ToString();
+            
+            //StageClearNameText.text = $"{stageidx}.str_stagemap_{stageidx}";
 
             StarCountCheck();
 
@@ -104,7 +115,7 @@ public class PageLobby : UIBase
                 MergeGroupFoodCount += groupdata.Foodcount.Value;
             }
 
-            var GoalValue = 0;
+            GoalValue = 0;
 
             var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.ToList().FindAll(x => x.stageidx == stageidx);
 
@@ -115,6 +126,9 @@ public class PageLobby : UIBase
                 GoalValue += td.goal_count;
             }
 
+            var slidervalue = (float)GetClearStarValue() / (float)GoalValue;
+
+            StarGoalImage.fillAmount = slidervalue;
 
             StarGoalValueText.text = $"{MergeGroupFoodCount}/{GoalValue}";
 
@@ -180,6 +194,8 @@ public class PageLobby : UIBase
 
                     GameRoot.Instance.UserData.Starcoinvalue.Value -= 1;
 
+                    SetSliderValue();
+
                     break;
                 }
 
@@ -189,10 +205,33 @@ public class PageLobby : UIBase
         CheckNextStage();
     }
 
+    public void SetSliderValue()
+    {
+        float slidervalue = (float)GetClearStarValue() / (float)GoalValue;
+        DOTween.To(() => StarGoalImage.fillAmount, x => StarGoalImage.fillAmount = x, slidervalue, 0.1f);
+    }
+
 
     public void OnClickStart()
     {
         GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().StartGame();
+    }
+
+    public int GetClearStarValue()
+    {   
+        int count = 0;
+
+
+        var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.FindAll(x => x.stageidx == StageIdx).ToList();
+
+        foreach (var td in tdlist)
+        {
+            var findgroupdata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(td.mergeidx);
+
+            count += findgroupdata.Stageclearstarcount.Value;
+        }
+
+        return count;
     }
 
 

@@ -230,7 +230,7 @@ MonoBehaviour:
   TrashBtn: {fileID: 76933989879835463}
   ShopBtn: {fileID: 4754581740926238283}
   NoAdsBtn: {fileID: 1547186106050382840}
-  HomeBtn: {fileID: 0}
+  HomeBtn: {fileID: 6334716057454123273}
 --- !u!223 &8113461725749285611
 Canvas:
   m_ObjectHideFlags: 0
@@ -461,6 +461,17 @@ MonoBehaviour:
 --- !u!114 &4754581740926238283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4693159346289482159, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
+  m_PrefabInstance: {fileID: 61600587075348452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6334716057454123273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6283568049141382893, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
   m_PrefabInstance: {fileID: 61600587075348452}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
