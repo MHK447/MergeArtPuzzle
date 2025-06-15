@@ -50,6 +50,7 @@ public class GoodEffect : MonoBehaviour
 
         ProjectUtility.SetActiveCheck(icon.gameObject, true);
         icon.sprite = ProjectUtility.GetRewardItemIconImg(goodsType , goodsIdx , goodsGrade);
+        icon.SetNativeSize();
 
         if (titleText != null)
         {
@@ -155,6 +156,7 @@ public class GoodEffect : MonoBehaviour
         this.transform.position = worldStartPos;
 
         //icon.sprite = AtlasManager.Instance.GetSprite(Atlas.Atals_UI_PopupImg,Icon);
+        //icon.SetNativeSize();
 
         itemCnt.text = "";
 
