@@ -14,13 +14,6 @@ namespace BanpoFri
 			set { _idx = value;}
 		}
 		[SerializeField]
-		private int _open_facilityidx;
-		public int open_facilityidx
-		{
-			get { return _open_facilityidx;}
-			set { _open_facilityidx = value;}
-		}
-		[SerializeField]
 		private int _stage_idx;
 		public int stage_idx
 		{

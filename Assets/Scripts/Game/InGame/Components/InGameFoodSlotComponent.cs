@@ -131,7 +131,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
                 }
             }
 
-            for (int i = 0; i < GameRoot.Instance.FoodSystem.FoodMaxPool; ++i)
+            for (int i = 0;  i < GameRoot.Instance.FoodSystem.FoodMaxPool; ++i)
             {
                 if (FoodPoolList.Count <= i) break;
 

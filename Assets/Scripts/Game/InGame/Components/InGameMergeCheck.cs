@@ -253,7 +253,7 @@ public class InGameMergeCheck : MonoBehaviour
     {
         if (SelectFood != null)
         {
-            if (SelectFood.GetFoodIdx == other.GetFoodIdx && SelectFood.GetGrade == other.GetGrade)
+            if (SelectFood.GetFoodIdx == other.GetFoodIdx && SelectFood.GetGrade == other.GetGrade && SelectFood.GetMergeGroupIdx == other.GetMergeGroupIdx)
             {
                 var mergegroupdata = GameRoot.Instance.FoodSystem.FindFoodMergeGroupData(SelectFood.GetMergeGroupIdx);
 

@@ -7,10 +7,7 @@ public class ContentsOpenSystem : MonoBehaviour
 {
     public enum ContentsOpenType
     {
-        BoostBuff = 1,
-        AdVehicle = 2,
-        NextStageBtn = 3,
-        Interstitial = 4,
+        Interstitial = 1,
     }
 
 

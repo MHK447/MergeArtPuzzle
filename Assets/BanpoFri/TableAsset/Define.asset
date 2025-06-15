@@ -93,6 +93,6 @@ MonoBehaviour:
   - _index: daily_reward_reset_time
     _value: 5000
   - _index: merge_add_cooltime_count
-    _value: 15
+    _value: 50
   - _index: merge_cooltime
     _value: 20

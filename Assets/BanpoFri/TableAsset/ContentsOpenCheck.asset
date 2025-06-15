@@ -14,20 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mFirstKey:
   - 1
-  - 2
-  - 3
-  - 4
   mSecondKey: []
   mDataList:
   - _idx: 1
-    _open_facilityidx: 2
-    _stage_idx: 1
-  - _idx: 2
-    _open_facilityidx: 5
-    _stage_idx: 1
-  - _idx: 3
-    _open_facilityidx: 6
-    _stage_idx: 1
-  - _idx: 4
-    _open_facilityidx: 2
     _stage_idx: 1

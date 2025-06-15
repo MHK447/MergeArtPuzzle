@@ -57,7 +57,7 @@ public class PopupCollectionInfo : UIBase
             RewardAdText.text = EnergyRewardValue.ToString();
             NameText.text = Tables.Instance.GetTable<Localize>().GetString(td.name);
             DescText.text = Tables.Instance.GetTable<Localize>().GetString(td.desc);
-                        
+
             ProjectUtility.SetActiveCheck(AdObj, energyidx > 1);
             ProjectUtility.SetActiveCheck(FreeObj, energyidx == 1);
 
@@ -89,9 +89,13 @@ public class PopupCollectionInfo : UIBase
 
     public void OnClickRewardAdBtn()
     {
-        GameRoot.Instance.UserData.Energycoin.Value += EnergyRewardValue;
-        ProjectUtility.SetActiveCheck(EnergyAd.gameObject, false);
-        Hide();
+        GameRoot.Instance.GetAdManager.ShowRewardedAd(() =>
+        {
+            GameRoot.Instance.UserData.Energycoin.Value += EnergyRewardValue;
+            ProjectUtility.SetActiveCheck(EnergyAd.gameObject, false);
+            Hide();
+
+        });
     }
 
     public void OnClickCashBtn()
