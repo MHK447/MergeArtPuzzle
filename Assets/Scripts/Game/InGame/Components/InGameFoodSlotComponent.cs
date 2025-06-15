@@ -242,6 +242,7 @@ public class InGameFoodSlotComponent : MonoBehaviour
         {
             CreateFood(randselectfoodidx);
             GameRoot.Instance.UserData.Energycoin.Value -= 1;
+            GameRoot.Instance.FoodSystem.CurCheckFoodData();
 
             GameRoot.Instance.UserData.CurMode.SelectFoodUpgradeData.SelectFoodUpgrade(FoodGroupIdx);
 

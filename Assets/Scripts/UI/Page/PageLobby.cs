@@ -25,6 +25,15 @@ public class PageLobby : UIBase
     [SerializeField]
     private ButtonPressed PressedBtn;
 
+    [SerializeField]
+    private Transform PressedBtnRoot;
+
+    [SerializeField]
+    private Slider SliderValue;
+
+    [SerializeField]
+    private TextMeshProUGUI StarGoalValueText;
+
     private LobbyFoodComponentGroup LobbyStageFoodGroupComponent;
 
 
@@ -88,6 +97,28 @@ public class PageLobby : UIBase
                 Destroy(LobbyStageFoodGroupComponent.gameObject);
                 LobbyStageFoodGroupComponent = null;
             }
+            var MergeGroupFoodCount = 0;
+
+            foreach (var groupdata in GameRoot.Instance.UserData.Foodmergegroupdatas)
+            {
+                MergeGroupFoodCount += groupdata.Foodcount.Value;
+            }
+
+            var GoalValue = 0;
+
+            var tdlist = Tables.Instance.GetTable<FoodMergeGroupInfo>().DataList.ToList().FindAll(x => x.stageidx == stageidx);
+
+            for (int i = 0; i < tdlist.Count; i++)
+            {
+                var td = tdlist[i];
+
+                GoalValue += td.goal_count;
+            }
+
+
+            StarGoalValueText.text = $"{MergeGroupFoodCount}/{GoalValue}";
+
+            SliderValue.value = (float)MergeGroupFoodCount / (float)GoalValue;
 
             Addressables.InstantiateAsync($"Stage_Map_{stageidx.ToString("D2")}").Completed += (handle) =>
             {
@@ -115,7 +146,7 @@ public class PageLobby : UIBase
         StarCountText.text = starcount.ToString();
 
 
-        ProjectUtility.SetActiveCheck(PressedBtn.gameObject, starcount > 0);
+        ProjectUtility.SetActiveCheck(PressedBtnRoot.gameObject, starcount > 0);
         ProjectUtility.SetActiveCheck(StartBtn.gameObject, starcount <= 0);
     }
 

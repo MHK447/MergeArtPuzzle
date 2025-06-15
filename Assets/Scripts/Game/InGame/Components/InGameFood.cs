@@ -132,6 +132,10 @@ public class InGameFood : MonoBehaviour
                 }, 0, "", null, false, false, starpos, false);
             }, 0, "", null, false
             , false, pos);
+
+
+
+            GameRoot.Instance.FoodSystem.CurCheckFoodData();
         }
     }
 
