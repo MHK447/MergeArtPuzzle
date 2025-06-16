@@ -627,6 +627,7 @@ MonoBehaviour:
   SliderValue: {fileID: 3968715379849079308}
   StarGoalImage: {fileID: 2478779569609676069}
   StarGoalValueText: {fileID: 3357133921689034334}
+  FireWorkObj: {fileID: 6458297148031700757}
   StartBtn: {fileID: 5141432999676658883}
 --- !u!223 &7004852941865895792
 Canvas:
@@ -1388,6 +1389,11 @@ PrefabInstance:
 --- !u!224 &190232324464292488 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6794683402550808710, guid: 799298674c10d7b4faad3b55dd3777b6, type: 3}
+  m_PrefabInstance: {fileID: 6694679755477033486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6458297148031700757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 380621021363580187, guid: 799298674c10d7b4faad3b55dd3777b6, type: 3}
   m_PrefabInstance: {fileID: 6694679755477033486}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7449259021302961443

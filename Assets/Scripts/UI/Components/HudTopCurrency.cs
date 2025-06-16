@@ -20,12 +20,32 @@ public class HudTopCurrency : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI CashText;
 
+    [SerializeField]
+    private Button CashBtn;
+
+    [SerializeField]
+    private Button EnergyBtn;
+
 
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
 
+    void Awake()
+    {
+        CashBtn.onClick.AddListener(OnClickCash);
+        EnergyBtn.onClick.AddListener(OnClickEnergy);
+    }
 
+    public void OnClickCash()
+    {
+        GameRoot.Instance.UISystem.OpenUI<PageShop>(page=> page.Init());
+    }
+
+    public void OnClickEnergy()
+    {
+        GameRoot.Instance.UISystem.OpenUI<PopupPurchaseLightning>(popup=> popup.Init());
+    }
 
 
     void OnEnable()
@@ -54,6 +74,7 @@ public class HudTopCurrency : MonoBehaviour
         {
             ProjectUtility.SetActiveCheck(EnergyRoot, x < GameRoot.Instance.FoodSystem.MaxEnergyCoin);
         }).AddTo(disposables);
+        
     }
 
     void OnDestroy()

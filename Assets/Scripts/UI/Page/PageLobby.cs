@@ -41,6 +41,9 @@ public class PageLobby : UIBase
     [SerializeField]
     private TextMeshProUGUI StarGoalValueText;
 
+    [SerializeField]
+    private GameObject FireWorkObj;
+
     private LobbyFoodComponentGroup LobbyStageFoodGroupComponent;
 
 
@@ -94,7 +97,7 @@ public class PageLobby : UIBase
             var starcount = GameRoot.Instance.UserData.Starcoinvalue.Value;
 
             StarCountText.text = starcount.ToString();
-            
+
             //StageClearNameText.text = $"{stageidx}.str_stagemap_{stageidx}";
 
             StarCountCheck();
@@ -133,6 +136,10 @@ public class PageLobby : UIBase
             StarGoalValueText.text = $"{MergeGroupFoodCount}/{GoalValue}";
 
             SliderValue.value = (float)MergeGroupFoodCount / (float)GoalValue;
+
+            ProjectUtility.SetActiveCheck(FireWorkObj, SliderValue.value >= 1f);
+
+
 
             Addressables.InstantiateAsync($"Stage_Map_{stageidx.ToString("D2")}").Completed += (handle) =>
             {
@@ -209,6 +216,12 @@ public class PageLobby : UIBase
     {
         float slidervalue = (float)GetClearStarValue() / (float)GoalValue;
         DOTween.To(() => StarGoalImage.fillAmount, x => StarGoalImage.fillAmount = x, slidervalue, 0.1f);
+
+
+        if (slidervalue >= 1)
+        {
+            ProjectUtility.SetActiveCheck(FireWorkObj, true);
+        }
     }
 
 
@@ -218,7 +231,7 @@ public class PageLobby : UIBase
     }
 
     public int GetClearStarValue()
-    {   
+    {
         int count = 0;
 
 

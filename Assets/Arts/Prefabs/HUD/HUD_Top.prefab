@@ -211,6 +211,8 @@ MonoBehaviour:
   EnergyCoinTimeText: {fileID: 7558432048997685379}
   EnergyRoot: {fileID: 2149792514980046190}
   CashText: {fileID: 6496044066506201226}
+  CashBtn: {fileID: 3269296840874755475}
+  EnergyBtn: {fileID: 7985172600679444361}
 --- !u!1 &8953281104035343529
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +416,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4415113453871814279, guid: 6a5ca9aa4a5125445a07b606ec3bbc68, type: 3}
   m_PrefabInstance: {fileID: 1326627646753399631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7985172600679444361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8986978122106457286, guid: 6a5ca9aa4a5125445a07b606ec3bbc68, type: 3}
+  m_PrefabInstance: {fileID: 1326627646753399631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2310824239405210460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1024,6 +1037,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a5ca9aa4a5125445a07b606ec3bbc68, type: 3}
+--- !u!114 &3269296840874755475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8986978122106457286, guid: 6a5ca9aa4a5125445a07b606ec3bbc68, type: 3}
+  m_PrefabInstance: {fileID: 5901625206484060501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6496044066506201226 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 846779475639898591, guid: 6a5ca9aa4a5125445a07b606ec3bbc68, type: 3}
