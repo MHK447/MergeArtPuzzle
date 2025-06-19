@@ -18,7 +18,7 @@ public class ShopProductComponent : MonoBehaviour
     private TextMeshProUGUI PriceText;
 
     [SerializeField]
-    private TextMeshProUGUI RewardValueText;
+    private List<TextMeshProUGUI> RewardValueText = new List<TextMeshProUGUI>();
 
     [SerializeField]
     private GameObject CoolTimeRoot;
@@ -54,8 +54,11 @@ public class ShopProductComponent : MonoBehaviour
 
                 if (PriceText != null)
                     PriceText.text = price;
-                
-                RewardValueText.text = td.value.ToString();
+
+                for(int i = 0; i < RewardValueText.Count; i++)
+                {
+                    RewardValueText[i].text = td.value[i].ToString();
+                }
 
                 disposables.Clear();
 
@@ -121,49 +124,53 @@ public class ShopProductComponent : MonoBehaviour
         }
 
 
-            switch (Type)
-            {
-                case ShopSystem.ProductShopType.AdGem:
+        switch (Type)
+        {
+            case ShopSystem.ProductShopType.AdGem:
+                {
+                    GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.AdGemCount, 1);
+                    CoolTimeCheck();
+                }
+                break;
+            case ShopSystem.ProductShopType.FreeGem:
+                {
+                    GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.FreeGemCount, 1);
+                    CoolTimeCheck();
+                }
+                break;
+            default:
+                {
+                    if (purchaseManager != null && purchaseManager.IsInitialized)
                     {
-                        GameRoot.Instance.ShopSystem.RewardPay(td.reward_type, td.reward_idx, td.value);
+                        GameRoot.Instance.Loading.Show(true);
 
-                        GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.AdGemCount, 1);
-                        CoolTimeCheck();
-                    }
-                    break;
-                case ShopSystem.ProductShopType.FreeGem:
-                    {
-                        GameRoot.Instance.ShopSystem.RewardPay(td.reward_type, td.reward_idx, td.value);
-
-                        GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.FreeGemCount, 1);
-                        CoolTimeCheck();
-                    }
-                    break;
-                default:
-                    {
-                        if (purchaseManager != null && purchaseManager.IsInitialized)
+                        purchaseManager.PurchaseProduct(ProductId, (result, message) =>
                         {
-                            GameRoot.Instance.Loading.Show(true);
+                            GameRoot.Instance.Loading.Hide(true);
 
-                            purchaseManager.PurchaseProduct(ProductId, (result, message) =>
+                            if (result == InAppPurchaseManager.Result.Success)
                             {
-                                GameRoot.Instance.Loading.Hide(true);
+                                var td = Tables.Instance.GetTable<ShopProduct>().GetData((int)Type);
 
-                                if (result == InAppPurchaseManager.Result.Success)
+                                if(td != null)
                                 {
-                                    GameRoot.Instance.ShopSystem.RewardPay(td.reward_type, td.reward_idx, td.value);
+                                    for(int i = 0; i < td.reward_type.Count; i++)
+                                    {
+                                        GameRoot.Instance.ShopSystem.RewardPay(td.reward_type[i], td.reward_idx[i], td.value[i]);
+                                    }
                                 }
-                                else
-                                {
-                                    // 구매 실패 메시지 표시
-                                    // GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => {
-                                    //     popup.Show("구매 실패", message);
-                                    // });
-                                }
-                            });
-                        }
-                        break;
+                            }
+                            else
+                            {
+                                // 구매 실패 메시지 표시
+                                // GameRoot.Instance.UISystem.OpenUI<PopupToastmessage>(popup => {
+                                //     popup.Show("구매 실패", message);
+                                // });
+                            }
+                        });
                     }
-            }
+                    break;
+                }
+        }
     }
 }

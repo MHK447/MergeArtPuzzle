@@ -19,6 +19,10 @@ public class ShopSystem
 
         FreeGem = 1,
         AdGem = 2,
+
+        GemRush_01 = 1001,
+        GemRush_02 = 1002,
+        GemRush_03 = 1003,
     }
 
     public ReactiveProperty<bool> IsVipProperty = new ReactiveProperty<bool>(false);
@@ -135,6 +139,11 @@ public class ShopSystem
                                 GameRoot.Instance.UserData.SetReward(rewardtype, rewardidx, rewardvalue);
                             }
                             break;
+                        case (int)Config.CurrencyID.EnergyMoney:
+                            {
+                                GameRoot.Instance.UserData.Energycoin.Value += rewardvalue;
+                            }
+                            break;
                     }
 
                 }
@@ -147,7 +156,7 @@ public class ShopSystem
     public void DayInitTime()
     {
         var CurTime = TimeSystem.GetCurTime();
-      
+
 
         ResetStartTime = ResetTime = new System.DateTime(CurTime.Year, CurTime.Month, CurTime.Day, daily_reward_reset_time, 0, 0);
 
@@ -163,7 +172,7 @@ public class ShopSystem
 
         if (GameRoot.Instance.UserData.Dayinitialtime == default(System.DateTime))
         {
-            Reset();    
+            Reset();
         }
         else
         {

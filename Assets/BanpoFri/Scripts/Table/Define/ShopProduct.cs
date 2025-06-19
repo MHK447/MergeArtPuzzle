@@ -21,22 +21,22 @@ namespace BanpoFri
 			set { _type = value;}
 		}
 		[SerializeField]
-		private int _reward_type;
-		public int reward_type
+		private List<int> _reward_type;
+		public List<int> reward_type
 		{
 			get { return _reward_type;}
 			set { _reward_type = value;}
 		}
 		[SerializeField]
-		private int _reward_idx;
-		public int reward_idx
+		private List<int> _reward_idx;
+		public List<int> reward_idx
 		{
 			get { return _reward_idx;}
 			set { _reward_idx = value;}
 		}
 		[SerializeField]
-		private int _value;
-		public int value
+		private List<int> _value;
+		public List<int> value
 		{
 			get { return _value;}
 			set { _value = value;}

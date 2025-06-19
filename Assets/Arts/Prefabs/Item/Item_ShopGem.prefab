@@ -320,7 +320,8 @@ MonoBehaviour:
   Type: 101
   PurchaseBtn: {fileID: 6872733068617796021}
   PriceText: {fileID: 8785810135045691079}
-  RewardValueText: {fileID: 3867544678779254535}
+  RewardValueText:
+  - {fileID: 3867544678779254535}
   CoolTimeRoot: {fileID: 0}
   CoolTimeText: {fileID: 0}
 --- !u!1 &8943028750119715709

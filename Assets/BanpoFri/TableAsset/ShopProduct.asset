@@ -21,61 +21,85 @@ MonoBehaviour:
   - 106
   - 1
   - 2
+  - 1001
+  - 1002
+  - 1003
   mSecondKey: []
   mDataList:
   - _idx: 101
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 170
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: aa000000
     _product_id: currency_gem_01
     _consumable_check: 0
   - _idx: 102
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 550
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: 26020000
     _product_id: currency_gem_02
     _consumable_check: 0
   - _idx: 103
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 1250
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: e2040000
     _product_id: currency_gem_03
     _consumable_check: 0
   - _idx: 104
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 3000
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: b80b0000
     _product_id: currency_gem_04
     _consumable_check: 0
   - _idx: 105
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 8450
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: 02210000
     _product_id: currency_gem_05
     _consumable_check: 0
   - _idx: 106
     _type: 1
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 17500
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: 5c440000
     _product_id: currency_gem_06
     _consumable_check: 0
   - _idx: 1
     _type: 2
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 15
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: 0f000000
     _product_id: 
     _consumable_check: 0
   - _idx: 2
     _type: 2
-    _reward_type: 1
-    _reward_idx: 2
-    _value: 45
+    _reward_type: 01000000
+    _reward_idx: 02000000
+    _value: 2d000000
     _product_id: 
+    _consumable_check: 0
+  - _idx: 1001
+    _type: 1
+    _reward_type: 0100000001000000
+    _reward_idx: 0200000003000000
+    _value: fa000000fa000000
+    _product_id: shopgemrush_01
+    _consumable_check: 0
+  - _idx: 1002
+    _type: 1
+    _reward_type: 0100000001000000
+    _reward_idx: 0200000003000000
+    _value: 26020000fa000000
+    _product_id: shopgemrush_02
+    _consumable_check: 0
+  - _idx: 1003
+    _type: 1
+    _reward_type: 0100000001000000
+    _reward_idx: 0200000003000000
+    _value: 7e040000fa000000
+    _product_id: shopgemrush_03
     _consumable_check: 0
