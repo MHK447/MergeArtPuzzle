@@ -44,6 +44,7 @@ MonoBehaviour:
   - str_title_shop_gems
   - str_title_daily
   - str_desc_loading
+  - str_max
   mSecondKey: []
   mDataList:
   - _idx: str_toastmsg_1
@@ -170,3 +171,7 @@ MonoBehaviour:
     _ko: Reloading....
     _en: Reloading....
     _ja: Reloading....
+  - _idx: str_max
+    _ko: MAX
+    _en: MAX
+    _ja: MAX

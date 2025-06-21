@@ -231,6 +231,7 @@ MonoBehaviour:
   ShopBtn: {fileID: 4754581740926238283}
   NoAdsBtn: {fileID: 1547186106050382840}
   HomeBtn: {fileID: 6334716057454123273}
+  HudTopCurrency: {fileID: 25167409757530786}
 --- !u!223 &8113461725749285611
 Canvas:
   m_ObjectHideFlags: 0
@@ -431,6 +432,17 @@ PrefabInstance:
       addedObject: {fileID: 7455545484276244301}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
+--- !u!114 &25167409757530786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 37067596601183558, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}
+  m_PrefabInstance: {fileID: 61600587075348452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289f98a2822934e5e958041eec7ab332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &915394701286142848 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 895930217304659044, guid: e6cf8fb0ef06587438dcc3f1430c6d7f, type: 3}

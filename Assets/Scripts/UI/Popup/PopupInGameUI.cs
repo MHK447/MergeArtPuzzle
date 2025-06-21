@@ -38,6 +38,9 @@ public class PopupInGameUI : UIBase
     [SerializeField]
     private Button HomeBtn;
 
+    [SerializeField]
+    private HudTopCurrency HudTopCurrency;
+
     private int GoalValue = 0;
 
     private int MergeGroupFoodCount = 0;
@@ -94,6 +97,8 @@ public class PopupInGameUI : UIBase
         }).AddTo(disposables);
 
         CheckStarGoalValue();
+
+        HudTopCurrency.SetStatus();
     }
 
     public void CheckStarGoalValue()

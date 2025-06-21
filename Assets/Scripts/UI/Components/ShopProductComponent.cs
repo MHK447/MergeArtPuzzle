@@ -55,7 +55,7 @@ public class ShopProductComponent : MonoBehaviour
                 if (PriceText != null)
                     PriceText.text = price;
 
-                for(int i = 0; i < RewardValueText.Count; i++)
+                for (int i = 0; i < RewardValueText.Count; i++)
                 {
                     RewardValueText[i].text = td.value[i].ToString();
                 }
@@ -128,8 +128,12 @@ public class ShopProductComponent : MonoBehaviour
         {
             case ShopSystem.ProductShopType.AdGem:
                 {
-                    GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.AdGemCount, 1);
-                    CoolTimeCheck();
+                    GameRoot.Instance.GetAdManager.ShowRewardedAd((() =>
+                    {
+                        GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.AdGemCount, 1);
+                        CoolTimeCheck();
+                    }));
+
                 }
                 break;
             case ShopSystem.ProductShopType.FreeGem:
@@ -152,9 +156,9 @@ public class ShopProductComponent : MonoBehaviour
                             {
                                 var td = Tables.Instance.GetTable<ShopProduct>().GetData((int)Type);
 
-                                if(td != null)
+                                if (td != null)
                                 {
-                                    for(int i = 0; i < td.reward_type.Count; i++)
+                                    for (int i = 0; i < td.reward_type.Count; i++)
                                     {
                                         GameRoot.Instance.ShopSystem.RewardPay(td.reward_type[i], td.reward_idx[i], td.value[i]);
                                     }

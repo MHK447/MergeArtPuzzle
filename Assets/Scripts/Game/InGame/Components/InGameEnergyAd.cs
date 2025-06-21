@@ -19,7 +19,7 @@ public class InGameEnergyAd : MonoBehaviour
 
     public int GetEnergyIdx { get { return EnergyIdx; } }
 
-    public float StartTime = 20;
+    public float StartTime = 60;
 
     private float deltime = 0f;
 

@@ -39,6 +39,8 @@ public class PopupCollectionInfo : UIBase
 
     private InGameEnergyAd EnergyAd;
 
+    private int EnergyIdx = 0;
+
 
     protected override void Awake()
     {
@@ -53,6 +55,8 @@ public class PopupCollectionInfo : UIBase
         var td = Tables.Instance.GetTable<InGameEnergyInfo>().GetData(energyidx);
         if (td != null)
         {
+
+            EnergyIdx = energyidx;
             EnergyRewardValue = td.value;
             RewardAdText.text = EnergyRewardValue.ToString();
             NameText.text = Tables.Instance.GetTable<Localize>().GetString(td.name);
@@ -89,13 +93,24 @@ public class PopupCollectionInfo : UIBase
 
     public void OnClickRewardAdBtn()
     {
-        GameRoot.Instance.GetAdManager.ShowRewardedAd(() =>
+        if (EnergyIdx == 1)
         {
-            GameRoot.Instance.UserData.Energycoin.Value += EnergyRewardValue;
-            ProjectUtility.SetActiveCheck(EnergyAd.gameObject, false);
-            Hide();
+            ClickReward();
+        }
+        else
+        {
+            GameRoot.Instance.GetAdManager.ShowRewardedAd(() =>
+            {
+                ClickReward();
+            });
+        }
+    }
 
-        });
+    public void ClickReward()
+    {
+        GameRoot.Instance.UserData.Energycoin.Value += EnergyRewardValue;
+        ProjectUtility.SetActiveCheck(EnergyAd.gameObject, false);
+        Hide();
     }
 
     public void OnClickCashBtn()

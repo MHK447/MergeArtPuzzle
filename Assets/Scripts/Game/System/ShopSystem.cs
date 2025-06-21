@@ -35,6 +35,8 @@ public class ShopSystem
     private float currentInterAdTimer = 0f;
     private bool isInterAdReady = false;
 
+    public int stage_energy_consume =0;
+
     public int daily_reward_reset_time = 0;
 
     public void Create()
@@ -50,6 +52,8 @@ public class ShopSystem
         });
 
         daily_reward_reset_time = Tables.Instance.GetTable<Define>().GetData("daily_reward_reset_time").value / 1000;
+
+        stage_energy_consume = Tables.Instance.GetTable<Define>().GetData("stage_energy_consume").value;
 
         DayInitTime();
     }
@@ -68,6 +72,12 @@ public class ShopSystem
             }
         }
     }
+
+    public bool IsEnerrgyFree()
+    {
+        return GameRoot.Instance.UserData.Stagedata.Stageidx.Value >= stage_energy_consume; 
+    }
+
 
     // 인터스티셜 광고 표시 시도
     public void TryShowInterstitialAd()

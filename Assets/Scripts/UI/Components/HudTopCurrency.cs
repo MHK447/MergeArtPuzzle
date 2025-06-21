@@ -39,12 +39,19 @@ public class HudTopCurrency : MonoBehaviour
 
     public void OnClickCash()
     {
-        GameRoot.Instance.UISystem.OpenUI<PageShop>(page=> page.Init());
+        GameRoot.Instance.UISystem.OpenUI<PageShop>(page => page.Init());
     }
 
     public void OnClickEnergy()
     {
-        GameRoot.Instance.UISystem.OpenUI<PopupPurchaseLightning>(popup=> popup.Init());
+        GameRoot.Instance.UISystem.OpenUI<PopupPurchaseLightning>(popup => popup.Init());
+    }
+
+    public void SetStatus()
+    {
+        var isenergyad = GameRoot.Instance.ShopSystem.IsEnerrgyFree();
+
+        EnergycoinText.text = !isenergyad ? Tables.Instance.GetTable<Localize>().GetString("str_max") : $"{GameRoot.Instance.UserData.Energycoin.Value}";
     }
 
 
@@ -52,9 +59,25 @@ public class HudTopCurrency : MonoBehaviour
     {
         disposables.Clear();
 
+
+        var isenergyad = GameRoot.Instance.ShopSystem.IsEnerrgyFree();
+
+        var stageidx = GameRoot.Instance.UserData.Stagedata.Stageidx.Value;
+
+        ProjectUtility.SetActiveCheck(EnergyRoot, isenergyad);
+
+
+        GameRoot.Instance.UserData.Stagedata.Stageidx.Subscribe(x =>
+        {
+            var isenergyad = GameRoot.Instance.ShopSystem.IsEnerrgyFree();
+            EnergycoinText.text = !isenergyad ? Tables.Instance.GetTable<Localize>().GetString("str_max") : $"{GameRoot.Instance.UserData.Energycoin.Value}";
+        }).AddTo(disposables);
+
+
         GameRoot.Instance.UserData.Energycoin.Subscribe(count =>
         {
-            EnergycoinText.text = $"{count}";
+            var isenergyad = GameRoot.Instance.ShopSystem.IsEnerrgyFree();
+            EnergycoinText.text = !isenergyad ? Tables.Instance.GetTable<Localize>().GetString("str_max") : $"{count}";
         }).AddTo(disposables);
 
         GameRoot.Instance.UserData.Cash.Subscribe(x =>
@@ -74,7 +97,7 @@ public class HudTopCurrency : MonoBehaviour
         {
             ProjectUtility.SetActiveCheck(EnergyRoot, x < GameRoot.Instance.FoodSystem.MaxEnergyCoin);
         }).AddTo(disposables);
-        
+
     }
 
     void OnDestroy()

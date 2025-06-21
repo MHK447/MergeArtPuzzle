@@ -40,6 +40,7 @@ MonoBehaviour:
   - daily_reward_reset_time
   - merge_add_cooltime_count
   - merge_cooltime
+  - stage_energy_consume
   mSecondKey: []
   mDataList:
   - _index: casher_move_speed
@@ -77,9 +78,9 @@ MonoBehaviour:
   - _index: energy_add_time
     _value: 60
   - _index: max_energy_count
-    _value: 100
+    _value: 150
   - _index: start_energy_coin
-    _value: 100
+    _value: 150
   - _index: max_food_size
     _value: 48
   - _index: add_energy_buy_price
@@ -96,3 +97,5 @@ MonoBehaviour:
     _value: 50
   - _index: merge_cooltime
     _value: 20
+  - _index: stage_energy_consume
+    _value: 3

@@ -53,6 +53,8 @@ public class InGameSystem
     public int max_offline_time = 0;
     public int offline_value_time = 0;
 
+    public int stage_energy_consume = 0;
+
     public int offline_reward_multiple = 0;
 
     public float default_fishing_time = 0;
@@ -60,6 +62,7 @@ public class InGameSystem
 
     public void Create()
     {
+        stage_energy_consume = Tables.Instance.GetTable<Define>().GetData("stage_energy_consume").value;
     }
 
     public T GetInGame<T>() where T : InGameMode
