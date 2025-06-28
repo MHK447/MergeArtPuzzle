@@ -28,8 +28,6 @@ namespace BanpoFri
                 plist.ReadFromFile(plistPath);
 
                 plist.root.SetBoolean("ITSAppUsesNonExemptEncryption", false);
-                plist.root.SetString("NSAdvertisingAttributionReportEndpoint", "https://appsflyer-skadnetwork.com/");
-                plist.root.SetString("SKAdNetworkIdentifier", "4w7y6s5ca2.skadnetwork");
                 plist.root.SetString("NSUserTrackingUsageDescription", "This identifier will be used to deliver personalized ads to you.");
                 //plist.root.SetString("FacebookAppID", "580882013229001");
 

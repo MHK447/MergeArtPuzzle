@@ -138,10 +138,8 @@ public class AdManager : MonoBehaviour
 
             var adRequest = new AdRequest();
             
-            // 테스트 장치 설정
-            // AdRequest.Builder builder = new AdRequest.Builder();
-            // builder.AddTestDevice("2077ef9a63d2b398840261c8221a0c9b");
-            // adRequest = builder.Build();
+            // 테스트 장치 설정 (현재 SDK 버전에서는 기본 AdRequest 사용)
+            // 필요시 AdMob 콘솔에서 테스트 광고 활성화 또는 개발자 모드 사용
 
             InterstitialAd.Load(_interstitialAdUnitId, adRequest,
                 (InterstitialAd ad, LoadAdError error) =>

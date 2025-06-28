@@ -142,9 +142,11 @@ public class PanAndZoom : MonoBehaviour
 
     void UpdateWithMouse()
     {
+        // 마우스 스크롤 휠을 사용한 줌인/줌아웃
         if (Input.mouseScrollDelta.y != 0)
         {
             //if(!IsPointerOverUIObject())
+            // 스크롤 방향에 따라 줌인(+) 또는 줌아웃(-) 처리
             OnPinch(Input.mousePosition, 1, Input.mouseScrollDelta.y < 0 ? (1 / mouseScrollSpeed) : mouseScrollSpeed, Vector2.right);
         }
     }
@@ -311,37 +313,6 @@ public class PanAndZoom : MonoBehaviour
         return false;
     }
 
-    public void CameraZoom(Vector3 worldCenter, float zoomSize)
-    {
-        if (controlCamera && cameraControlEnabled)
-        {
-            if (cam == null) cam = Camera.main;
-
-            if (cam.orthographic)
-            {
-                var currentPinchPosition = worldCenter;
-
-                var size = Mathf.Max(9f, zoomSize);
-
-                if (size < maxZoomOutSize)
-                {
-                    cam.orthographicSize = size;
-
-                    var newPinchPosition = worldCenter;
-
-                    cam.transform.position -= newPinchPosition - currentPinchPosition;
-                }
-            }
-            else
-            {
-                cam.fieldOfView = Mathf.Clamp(zoomSize, 0.1f, 179.9f);
-            }
-
-        }
-    }
-
-
-
     void OnPinch(Vector2 center, float oldDistance, float newDistance, Vector2 touchDelta)
     {
 
@@ -361,18 +332,25 @@ public class PanAndZoom : MonoBehaviour
             onPinch(oldDistance, newDistance);
         }
 
+        // 카메라 줌 제어가 활성화된 경우에만 실행
         if (controlCamera && cameraControlEnabled)
         {
             if (cam == null) cam = Camera.main;
 
+            // 직교(Orthographic) 카메라인 경우
             if (cam.orthographic)
             {
+                // 핀치 중심점을 월드 좌표로 변환
                 var currentPinchPosition = cam.ScreenToWorldPoint(center);
 
+                // 이전 거리와 새로운 거리의 비율로 새로운 카메라 크기 계산
+                // 최소 크기는 5f로 제한
                 var size = Mathf.Max(5f, cam.orthographicSize * oldDistance / newDistance);
 
+                // 최대 줌아웃 크기 제한 체크
                 if (size < maxZoomOutSize)
                 {
+                    // 카메라의 orthographicSize 변경으로 줌인/줌아웃 구현
                     cam.orthographicSize = size;
 
                     //var newPinchPosition = cam.ScreenToWorldPoint(center);
@@ -382,22 +360,25 @@ public class PanAndZoom : MonoBehaviour
             }
             else
             {
+                // 원근(Perspective) 카메라인 경우 Field of View 조정
                 cam.fieldOfView = Mathf.Clamp(cam.fieldOfView * oldDistance / newDistance, 0.1f, 179.9f);
             }
 
         }
     }
 
+    // 특정 위치로 포커스하며 줌인하는 함수
     public void FocusPosition(Vector3 worldPos, float _focusSize = 15f)
     {
         moving = false;
         focusing = true;
         follow = false;
+        // 포커스할 타겟 위치 설정 (Z축은 카메라의 현재 Z 위치 유지)
         focusTargetPos = new Vector3(worldPos.x, worldPos.y, cam.transform.position.z);
         focusOriginPos = cam.transform.position;
         focusDeltaTime = 0f;
-        focusSize = _focusSize;
-        focusOriginCameraSize = cam.orthographicSize;
+        focusSize = _focusSize; // 줌인할 카메라 크기
+        focusOriginCameraSize = cam.orthographicSize; // 현재 카메라 크기 저장
     }
 
     public void FollowCameraPos(Transform worldTrans, float _focusSize = 10f)
@@ -416,22 +397,59 @@ public class PanAndZoom : MonoBehaviour
         follow = false;
     }
 
+    // 줌 아웃 함수
     public void FocusOut()
     {
         moving = false;
         focusing = true;
         follow = false;
-        focusTargetPos = cam.transform.position;
+        focusTargetPos = cam.transform.position; // 현재 위치 유지
         focusOriginPos = cam.transform.position;
         focusDeltaTime = 0f;
-        focusSize = zoomOutSize;
-        focusOriginCameraSize = cam.orthographicSize;
+        focusSize = zoomOutSize; // 줌아웃할 카메라 크기
+        focusOriginCameraSize = cam.orthographicSize; // 현재 카메라 크기 저장
     }
 
     /// <summary> Cancels camera movement for the current motion. Resets to use camera at the end of the touch motion.</summary>
     public void CancelCamera()
     {
         cameraControlEnabled = false;
+    }
+
+    // 카메라 줌 함수 (직접적인 줌 제어)
+    public void CameraZoom(Vector3 worldCenter, float zoomSize)
+    {
+        if (controlCamera && cameraControlEnabled)
+        {
+            if (cam == null) cam = Camera.main;
+
+            // 직교(Orthographic) 카메라인 경우
+            if (cam.orthographic)
+            {
+                var currentPinchPosition = worldCenter;
+
+                // 최소 줌 크기를 9f로 제한
+                var size = Mathf.Max(9f, zoomSize);
+
+                // 최대 줌아웃 크기 제한 체크
+                if (size < maxZoomOutSize)
+                {
+                    // 카메라의 orthographicSize 변경으로 줌 적용
+                    cam.orthographicSize = size;
+
+                    var newPinchPosition = worldCenter;
+
+                    // 줌 중심점 기준으로 카메라 위치 조정
+                    cam.transform.position -= newPinchPosition - currentPinchPosition;
+                }
+            }
+            else
+            {
+                // 원근(Perspective) 카메라인 경우 Field of View 조정
+                cam.fieldOfView = Mathf.Clamp(zoomSize, 0.1f, 179.9f);
+            }
+
+        }
     }
 
 }
