@@ -28,15 +28,11 @@ namespace BanpoFri
                 plist.ReadFromFile(plistPath);
 
                 plist.root.SetBoolean("ITSAppUsesNonExemptEncryption", false);
-                plist.root.SetString("NSUserTrackingUsageDescription", "This identifier will be used to deliver personalized ads to you.");
+                plist.root.SetString("NSUserTrackingUsageDescription", "개인에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다.");
                 //plist.root.SetString("FacebookAppID", "580882013229001");
 
-                // var array = plist.root["CFBundleURLTypes"].AsArray();
-                // var dic = array.AddDict();
-                // var urlInnerArray = dic.CreateArray("CFBundleURLSchemes");
-                // urlInnerArray.AddString("com.googleusercontent.apps.815128155902-l5pcruie723i96dg1rqgsk2fv2rqic01");
-
-                var ids = new string[] {
+                var ids = new string[]
+                {
                     "488r3q3dtq",
                     "5a6flpkh64",
                     "x44k69ngh6",
@@ -94,7 +90,6 @@ namespace BanpoFri
                 };
 
                 var arraySKAdNetworkItems = plist.root.CreateArray("SKAdNetworkItems");
-
                 foreach (var id in ids)
                 {
                     var dictSKAdNetworkIdentifier_FAN = arraySKAdNetworkItems.AddDict();
@@ -110,14 +105,10 @@ namespace BanpoFri
                 project.AddCapability(targetGuid, PBXCapabilityType.InAppPurchase);
                 project.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");
 
-                //var fileGuid = project.AddFile(Path.Combine(buildPath, "GoogleService-Info.plist"), Path.Combine(buildPath, "GoogleService-Info.plist"));
-                //project.AddFileToBuild(targetGuid, fileGuid);
-
                 foreach (var tg in new[] { targetGuid, project.GetUnityFrameworkTargetGuid() })
                 {
                     project.SetBuildProperty(tg, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
                 }
-
                 project.SetBuildProperty(targetGuid, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
 
                 if (UseMax)
@@ -128,7 +119,6 @@ namespace BanpoFri
                         System.Action<string, string> SaveLocalFile = (localizeString, localeCode) => {
                             var path = GetLocalFilePath(buildPath, localeCode, project, targetGuid);
                             var localizedDescriptionLine = "\"CFBundleDisplayName\" = \"" + localizeString + "\";\n";
-                            // File already exists, update it in case the value changed between builds.
                             if (File.Exists(path))
                             {
                                 var output = new List<string>();
@@ -146,12 +136,10 @@ namespace BanpoFri
                                         output.Add(line);
                                     }
                                 }
-
                                 if (!keyUpdated)
                                 {
                                     output.Add(localizedDescriptionLine);
                                 }
-
                                 File.WriteAllText(path, string.Join("\n", output.ToArray()) + "\n");
                             }
                             else
@@ -176,7 +164,6 @@ namespace BanpoFri
                         {
                             var path = GetLocalFilePath(buildPath, localeCode, project, targetGuid);
                             var localizedDescriptionLine = "\"NSUserTrackingUsageDescription\" = \"" + localizeString + "\";\n";
-                            // File already exists, update it in case the value changed between builds.
                             if (File.Exists(path))
                             {
                                 var output = new List<string>();
@@ -194,12 +181,10 @@ namespace BanpoFri
                                         output.Add(line);
                                     }
                                 }
-
                                 if (!keyUpdated)
                                 {
                                     output.Add(localizedDescriptionLine);
                                 }
-
                                 File.WriteAllText(path, string.Join("\n", output.ToArray()) + "\n");
                             }
                         };
@@ -215,12 +200,7 @@ namespace BanpoFri
                 }
                 else
                 {
-                    var localizeList = new List<string>();
-                    localizeList.Add("Base.lproj");
-                    localizeList.Add("ko.lproj");
-                    localizeList.Add("ja.lproj");
-                    localizeList.Add("en.lproj");
-
+                    var localizeList = new List<string> { "Base.lproj", "ko.lproj", "ja.lproj", "en.lproj" };
                     Dictionary<string, string> folders = new Dictionary<string, string>();
                     foreach (var data in localizeList)
                     {
@@ -231,7 +211,6 @@ namespace BanpoFri
                             FileUtil.DeleteFileOrDirectory(buildPath + data);
                             Directory.CreateDirectory(buildPath + "/" + data);
                         }
-
                         FileUtil.CopyFileOrDirectory(Application.dataPath + $"/BanpoFri/IosAppName/{data}/InfoPlist.strings", buildPath + "/" + data + "/InfoPlist.strings");
                         folders.Add(data, "./");
                     }
@@ -249,14 +228,9 @@ namespace BanpoFri
                 string[] idArray = Application.identifier.Split('.');
                 var entitlementsPath = $"Unity-iPhone/{idArray[idArray.Length - 1]}.entitlements";
 
-                // create capabilities manager
                 var capManager = new ProjectCapabilityManager(projectPath, entitlementsPath, null, targetGuid);
-
-                // Add necessary capabilities
                 capManager.AddPushNotifications(true);
                 capManager.AddSignInWithApple();
-
-                // Write to file
                 capManager.WriteToFile();
             }
         }
@@ -269,28 +243,16 @@ namespace BanpoFri
             var infoPlistStringsFilePath = Path.Combine(localeSpecificDirectoryPath, "InfoPlist.strings");
 
             if (!Directory.Exists(resourcesDirectoryPath))
-            {
                 Directory.CreateDirectory(resourcesDirectoryPath);
-            }
 
             if (!Directory.Exists(localeSpecificDirectoryPath))
             {
                 Directory.CreateDirectory(localeSpecificDirectoryPath);
-
                 var localeSpecificDirectoryRelativePath = Path.Combine("Localize", localeSpecificDirectoryName);
                 var guid = project.AddFolderReference(localeSpecificDirectoryRelativePath, localeSpecificDirectoryRelativePath);
                 project.AddFileToBuild(targetguid, guid);
             }
-
             return infoPlistStringsFilePath;
-        }
-
-        private static string GetMaxLocalFilePath(string buildPath, string localeCode)
-        {
-            var resourcesDirectoryPath = Path.Combine(buildPath, AppLovinMaxResourcesDirectoryName);
-            var localeSpecificDirectoryName = localeCode + ".lproj";
-            var localeSpecificDirectoryPath = Path.Combine(resourcesDirectoryPath, localeSpecificDirectoryName);
-            return Path.Combine(localeSpecificDirectoryPath, "InfoPlist.strings");
         }
 
         private static int ExecuteCommand(string command, string args)
@@ -308,18 +270,12 @@ namespace BanpoFri
             string output = process.StandardOutput.ReadToEnd();
             string error = process.StandardError.ReadToEnd();
             if (!string.IsNullOrEmpty(output))
-            {
                 UnityEngine.Debug.Log(output);
-            }
             if (!string.IsNullOrEmpty(error))
-            {
                 UnityEngine.Debug.LogError(error);
-            }
 
             return process.ExitCode;
         }
     }
 }
-
 #endif
-
