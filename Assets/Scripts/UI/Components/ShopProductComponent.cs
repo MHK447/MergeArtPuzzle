@@ -131,6 +131,13 @@ public class ShopProductComponent : MonoBehaviour
                     GameRoot.Instance.GetAdManager.ShowRewardedAd((() =>
                     {
                         GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.AdGemCount, 1);
+                        
+                        // 실제 잼 지급
+                        for (int i = 0; i < td.reward_type.Count; i++)
+                        {
+                            GameRoot.Instance.ShopSystem.RewardPay(td.reward_type[i], td.reward_idx[i], td.value[i]);
+                        }
+                        
                         CoolTimeCheck();
                     }));
 
@@ -139,6 +146,13 @@ public class ShopProductComponent : MonoBehaviour
             case ShopSystem.ProductShopType.FreeGem:
                 {
                     GameRoot.Instance.UserData.AddRecordCount(Config.RecordCountKeys.FreeGemCount, 1);
+                    
+                    // 실제 잼 지급
+                    for (int i = 0; i < td.reward_type.Count; i++)
+                    {
+                        GameRoot.Instance.ShopSystem.RewardPay(td.reward_type[i], td.reward_idx[i], td.value[i]);
+                    }
+                    
                     CoolTimeCheck();
                 }
                 break;

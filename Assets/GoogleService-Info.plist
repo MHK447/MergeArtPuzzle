@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>288840381928-frbfs84ju4ak32tfp4d3unentn9m1nsa.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.288840381928-frbfs84ju4ak32tfp4d3unentn9m1nsa</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDwCYDMtxie5J_RMO-sOHDemHtDzGWLb6A</string>
+	<string>AIzaSyAWEXcv9O455BOvA-654SSJyE-Fj3NlEu8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>288840381928</string>
+	<string>122843468852</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.banpofri.otterfishshop.com</string>
+	<string>com.banpofri.mergepuzzlecom</string>
 	<key>PROJECT_ID</key>
-	<string>ottersfishshop</string>
+	<string>mergeartpuzzle</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ottersfishshop.firebasestorage.app</string>
+	<string>mergeartpuzzle.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:288840381928:ios:9fbd53f53209881e18205d</string>
+	<string>1:122843468852:ios:e462a2c4d9eff24f1ee661</string>
 </dict>
 </plist>

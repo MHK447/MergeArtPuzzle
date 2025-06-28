@@ -32,6 +32,7 @@ public class FoodSystem
 
         energy_add_time = Tables.Instance.GetTable<Define>().GetData("energy_add_time").value;
         start_energy_coin = Tables.Instance.GetTable<Define>().GetData("start_energy_coin").value;
+        MaxEnergyCoin = Tables.Instance.GetTable<Define>().GetData("max_energy_count").value;
         max_food_size = Tables.Instance.GetTable<Define>().GetData("max_food_size").value;
         energy_add_count = Tables.Instance.GetTable<Define>().GetData("energy_add_count").value;
         merge_add_cooltime_count = Tables.Instance.GetTable<Define>().GetData("merge_add_cooltime_count").value;

@@ -47,6 +47,11 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public int CurRestTime = 0;
 
+    // 음식 생성 쿨다운 관련 변수 추가
+    private bool isFoodCreating = false;
+    private float foodCreateCooldown = 0.3f; // 0.3초 쿨다운
+    private float lastFoodCreateTime = 0f;
+
     void Awake()
     {
         FoodBtn.onClick.AddListener(OnClickFoodBtn);
@@ -202,6 +207,12 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void AddRandInGameEnergy()
     {
+        // 2스테이지 이상일 때만 에너지 컴포넌트 생성
+        if (!GameRoot.Instance.ContentsOpenSystem.ContentsOpenCheck(ContentsOpenSystem.ContentsOpenType.Interstitial))
+        {
+            return;
+        }
+
         var tdlist = Tables.Instance.GetTable<InGameEnergyInfo>().DataList.ToList();
         var randvalue = Random.Range(0, tdlist.Count);
         GameRoot.Instance.InGameSystem.GetInGame<InGameTycoon>().InGameChapterMap.CreateEnergy(tdlist[randvalue].energy_idx);
@@ -221,6 +232,12 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
     public void OnClickFoodBtn()
     {
+        // 쿨다운 체크
+        if (isFoodCreating || Time.time - lastFoodCreateTime < foodCreateCooldown)
+        {
+            return;
+        }
+
         if (GameRoot.Instance.UserData.Energycoin.Value <= 0)
         {
             GameRoot.Instance.UISystem.OpenUI<PopupPurchaseLightning>(popup => popup.Init());
@@ -240,6 +257,10 @@ public class InGameFoodSlotComponent : MonoBehaviour
 
         if (randselectfoodidx > 0)
         {
+            // 음식 생성 시작
+            isFoodCreating = true;
+            lastFoodCreateTime = Time.time;
+
             CreateFood(randselectfoodidx);
 
             if (GameRoot.Instance.ShopSystem.IsEnerrgyFree())
@@ -259,9 +280,19 @@ public class InGameFoodSlotComponent : MonoBehaviour
                     ActiveRestTime();
                 }
             }
+
+            // 쿨다운 종료를 위한 코루틴 시작
+            StartCoroutine(ResetFoodCreateFlag());
         }
 
 
+    }
+
+    // 음식 생성 플래그 리셋 코루틴
+    private IEnumerator ResetFoodCreateFlag()
+    {
+        yield return new WaitForSeconds(foodCreateCooldown);
+        isFoodCreating = false;
     }
 
     private float RestDelTime = 0f;

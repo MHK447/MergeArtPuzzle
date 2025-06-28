@@ -16,8 +16,8 @@ public class AdManager : MonoBehaviour
     private string _adUnitIdAndroid_Interstitial = "ca-app-pub-4449379001767537/6415710398";
     
     // iOS용 광고 ID
-    private string _adUnitIdIOS_Reward = "ca-app-pub-4348570103813665/7269743639"; // TODO: 실제 iOS 리워드 광고 ID로 변경 필요
-    private string _adUnitIdIOS_Interstitial = "ca-app-pub-4348570103813665/5800749290"; // TODO: 실제 iOS 전면 광고 ID로 변경 필요
+    private string _adUnitIdIOS_Reward = "ca-app-pub-4449379001767537/2697435586"; // TODO: 실제 iOS 리워드 광고 ID로 변경 필요
+    private string _adUnitIdIOS_Interstitial = "ca-app-pub-4449379001767537/7332467556"; // TODO: 실제 iOS 전면 광고 ID로 변경 필요
 
     // 현재 플랫폼에 따른 광고 ID
     private string _rewardedAdUnitId;

@@ -246,8 +246,22 @@ public class InGameSystem
 
         if (diff.TotalSeconds >= 120)
         {
-            var addenergycoin = (int)diff.TotalSeconds / 120;
-            GameRoot.Instance.UserData.Energycoin.Value += addenergycoin;
+            // 최대 오프라인 시간 제한 (테이블에서 가져옴)
+            var maxOfflineTime = Tables.Instance.GetTable<Define>().GetData("max_offline_time").value;
+            var limitedSeconds = System.Math.Min(diff.TotalSeconds, maxOfflineTime);
+            var addenergycoin = (int)limitedSeconds / 120;
+            
+            // 최대치 확인 후 추가
+            var energycoin = GameRoot.Instance.UserData.Energycoin.Value + addenergycoin;
+            if (energycoin >= GameRoot.Instance.FoodSystem.MaxEnergyCoin)
+            {
+                GameRoot.Instance.UserData.Energycoin.Value = GameRoot.Instance.FoodSystem.MaxEnergyCoin;
+            }
+            else
+            {
+                GameRoot.Instance.UserData.Energycoin.Value += addenergycoin;
+            }
+            
             GameRoot.Instance.UserData.CurMode.LastLoginTime = TimeSystem.GetCurTime();
         }
 

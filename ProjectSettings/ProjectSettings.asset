@@ -161,7 +161,7 @@ PlayerSettings:
   androidMinAspectRatio: 1
   applicationIdentifier:
     Android: com.banpofri.mergepuzzlecom
-    iPhone: com.banpofri.otterfishshop.com
+    iPhone: com.banpofri.mergepuzzlecom
   buildNumber:
     Bratwurst: 0
     Standalone: 0
@@ -169,7 +169,7 @@ PlayerSettings:
     iPhone: 1
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 14
+  AndroidBundleVersionCode: 16
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 34
   AndroidPreferredInstallLocation: 1
@@ -236,7 +236,7 @@ PlayerSettings:
   metalAPIValidation: 0
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
-  appleDeveloperTeamID: 4G4NDT3LU3
+  appleDeveloperTeamID: 5H92VF2ZC8
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   bratwurstManualSigningProvisioningProfileID: 

@@ -26,6 +26,7 @@ public class InGameFood : MonoBehaviour
 
     public void Set(int foodidx, int grade, int groupidx)
     {
+        
         FoodIdx = foodidx;
 
         Grade = grade;
@@ -37,8 +38,46 @@ public class InGameFood : MonoBehaviour
         SetSprite(MergeGroupIdx, foodidx, grade);
 
         UpdatePolygonCollider_OnlyOuter();
+
+
+        Col.enabled = false;
+
+        // 리지드바디 초기화 (재사용 시 안정성 향상)
+        var rigidbody = GetComponent<Rigidbody2D>();
+        if (rigidbody != null)
+        {
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.angularVelocity = 0f;
+            rigidbody.rotation = 0f;
+        }
+
+        GameRoot.Instance.WaitTimeAndCallback(0.5f, () =>
+        {
+            Col.enabled = true;
+        });
     }
 
+    // 오브젝트가 비활성화될 때 상태 초기화
+    void OnDisable()
+    {
+        // 리지드바디 상태 완전 초기화
+        var rigidbody = GetComponent<Rigidbody2D>();
+        if (rigidbody != null)
+        {
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.angularVelocity = 0f;
+            rigidbody.rotation = 0f;
+            rigidbody.isKinematic = false; // 키네마틱 모드 해제
+        }
+
+        // 투명도 정상화
+        if (FoodImg != null)
+        {
+            UnityEngine.Color color = FoodImg.color;
+            color.a = 1f;
+            FoodImg.color = color;
+        }
+    }
 
     private void UpdatePolygonCollider_OnlyOuter()
     {
@@ -60,6 +99,7 @@ public class InGameFood : MonoBehaviour
         Col.SetPath(0, shape.ToArray());
 
         Debug.Log("PolygonCollider2D가 스프라이트 외곽(첫 번째 경로)에 맞춰 갱신되었습니다.");
+
     }
 
 

@@ -7,20 +7,22 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:122843468852:android:f2371719d983fd261ee661",
+        "mobilesdk_app_id": "1:122843468852:ios:e462a2c4d9eff24f1ee661",
         "android_client_info": {
           "package_name": "com.banpofri.mergepuzzlecom"
         }
       },
-      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC5GuJaNUMPG0kXk-O_QYFGQelBoyDF3Yo"
+          "current_key": "AIzaSyAWEXcv9O455BOvA-654SSJyE-Fj3NlEu8"
         }
       ],
       "services": {
+        "analytics_service": {
+          "status": 0
+        },
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "status": 1
         }
       }
     }
