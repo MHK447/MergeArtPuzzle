@@ -968,6 +968,7 @@ GameObject:
   - component: {fileID: 8313289233805096599}
   - component: {fileID: 4449524919486717860}
   - component: {fileID: 4691360028432574520}
+  - component: {fileID: 6570024072948638994}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -1016,6 +1017,7 @@ MonoBehaviour:
   Loading: {fileID: 0}
   AdManager: {fileID: 1167453929045138712}
   inAppPurchaseManager: {fileID: 4449524919486717860}
+  attManager: {fileID: 6570024072948638994}
   UILock: {fileID: 927367955552756237}
 --- !u!222 &4615111472151539500
 CanvasRenderer:
@@ -1087,6 +1089,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaa62524ad0945f3bc811da939c119a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6570024072948638994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084572751578744687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb123cab34b249989d16b24e3fd0f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requestOnStart: 1
+  delayBeforeRequest: 2
 --- !u!1 &9084572752029594849
 GameObject:
   m_ObjectHideFlags: 0

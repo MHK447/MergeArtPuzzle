@@ -48,8 +48,9 @@ public class GameRoot : Singleton<GameRoot>
 
 	public ShopSystem ShopSystem { get; private set; } = new ShopSystem();
 
-
-
+	[SerializeField]
+	private ATTManager attManager;
+	public ATTManager GetATTManager { get { return attManager; } }
 
 	private Queue<System.Action> PauseActions = new Queue<System.Action>();
 
@@ -260,6 +261,9 @@ public class GameRoot : Singleton<GameRoot>
 
 		InitRequestAtlas();
 
+		// ATT 권한 요청 초기화 (iOS에서만)
+		InitializeATTManager();
+
 		GameRoot.instance.WaitTimeAndCallback(0.5f, () =>
 		{
 			BgmOn();
@@ -278,6 +282,40 @@ public class GameRoot : Singleton<GameRoot>
 			SoundPlayer.Instance.PlayBGM("bgm", true);
 			SoundPlayer.Instance.BgmSwitch(UserData.Bgm);
 		}
+	}
+
+	private void InitializeATTManager()
+	{
+		// ATTManager가 아직 없다면 동적으로 생성
+		if (attManager == null)
+		{
+			GameObject attManagerObj = new GameObject("ATTManager");
+			attManager = attManagerObj.AddComponent<ATTManager>();
+			DontDestroyOnLoad(attManagerObj);
+		}
+		
+		// 이벤트 연결
+		if (attManager != null)
+		{
+			attManager.OnATTResponse += OnATTResponseReceived;
+		}
+	}
+
+	private void OnATTResponseReceived(bool isAuthorized)
+	{
+		Debug.Log($"ATT 권한 응답 받음: {isAuthorized}");
+		
+		// 광고 SDK에 ATT 상태 전달 및 초기화
+		if (AdManager != null)
+		{
+			// iOS에서는 ATT 권한 완료 후 AdMob 초기화
+			if (Application.platform == RuntimePlatform.IPhonePlayer)
+			{
+				AdManager.InitializeAdsAfterATT(isAuthorized);
+			}
+		}
+		
+		// 필요시 다른 추적 관련 SDK들에도 상태 전달
 	}
 
 	void InitRequestAtlas()

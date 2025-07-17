@@ -18,6 +18,16 @@ public class PopupOption : UIBase
 
     [SerializeField] private TMP_Dropdown langDropdown;
 
+    [SerializeField]
+    private Button restoreBtn;
+
+    // ATT 디버그 관련 추가
+    [Header("ATT Debug (iOS Only)")]
+    [SerializeField] 
+    private Button attTestButton; // Inspector에서 할당 필요
+    [SerializeField] 
+    private TMPro.TextMeshProUGUI attStatusText; // Inspector에서 할당 필요
+
     protected override void Awake()
     {
         base.Awake();

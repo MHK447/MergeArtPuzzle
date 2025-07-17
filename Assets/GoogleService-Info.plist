@@ -15,7 +15,7 @@
 	<key>STORAGE_BUCKET</key>
 	<string>mergeartpuzzle.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:122843468852:ios:e462a2c4d9eff24f1ee661</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-4449379001767537~2707391489</string>
 </dict>
 </plist>

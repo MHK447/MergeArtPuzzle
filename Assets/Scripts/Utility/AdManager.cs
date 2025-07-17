@@ -6,6 +6,8 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds;
 using System;
 
+//"ca-app-pub-3940256099942544/1712485313" test id  reward 
+//"ca-app-pub-3940256099942544/4411468910" test id  interstitial
 public class AdManager : MonoBehaviour
 {
     private RewardedAd _rewardedAd;
@@ -16,8 +18,8 @@ public class AdManager : MonoBehaviour
     private string _adUnitIdAndroid_Interstitial = "ca-app-pub-4449379001767537/6415710398";
     
     // iOS용 광고 ID
-    private string _adUnitIdIOS_Reward = "ca-app-pub-4449379001767537/2697435586"; // TODO: 실제 iOS 리워드 광고 ID로 변경 필요
-    private string _adUnitIdIOS_Interstitial = "ca-app-pub-4449379001767537/7332467556"; // TODO: 실제 iOS 전면 광고 ID로 변경 필요
+    private string _adUnitIdIOS_Reward = "ca-app-pub-4449379001767537/2697435586";
+    private string _adUnitIdIOS_Interstitial = "ca-app-pub-4449379001767537/7332467556";
 
     // 현재 플랫폼에 따른 광고 ID
     private string _rewardedAdUnitId;
@@ -35,13 +37,45 @@ public class AdManager : MonoBehaviour
     private const int MAX_RETRY_COUNT = 5;
     private const float INITIAL_RETRY_DELAY = 1f;
 
+    // ATT 권한 상태 저장
+    private bool attAuthorized = true; // 기본값: 허용 (안드로이드 및 iOS 14 미만)
+
     void Start()
     {
         // 플랫폼별 광고 ID 설정
         SetAdUnitIdByPlatform();
         
-        // 더 빠른 초기화를 위해 지연 시간 감소
-        // Start에서 호출되면 이미 지연이 발생한 상태이므로 즉시 초기화
+        // iOS에서는 ATT 권한 완료 후 초기화, 다른 플랫폼은 즉시 초기화
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            Debug.Log("iOS: ATT 권한 완료 후 AdMob 초기화 예정");
+            // ATT 권한 완료 후 InitializeAds()가 호출될 것임
+        }
+        else
+        {
+            // 안드로이드 및 기타 플랫폼은 즉시 초기화
+            InitializeAds();
+        }
+    }
+
+    // ATT 권한 완료 후 호출될 메서드
+    public void InitializeAdsAfterATT(bool attAuthorized)
+    {
+        Debug.Log($"ATT 권한 완료 후 AdMob 초기화 시작: {attAuthorized}");
+        
+        // ATT 권한 상태 저장
+        this.attAuthorized = attAuthorized;
+        
+        // ATT 권한 상태를 AdMob에 전달하기 위한 추가 설정
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            // iOS에서는 ATT 권한 상태에 따라 광고 요청 설정
+            if (!attAuthorized)
+            {
+                Debug.Log("ATT 권한 거부됨: 비개인화 광고만 요청");
+            }
+        }
+        
         InitializeAds();
     }
 
@@ -136,7 +170,7 @@ public class AdManager : MonoBehaviour
 
             Debug.Log("전면 광고 로딩 시작");
 
-            var adRequest = new AdRequest();
+            var adRequest = CreateAdRequest();
             
             // 테스트 장치 설정 (현재 SDK 버전에서는 기본 AdRequest 사용)
             // 필요시 AdMob 콘솔에서 테스트 광고 활성화 또는 개발자 모드 사용
@@ -282,7 +316,7 @@ public class AdManager : MonoBehaviour
 
             Debug.Log("리워드 광고 로딩 시작");
 
-            var adRequest = new AdRequest();
+            var adRequest = CreateAdRequest();
             
             // 타임아웃 처리를 위한 백업 타이머
             bool requestTimedOut = false;
@@ -548,5 +582,82 @@ public class AdManager : MonoBehaviour
     public bool IsInterstitialAdReady
     {
         get { return isInitialized && IsInterAdLoaded && _interstitialAd != null && _interstitialAd.CanShowAd(); }
+    }
+
+    // 광고 디버깅 정보 출력
+    public void LogAdDebugInfo()
+    {
+        Debug.Log("=== 광고 디버깅 정보 ===");
+        Debug.Log($"플랫폼: {Application.platform}");
+        Debug.Log($"초기화 상태: {isInitialized}");
+        Debug.Log($"VIP 상태: {GameRoot.Instance.ShopSystem.IsVipProperty.Value}");
+        Debug.Log($"리워드 광고 ID: {_rewardedAdUnitId}");
+        Debug.Log($"전면 광고 ID: {_interstitialAdUnitId}");
+        Debug.Log($"리워드 광고 로드됨: {IsRewardAdLoaded}");
+        Debug.Log($"전면 광고 로드됨: {IsInterAdLoaded}");
+        Debug.Log($"네트워크 상태: {Application.internetReachability}");
+        
+        // ATT 상태 확인
+        if (GameRoot.Instance.GetATTManager != null)
+        {
+            Debug.Log($"ATT 권한: {GameRoot.Instance.GetATTManager.GetTrackingStatusString()}");
+        }
+        
+        Debug.Log("===================");
+    }
+
+    // VIP 상태 강제 해제 (테스트용)
+    public void ForceDisableVIP()
+    {
+        GameRoot.Instance.ShopSystem.IsVipProperty.Value = false;
+        Debug.Log("VIP 상태 강제 해제됨");
+    }
+
+    // 광고 강제 재로드
+    public void ForceReloadAds()
+    {
+        Debug.Log("광고 강제 재로드 시작");
+        
+        // 기존 광고 정리
+        if (_rewardedAd != null)
+        {
+            _rewardedAd.Destroy();
+            _rewardedAd = null;
+        }
+        
+        if (_interstitialAd != null)
+        {
+            _interstitialAd.Destroy();
+            _interstitialAd = null;
+        }
+        
+        IsRewardAdLoaded = false;
+        IsInterAdLoaded = false;
+        isLoadingRewardedAd = false;
+        isLoadingInterstitialAd = false;
+        
+        // 재시도 카운트 초기화
+        rewardedAdRetryCount = 0;
+        interstitialAdRetryCount = 0;
+        
+        // 광고 다시 로드
+        LoadRewardedAd();
+        GameRoot.Instance.WaitTimeAndCallback(1f, LoadInterstitialAd);
+    }
+
+    // ATT 권한 상태에 따른 AdRequest 생성
+    private AdRequest CreateAdRequest()
+    {
+        var adRequest = new AdRequest();
+        
+        // iOS에서 ATT 권한이 거부된 경우 비개인화 광고 요청
+        if (Application.platform == RuntimePlatform.IPhonePlayer && !attAuthorized)
+        {
+            Debug.Log("ATT 권한 거부됨: 비개인화 광고 요청");
+            // Google Mobile Ads SDK에서는 ATT 권한 거부 시 자동으로 비개인화 광고 요청
+            // 추가 설정이 필요한 경우 여기에 구현
+        }
+        
+        return adRequest;
     }
 }

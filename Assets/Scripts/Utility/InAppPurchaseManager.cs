@@ -267,7 +267,7 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
     {
-        Debug.LogError($"구매 실패: {product.definition.id}, 이유: {failureReason}");
+        //Debug.LogError($"구매 실패: {product.definition.id}, 이유: {failureReason}");
 
         isPurchaseInProgress = false;
         purchaseCallback?.Invoke(Result.Failure, $"구매 실패: {failureReason}");
@@ -276,7 +276,7 @@ public class InAppPurchaseManager : MonoBehaviour, IDetailedStoreListener
 
     public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
     {
-        Debug.LogError($"구매 실패: {product.definition.id}, 이유: {failureDescription.reason}, 메시지: {failureDescription.message}");
+        //Debug.LogError($"구매 실패: {product.definition.id}, 이유: {failureDescription.reason}, 메시지: {failureDescription.message}");
 
         isPurchaseInProgress = false;
         purchaseCallback?.Invoke(Result.Failure, $"구매 실패: {failureDescription.message}");
